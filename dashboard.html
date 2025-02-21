@@ -8,10 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Your Dashboard!</h1>
-        <p>You are now logged in.</p>
-        <button onclick="window.location.href='index.html'">Log out</button>
+    <!-- Sliding Menu -->
+    <div id="menu" class="menu">
+        <a href="student-profile.html">Student Profile</a>
+        <a href="account.html">Account</a>
+        <a href="settings.html">Settings</a>
+        <a href="customer-support.html">Customer Support</a>
     </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Menu Toggle Button -->
+        <span class="menu-icon" onclick="toggleMenu()">&#9776; Menu</span>
+
+        <!-- Dashboard Content -->
+        <h1>Get a Life</h1>
+        
+        <!-- Boxes -->
+        <div class="boxes">
+            <div class="box" onclick="window.location.href='timetable.html'">
+                <h3>Timetable</h3>
+            </div>
+            <div class="box" onclick="window.location.href='lectures.html'">
+                <h3>Lectures</h3>
+            </div>
+            <div class="box" onclick="window.location.href='assignments.html'">
+                <h3>Assignments</h3>
+            </div>
+            <div class="box" onclick="window.location.href='student-progress.html'">
+                <h3>Student Progress</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
 </body>
 </html>
