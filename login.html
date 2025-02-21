@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Life - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Get a Life</h1>
+        <form id="login-form">
+            <label for="username">Username or Email Address:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember-login" name="remember">
+                <label for="remember-login">Remember me</label>
+            </div>
+
+            <button type="submit" class="login-btn">LOG IN</button>
+        </form>
+
+        <div class="signup-link">
+            <p>Don't have an account? <a href="index.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
