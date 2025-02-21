@@ -50,7 +50,8 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
-.signup-btn {
+/* Sign Up Button Styling */
+.signup-btn, .login-btn {
     padding: 10px;
     background-color: #5A2D82; /* Dark Purple */
     color: white;
@@ -60,20 +61,20 @@ input[type="checkbox"] {
     font-size: 1rem;
 }
 
-.signup-btn:hover {
+.signup-btn:hover, .login-btn:hover {
     background-color: #3E1D5C; /* Darker Purple */
 }
 
-/* Login link */
-.login-link {
+/* Links for Login and Sign-up */
+.login-link, .signup-link {
     margin-top: 20px;
 }
 
-.login-link a {
+.login-link a, .signup-link a {
     color: #5A2D82;
     text-decoration: none;
 }
 
-.login-link a:hover {
+.login-link a:hover, .signup-link a:hover {
     text-decoration: underline;
 }
