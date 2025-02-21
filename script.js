@@ -1,11 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const menu = document.getElementById('menu');
-    const menuToggle = document.getElementById('menuToggle');
-    const mainContent = document.getElementById('mainContent');
-    const signupForm = document.getElementById('signupForm');
-    const loginForm = document.getElementById('loginForm');
-    const homepage = document.getElementById('homepage');
-    const loginLink = document.getElementById('loginLink');
-    const signupLink = document.getElement
-::contentReference[oaicite:0]{index=0}
- 
+document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    // Simulate successful form submission (e.g., print data to console or send to backend)
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    alert("Sign up successful!");
+});
