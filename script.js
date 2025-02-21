@@ -6,14 +6,20 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
 
+    // Check if passwords match
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
     }
 
-    // Simulate successful form submission (e.g., print data to console or send to backend)
+    // Simulate successful sign-up (you can replace this with actual backend integration)
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Password:", password);
-    alert("Sign up successful!");
+
+    // Show success message (optional)
+    alert("Sign-up successful!");
+
+    // Redirect to the dashboard page after sign-up
+    window.location.href = 'dashboard.html'; // Redirect to the dashboard
 });
