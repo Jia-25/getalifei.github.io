@@ -1,11 +1,16 @@
-// Toggle menu visibility
-document.getElementById("openMenu").addEventListener("click", function () {
-    document.getElementById("menu").classList.add("open");
+// Sliding Menu Functionality
+const menu = document.getElementById("menu");
+const openBtn = document.getElementById("openBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+openBtn.addEventListener("click", () => {
+    menu.classList.add("open");
 });
 
-document.getElementById("closeBtn").addEventListener("click", function () {
-    document.getElementById("menu").classList.remove("open");
+closeBtn.addEventListener("click", () => {
+    menu.classList.remove("open");
 });
+
 
 // Optional: Automatically close the menu when clicking outside
 document.addEventListener("click", function (event) {
