@@ -2,9 +2,11 @@ body {
     font-family: Times New Roman, serif;
     background-image: url('dashboard.jpg');
     background-size: cover;
-    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
 }
 
 .menu {
@@ -54,69 +56,46 @@ body {
 }
 
 .calendar-container {
-    width: 90%;
-    max-width: 800px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.month-header {
+.calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 24px;
-    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.calendar-box {
+.calendar-header button {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
 }
 
-.calendar-box div {
+.day-header {
+    font-weight: bold;
+    padding: 10px;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.day-cell, .empty-cell {
     padding: 15px;
-    text-align: center;
     background: white;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-.calendar-box div.has-event {
-    background-color: #ffcc00;
-}
-
-.event-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 250px;
-    height: 100%;
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    transition: 0.5s;
-}
-
-.event-menu.open {
-    right: 0;
-}
-
-.close-event-menu {
-    cursor: pointer;
-    font-size: 24px;
-    display: block;
-    text-align: right;
-}
-
-button {
-    padding: 10px;
-    border: none;
-    background: #007BFF;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
+    text-align: center;
 }
