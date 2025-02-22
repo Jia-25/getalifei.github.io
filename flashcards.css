@@ -8,7 +8,16 @@ body {
     padding: 20px;
 }
 
-/* Input section styling */
+/* Menu Button (Top Left) */
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* Input section */
 .input-container {
     display: flex;
     justify-content: center;
@@ -40,7 +49,7 @@ button:hover {
     background: #4834d4;
 }
 
-/* Flashcard Styling */
+/* Flashcards Container */
 .flashcard-container {
     display: flex;
     flex-wrap: wrap;
@@ -49,6 +58,7 @@ button:hover {
     margin-top: 20px;
 }
 
+/* Flashcards */
 .flashcard {
     width: 250px;
     height: 250px;
@@ -65,7 +75,6 @@ button:hover {
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 0.6s;
-    background: white;
 }
 
 /* Flip effect */
@@ -87,18 +96,19 @@ button:hover {
     padding: 20px;
 }
 
+/* Light pastel colors for front */
+.flashcard:nth-child(1n) .front { background: #FFB6C1; } /* Light Pink */
+.flashcard:nth-child(2n) .front { background: #FFDAB9; } /* Peach */
+.flashcard:nth-child(3n) .front { background: #B0E0E6; } /* Light Blue */
+.flashcard:nth-child(4n) .front { background: #D8BFD8; } /* Lavender */
+.flashcard:nth-child(5n) .front { background: #98FB98; } /* Light Green */
+
 .flashcard .back {
     transform: rotateY(180deg);
-    background: #f7d794; /* Soft yellow for back */
+    background: #FFF8DC; /* Cream for the back */
 }
 
-/* Light pastel colors for front */
-.flashcard:nth-child(1n) .front { background: #FFDEE9; }
-.flashcard:nth-child(2n) .front { background: #FCF6BD; }
-.flashcard:nth-child(3n) .front { background: #D4F8E8; }
-.flashcard:nth-child(4n) .front { background: #DEF3FD; }
-.flashcard:nth-child(5n) .front { background: #FCE1E4; }
-
+/* Remove Button */
 .remove-btn {
     position: absolute;
     top: 10px;
