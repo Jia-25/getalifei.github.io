@@ -1,6 +1,8 @@
+/* Existing styles */
+
 body {
     background-color: #003135;
-    font-family: 'Arial', sans-serif; /* Changed to Arial for general text */
+    font-family: 'Arial', sans-serif;
     color: #a28089;
     margin: 0;
     padding: 0;
@@ -17,12 +19,12 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 250px; /* Adjusted padding for the strip */
+    padding-left: 250px;
 }
 
 .calendar {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 columns for the days of the week */
+    grid-template-columns: repeat(7, 1fr);
     gap: 10px;
     margin-top: 20px;
 }
@@ -34,12 +36,12 @@ header h1 {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .calendar .day a {
     text-decoration: none;
     color: inherit;
-    font-family: 'Arial', sans-serif; /* Ensures links also use Arial */
 }
 
 .calendar .day.empty {
@@ -57,7 +59,6 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Arial', sans-serif; /* Changed to Arial */
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -95,7 +96,6 @@ header h1 {
     height: 100%;
     background-color: #AFDDE5;
     transition: 0.3s;
-    z-index: 10;
     padding-top: 60px;
 }
 
@@ -106,50 +106,4 @@ header h1 {
 
 .menu ul li {
     padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: black; /* Changed to black for all items except logout */
-    font-size: 1.2rem;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Changed to Arial for all items */
-}
-
-.menu ul li a.logout {
-    background-color: #f03264;
-    color: white; /* Keep the logout text white */
-    font-family: 'Arial', sans-serif; /* Ensure logout also uses Arial */
-}
-
-.menu ul li:hover {
-    background-color: #ddd;
-}
-
-.menu-toggle {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-.menu.open {
-    left: 0;
-}
-
-.menu-strip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    background-color: #AFDDE5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    z-index: 20;
-}
+    
