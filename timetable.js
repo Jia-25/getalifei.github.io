@@ -144,10 +144,20 @@ closeEventPanel.addEventListener("click", closeEventPanelFunction);
 // Initialize the calendar with the current month
 generateCalendar(currentMonth, currentYear);
 
-// Menu toggle functionality
-document.getElementById("openBtn").addEventListener("click", function() {
-    document.getElementById("menu").classList.add("open");
+// Sliding Menu Functionality
+const menu = document.getElementById("menu");
+const openBtn = document.getElementById("openBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+openBtn.addEventListener("click", () => {
+    menu.classList.add("open");
 });
+
+closeBtn.addEventListener("click", () => {
+    menu.classList.remove("open");
+});
+
+// The rest of your calendar JavaScript remains the same...
 
 document.getElementById("closeBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.remove("open");
