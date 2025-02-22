@@ -26,6 +26,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 8px;
+    margin-top: 20px;
 }
 
 .account-box .profile-pic {
@@ -58,6 +59,39 @@ p {
     margin: 5px 0;
     cursor: pointer;
     color: #ff8c00;
+}
+
+/* Editable Box for Name */
+.editable-box {
+    padding: 10px;
+    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #ff8c00;
+}
+
+.editable-box input {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.editable-box button {
+    padding: 5px 15px;
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.editable-box button:hover {
+    background-color: #ff6600;
 }
 
 /* Subscription Plans */
