@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards</title>
-    <link rel="stylesheet" href="flashcardss.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Menu Button (Top Left) -->
-    <span class="open-btn" id="openBtn">&#9776;</span>
 
     <!-- Sliding Menu -->
     <div class="menu" id="menu">
@@ -20,11 +17,12 @@
         <a href="customer-support.html">Customer Support</a>
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
+    <span class="open-btn" id="openBtn">&#9776;</span>
 
     <h1>Flashcards</h1>
 
     <!-- Flashcard Input -->
-    <div class="input-container">
+    <div>
         <textarea id="question" placeholder="Enter question"></textarea>
         <textarea id="answer" placeholder="Enter answer"></textarea>
         <button onclick="saveFlashcard()">Add Flashcard</button>
@@ -45,6 +43,6 @@
     <!-- Start Test Button -->
     <button onclick="startTest()">Test Yourself</button>
 
-    <script src="flashcards.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
