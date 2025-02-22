@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="account.css">
 </head>
 <body>
-    <!-- Sliding Menu (same as on profile page) -->
+    <!-- Sliding Menu -->
     <div class="menu" id="menu">
         <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
-        <a href="studentProfile.html">Student Profile</a>
-        <a href="settings.html">Account Settings</a>
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="account.html">Account Settings</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="#">Customer Support</a>
         <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
@@ -24,27 +24,55 @@
     <div class="container">
         <h1>Account Settings</h1>
 
-        <div class="section">
-            <h3>Account Information</h3>
-            <p>Name: <span id="account-name"></span></p>
-            <p>Email: <span id="account-email"></span></p>
-            <button onclick="editEmail()">Edit Email</button>
+        <!-- Editable Fields -->
+        <div>
+            <label for="username">Username:</label>
+            <p id="username" onclick="editUsername()">Change Username</p>
+
+            <label for="email">Email:</label>
+            <p id="email" onclick="editEmail()">Change Email</p>
+
+            <label for="age">Age:</label>
+            <p id="age" onclick="editAge()">Change Age</p>
+
+            <label for="address">Address:</label>
+            <p id="address" onclick="editAddress()">Change Address</p>
         </div>
 
-        <div class="section">
-            <h3>Transfer Account</h3>
-            <form id="transferForm">
-                <label for="newEmail">New Email Address:</label>
-                <input type="email" id="newEmail" placeholder="Enter new email" required><br><br>
-                <button type="submit">Transfer Account</button>
-            </form>
+        <!-- Profile Picture -->
+        <div>
+            <p>Profile Picture:</p>
+            <img id="profile-pic" src="studentpfp.jpg" alt="Profile Picture" width="100" height="100">
+            <input type="file" id="file-input" onchange="uploadProfilePic()">
         </div>
 
-        <div class="section">
-            <h3>Delete Account</h3>
-            <button id="deleteAccountBtn" onclick="deleteAccount()">Delete Account</button>
-            <p id="deleteWarning" style="color: red; display: none;">Are you sure you want to delete your account? This action cannot be undone.</p>
-            <button id="confirmDeleteBtn" style="display: none;" onclick="confirmDeleteAccount()">Yes, Delete My Account</button>
+        <!-- Subscription Plans -->
+        <h2>Choose Your Subscription Plan</h2>
+        <div class="subscription-plans">
+            <div class="plan" id="free" onclick="selectPlan('Free')">
+                <h3>Free Plan</h3>
+                <p>$0/month</p>
+                <ul>
+                    <li>Basic Features</li>
+                    <li>Limited Storage</li>
+                </ul>
+            </div>
+            <div class="plan" id="student" onclick="selectPlan('Student')">
+                <h3>Student Plan</h3>
+                <p>$5/month</p>
+                <ul>
+                    <li>Unlimited Storage</li>
+                    <li>Student Support</li>
+                </ul>
+            </div>
+            <div class="plan" id="premium" onclick="selectPlan('Premium')">
+                <h3>Premium Plan</h3>
+                <p>$15/month</p>
+                <ul>
+                    <li>Premium Support</li>
+                    <li>Exclusive Features</li>
+                </ul>
+            </div>
         </div>
     </div>
 
