@@ -1,67 +1,72 @@
 document.getElementById('signup-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the form from submitting the default way
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
+    
+    let valid = true;
 
-    let isValid = true;
-
-    // Reset error messages
+    // Clear previous error messages
     document.getElementById('name-error').textContent = '';
     document.getElementById('email-error').textContent = '';
     document.getElementById('password-error').textContent = '';
     document.getElementById('confirm-password-error').textContent = '';
 
+    // Validate name
+    if (name.trim() === '') {
+        document.getElementById('name-error').textContent = 'Name is required.';
+        valid = false;
+    }
+
+    // Validate email (basic check)
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById('email-error').textContent = 'Invalid email address.';
+        valid = false;
+    }
+
+    // Validate password strength (basic check)
+    if (password.length < 8) {
+        document.getElementById('password-error').textContent = 'Password must be at least 8 characters long.';
+        valid = false;
+    }
+
     // Check if passwords match
     if (password !== confirmPassword) {
-        document.getElementById('confirm-password-error').textContent = 'Passwords do not match!';
-        isValid = false;
+        document.getElementById('confirm-password-error').textContent = 'Passwords do not match.';
+        valid = false;
     }
 
-    // Check password strength
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (!password.match(passwordRegex)) {
-        document.getElementById('password-error').textContent = 'Password must be at least 8 characters long and contain a number.';
-        isValid = false;
+    // If form is valid, proceed with submission (simulate sign-up success)
+    if (valid) {
+        // Simulate successful sign-up (replace with actual backend integration)
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        // Show success message (optional)
+        alert("Sign-up successful!");
+
+        // Redirect to the dashboard page after sign-up
+        window.location.href = 'dashboard.html'; // Redirect to the dashboard
+    } else {
+        alert("Please fix the errors in the form.");
     }
-
-    // Check if email is valid
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!email.match(emailRegex)) {
-        document.getElementById('email-error').textContent = 'Please enter a valid email address.';
-        isValid = false;
-    }
-
-    if (!isValid) {
-        return;
-    }
-
-    // Simulate successful sign-up (you can replace this with actual backend integration)
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    // Show success message (optional)
-    alert("Sign-up successful!");
-
-    // Save "Remember me" for session if checked
-    if (document.getElementById('remember').checked) {
-        localStorage.setItem('rememberMe', 'true');
-    }
-
-    // Redirect to the dashboard page after sign-up
-    window.location.href = 'dashboard.html'; // Redirect to the dashboard
 });
 
-// Enable sign up button if form is valid
+// Enable submit button only when all fields are filled correctly
 document.getElementById('signup-form').addEventListener('input', function() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
+    const submitBtn = document.getElementById('submit-btn');
 
-    const isFormValid = name && email && password && confirmPassword;
-    document.getElementById('submit-btn').disabled = !isFormValid;
+    if (name && email && password && confirmPassword) {
+        submitBtn.disabled = false;
+    } else {
+        submitBtn.disabled = true;
+    }
 });
