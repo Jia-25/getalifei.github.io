@@ -47,6 +47,68 @@
     <p>Keep going, you're doing amazing! Stay focused and success will follow!</p>
     <button class="close-btn" onclick="closeDialog()">Close</button>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<!-- Hamburger Menu (Three lines) -->
+<div class="hamburger-menu" onclick="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+</div>
+
+<div class="dashboard-container">
+
+    <!-- Left Sliding Menu -->
+    <div class="left-menu" id="leftMenu">
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="settings.html">Settings</a>
+        <a href="customer-support.html">Customer Support</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            Welcome, <span id="user-name">[Name]</span>!
+        </div>
+
+        <!-- Grid of Boxes -->
+        <div class="grid">
+            <div class="box"><a href="timetable.html">Calendar</a></div>
+            <div class="box"><a href="lectures.html">Lectures</a></div>
+            <div class="box"><a href="assignments.html">Assignments</a></div>
+            <div class="box"><a href="progress.html">Progress</a></div>
+            <div class="box"><a href="announcements.html">Announcements</a></div>
+            <div class="box"><a href="budget.html">Budget</a></div>
+            <div class="box"><a href="study.html">Study Mode</a></div>
+
+            <!-- Circle button with motivation -->
+            <div class="circle-button" onclick="showMotivation()">Click Me</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Dialogue Box for Motivation -->
+<div id="motivation-dialog" class="dialog-box">
+    <p>Keep going, you're doing amazing! Stay focused and success will follow!</p>
+    <button class="close-btn" onclick="closeDialog()">Close</button>
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
+
 
 <script src="dashboard.js"></script>
 
