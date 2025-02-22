@@ -23,33 +23,44 @@
     <!-- Background Image -->
     <div class="background"></div>
 
-    <!-- Main Content -->
+    <!-- Lectures Content -->
     <div class="lectures-content">
-        <h1>Lectures</h1>
+        <h1 id="lecturesHeading">Lectures</h1>
 
-        <!-- Rectangle to add videos or slides -->
-        <div class="content-box">
-            <div class="plus-sign">+</div>
-            <p>Add Videos or Slides</p>
+        <!-- Category Boxes with Add Button -->
+        <div class="squares">
+            <div class="square">
+                <p>Topic 1</p>
+                <button class="add-button" data-topic="topic1">Add Slides/Videos/PDF</button>
+                <input type="file" id="topic1-file" class="file-input" accept=".pdf,.mp4,.pptx,.jpg,.jpeg,.png" hidden>
+                <div class="file-info" id="topic1-file-info"></div>
+            </div>
+
+            <div class="square">
+                <p>Topic 2</p>
+                <button class="add-button" data-topic="topic2">Add Slides/Videos/PDF</button>
+                <input type="file" id="topic2-file" class="file-input" accept=".pdf,.mp4,.pptx,.jpg,.jpeg,.png" hidden>
+                <div class="file-info" id="topic2-file-info"></div>
+            </div>
+
+            <div class="square">
+                <p>Topic 3</p>
+                <button class="add-button" data-topic="topic3">Add Slides/Videos/PDF</button>
+                <input type="file" id="topic3-file" class="file-input" accept=".pdf,.mp4,.pptx,.jpg,.jpeg,.png" hidden>
+                <div class="file-info" id="topic3-file-info"></div>
+            </div>
         </div>
 
-        <!-- Category Boxes -->
-        <div class="categories">
-            <div class="category-box">Topic 1</div>
-            <div class="category-box">Topic 2</div>
-            <div class="category-box">Topic 3</div>
+        <!-- Motivation Button -->
+        <div class="motivation">
+            <div class="motivation-circle" id="motivationBtn">Motivation</div>
         </div>
-    </div>
 
-    <!-- Motivation Button -->
-    <div class="motivation">
-        <div class="motivation-circle" id="motivationBtn">Motivation</div>
-    </div>
-
-    <!-- Motivation Dialogue -->
-    <div class="motivation-dialogue" id="motivationDialogue">
-        <p>"Keep pushing yourself, success is right around the corner!"</p>
-        <button id="closeDialogue">Close</button>
+        <!-- Motivation Dialogue -->
+        <div class="motivation-dialogue" id="motivationDialogue">
+            <p>"Keep pushing yourself, success is right around the corner!"</p>
+            <button id="closeDialogue">Close</button>
+        </div>
     </div>
 
     <script src="lectures.js"></script>
