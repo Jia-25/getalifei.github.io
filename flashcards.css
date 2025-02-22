@@ -12,9 +12,6 @@
     height: 250px;
     border-radius: 15px;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-size: 1.2em;
@@ -52,7 +49,7 @@
 .flashcard:nth-child(5n) .front { background: #E6A8D7; } /* Soft Purple */
 .flashcard:nth-child(6n) .front { background: #FFB6C1; } /* Light Coral */
 .flashcard:nth-child(7n) .front { background: #C5E1A5; } /* Pastel Green */
-.flashcard:nth-child(8n) .front { background: #FADADD; } /* Blush Pink */
+flashcard:nth-child(8n) .front { background: #FADADD; } /* Blush Pink */
 
 .flashcard .back {
     transform: rotateY(180deg);
