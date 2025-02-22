@@ -18,7 +18,7 @@
         <a href="javascript:void(0)" id="logoutBtn">Logout</a>
     </div>
 
-    <!-- Menu Icon in top-right corner -->
+    <!-- Menu Icon in top-left corner -->
     <div class="menu-icon" id="menuIcon" onclick="openMenu()">&#9776; Menu</div>
 
     <!-- Main content container -->
@@ -66,14 +66,12 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Add Event</h2>
-            <p id="selectedDate"></p>
-            <input type="text" id="eventName" placeholder="Event Name">
-            <textarea id="eventDescription" placeholder="Event Description"></textarea>
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" placeholder="Enter event name">
+            <label for="eventDescription">Event Description:</label>
+            <input type="text" id="eventDescription" placeholder="Enter event description">
             <button onclick="saveEvent()">Save Event</button>
-            <button id="deleteEventBtn" style="display:none;" onclick="deleteEvent()">Delete Event</button>
-
-            <!-- Display existing events for the selected date -->
-            <div id="eventListContainer"></div>
+            <button id="deleteEventBtn" onclick="deleteEvent()" style="display:none;">Delete Event</button>
         </div>
     </div>
 
