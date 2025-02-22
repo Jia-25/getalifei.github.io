@@ -28,14 +28,15 @@
     <div id="flashcard-container" class="flashcard-container"></div>
 
     <h2>Test Yourself</h2>
-    <div class="test-container">
+    <button onclick="startTest()">Start Test</button>
+
+    <div class="test-container" id="test-container" style="display: none;">
+        <p id="test-question"></p>
         <input type="text" id="user-answer" placeholder="Enter Your Answer">
-        <button onclick="checkAnswer()">Check</button>
-        <div class="accuracy-circle" id="accuracy-circle">100</div>
+        <button onclick="checkAnswer()">Check Answer</button>
+        <div class="accuracy-circle" id="accuracy-circle">0%</div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-        
