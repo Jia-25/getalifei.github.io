@@ -69,10 +69,97 @@ body {
     left: 0;
 }
 
+
 /* Calendar */
 .calendar-container {
     margin-left: 250px;
     padding: 20px;
 }
 
-/* Styles remain the same as before */
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+.calendar-cell {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calendar-cell:hover {
+    background-color: #ddd;
+}
+
+/* Weekdays Row */
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.weekdays div {
+    padding: 10px 0;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.weekdays div:nth-child(1) {
+    color: red; /* Highlight Sunday in red */
+}
+
+
+/* Event panel (slide-in) */
+.event-panel {
+    position: fixed;
+    top: 0;
+    right: -600px;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.5s;
+    padding: 20px;
+}
+
+.event-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.event-panel .event-content {
+    margin-bottom: 20px;
+}
+
+.event-panel .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-panel .buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.event-panel.open {
+    right: 0;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+textarea {
+    height: 100px;
+}
