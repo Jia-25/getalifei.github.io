@@ -1,161 +1,66 @@
-/* Global Styles */
-body {
-    font-family: 'Times New Roman', serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+document.addEventListener("DOMContentLoaded", function() {
+    // Menu Toggle
+    document.getElementById("openBtn").addEventListener("click", function() {
+        document.getElementById("menu").classList.add("open");
+    });
 
-/* Background Image */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('dashboard.jpg'); /* Insert your image here */
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
+    document.getElementById("closeBtn").addEventListener("click", function() {
+        document.getElementById("menu").classList.remove("open");
+    });
 
-/* Sliding Menu */
-.menu {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px; /* Initially off-screen */
-    background-color: #111;
-    overflow-x: hidden;
-    transition: left 0.5s ease-in-out;
-    padding-top: 60px;
-    z-index: 100;
-}
+    // Optional: Automatically close the menu when clicking outside
+    document.addEventListener("click", function(event) {
+        const menu = document.getElementById("menu");
+        const openBtn = document.getElementById("openBtn");
 
-.menu.open {
-    left: 0; /* Move the menu to the left when 'open' class is added */
-}
+        if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
+            menu.classList.remove("open");  // Close menu if clicked outside
+        }
+    });
 
-/* Menu Links Styling */
-.menu a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
+    // Setting User Name (from signup/login.js)
+    const userName = "John Doe"; // Replace with dynamic data from signup.js or login.js
+    document.getElementById("userName").textContent = userName;
 
-.menu a:hover {
-    background-color: #ddd;
-    color: black;
-}
+    // Motivation Button Functionality
+    const motivationBtn = document.getElementById("motivationBtn");
+    const motivationDialogue = document.getElementById("motivationDialogue");
+    const closeDialogueBtn = document.getElementById("closeDialogue");
 
-/* Close Button Styling */
-.close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 36px;
-    margin-top: 20px;
-    margin-right: 20px;
-    cursor: pointer;
-}
+    motivationBtn.addEventListener("click", function() {
+        motivationDialogue.style.display = "block";
+    });
 
-/* Open Button (Hamburger Icon) Styling */
-.open-btn {
-    font-size: 36px;
-    cursor: pointer;
-    margin: 10px;
-}
+    closeDialogueBtn.addEventListener("click", function() {
+        motivationDialogue.style.display = "none";
+    });
 
-/* Dashboard Content */
-.dashboard-content {
-    padding: 30px;
-}
+    // Redirect on square click
+    document.getElementById("calendar").addEventListener("click", function() {
+        window.location.href = "timetable.html";
+    });
 
-/* Welcome Text */
-#welcomeText {
-    font-size: 3rem;
-    color: black;
-    text-align: left;
-}
+    document.getElementById("lectures").addEventListener("click", function() {
+        window.location.href = "lectures.html";
+    });
 
-/* Squares Section - 2 Squares per Row across 4 Rows */
-.squares {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 squares in each row */
-    grid-template-rows: repeat(4, auto); /* 4 rows */
-    grid-gap: 30px; /* Distance between the squares */
-    margin-top: 50px;
-    padding: 10px;
-    justify-items: center; /* Centers items horizontally */
-    align-items: center;  /* Centers items vertically */
-    width: 100%;
-}
+    document.getElementById("assignments").addEventListener("click", function() {
+        window.location.href = "assignments.html";
+    });
 
-/* Square Styling */
-.square {
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: black;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-}
+    document.getElementById("progress").addEventListener("click", function() {
+        window.location.href = "progress.html";
+    });
 
-.square:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
+    document.getElementById("announcements").addEventListener("click", function() {
+        window.location.href = "announcements.html";
+    });
 
-/* Motivation Button */
-.motivation {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
+    document.getElementById("budget").addEventListener("click", function() {
+        window.location.href = "budget.html";
+    });
 
-.motivation-circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Motivation Dialogue */
-.motivation-dialogue {
-    display: none;
-    position: fixed;
-    bottom: 120px;
-    right: 20px;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.motivation-dialogue button {
-    background-color: #555;
-    color: white;
-    padding: 5px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.motivation-dialogue button:hover {
-    background-color: #777;
-}
+    document.getElementById("studyMode").addEventListener("click", function() {
+        window.location.href = "study.html";
+    });
+});
