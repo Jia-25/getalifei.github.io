@@ -1,67 +1,58 @@
-// Dummy data for student (This will come from localStorage)
-let userData = {
-    name: localStorage.getItem('name'),
-    email: localStorage.getItem('email'),
-    password: localStorage.getItem('password'),
-    profilePic: "studentpfp.jpg", // Default profile picture name
-};
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch data from localStorage
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const age = localStorage.getItem('age') || '';  // Use empty string if age is not saved
 
-// Display the student info on the profile page
-document.getElementById("student-name").textContent = userData.name;
-document.getElementById("student-email").textContent = userData.email;
+    // Display the fetched data
+    document.getElementById('nameDisplay').textContent = name || "Name not set";
+    document.getElementById('emailDisplay').textContent = email || "Email not set";
 
-// Default values for the profile picture
-document.getElementById("profile-pic").src = userData.profilePic;
+    // Set the age input value
+    document.getElementById('age').value = age;
 
-// Handle profile picture upload
-function uploadProfilePic() {
-    const fileInput = document.getElementById("file-upload");
-    const file = fileInput.files[0];
+    // Handle profile picture upload
+    const profilePicInput = document.getElementById('profilePic');
+    const pfpImage = document.getElementById('pfp');
 
-    if (file) {
-        const reader = new FileReader();
+    profilePicInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                pfpImage.src = event.target.result; // Display uploaded image
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 
-        reader.onload = function (e) {
-            const fileExtension = file.name.split('.').pop(); // Get the file extension
-            const newFileName = `studentpfp.${fileExtension}`; // Fixed file name
-            
-            // Update the profile pic URL with the newly named file
-            userData.profilePic = newFileName;
+    // Handle password change
+    document.getElementById('changePasswordForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            // Update the profile picture on the page
-            document.getElementById("profile-pic").src = e.target.result;
-        };
+        const oldPassword = document.getElementById('oldPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
-        reader.readAsDataURL(file); // Read the uploaded file and display it
-    }
-}
+        const savedPassword = localStorage.getItem('password'); // Fetch the saved password from localStorage
 
-// Handle password change
-document.getElementById("password-change-form").addEventListener("submit", function(event) {
-    event.preventDefault();
+        if (oldPassword === savedPassword) {
+            if (newPassword === confirmNewPassword && newPassword.length >= 8) {
+                // Save new password in localStorage
+                localStorage.setItem('password', newPassword);
+                alert('Password updated successfully!');
+            } else {
+                alert('New passwords do not match or are too short.');
+            }
+        } else {
+            alert('Incorrect current password.');
+        }
+    });
 
-    const oldPassword = document.getElementById("old-password").value;
-    const newPassword = document.getElementById("new-password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
-    const errorMessage = document.getElementById("password-error");
-
-    // Check if old password is correct
-    if (oldPassword !== userData.password) {
-        errorMessage.textContent = "Old password is incorrect!";
-        errorMessage.style.display = "block";
-        return;
-    }
-
-    // Check if new password and confirm password match
-    if (newPassword !== confirmPassword) {
-        errorMessage.textContent = "New passwords do not match!";
-        errorMessage.style.display = "block";
-        return;
-    }
-
-    // Update the password
-    userData.password = newPassword;
-    errorMessage.textContent = "Password changed successfully!";
-    errorMessage.style.color = "green";
-    errorMessage.style.display = "block";
+    // Save the age
+    document.getElementById('saveBtn').addEventListener('click', function() {
+        const age = document.getElementById('age').value;
+        localStorage.setItem('age', age); // Save the age in localStorage
+        alert('Profile updated successfully!');
+    });
 });
