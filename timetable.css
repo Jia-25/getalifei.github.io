@@ -1,6 +1,6 @@
 body {
     background-color: #003135;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Arial', sans-serif; /* Changed to Arial for general text */
     color: #a28089;
     margin: 0;
     padding: 0;
@@ -39,7 +39,7 @@ header h1 {
 .calendar .day a {
     text-decoration: none;
     color: inherit;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Arial', sans-serif; /* Ensures links also use Arial */
 }
 
 .calendar .day.empty {
@@ -57,7 +57,7 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Arial', sans-serif; /* Changed to Arial */
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -112,14 +112,16 @@ header h1 {
 
 .menu ul li a {
     text-decoration: none;
-    color: #a28089;
+    color: black; /* Changed to black for all items except logout */
     font-size: 1.2rem;
     display: block;
+    font-family: 'Arial', sans-serif; /* Changed to Arial for all items */
 }
 
 .menu ul li a.logout {
     background-color: #f03264;
-    color: white;
+    color: white; /* Keep the logout text white */
+    font-family: 'Arial', sans-serif; /* Ensure logout also uses Arial */
 }
 
 .menu ul li:hover {
