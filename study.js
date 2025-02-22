@@ -7,6 +7,15 @@ document.getElementById("closeMenu").addEventListener("click", function () {
     document.getElementById("menu").classList.remove("open");
 });
 
+// Optional: Automatically close the menu when clicking outside
+document.addEventListener("click", function(event) {
+    const menu = document.getElementById("menu");
+    const openBtn = document.getElementById("openBtn");
+
+    if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
+        menu.classList.remove("open");  // Close menu if clicked outside
+    }
+});
 // Pomodoro Timer Logic
 let timer;
 let timeLeft = 25 * 60; // 25 minutes in seconds
