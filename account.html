@@ -24,26 +24,22 @@
     <div class="container">
         <h1>Account Settings</h1>
 
-        <!-- Editable Fields -->
-        <div>
-            <label for="username">Username:</label>
-            <p id="username" onclick="editUsername()">Change Username</p>
+        <!-- Account Details Box -->
+        <div class="account-box">
+            <div class="profile-pic">
+                <img id="profile-pic" src="studentpfp.jpg" alt="Profile Picture" width="100" height="100">
+                <input type="file" id="file-input" onchange="uploadProfilePic()">
+            </div>
+            <div class="account-info">
+                <label for="username">Name:</label>
+                <p id="username" onclick="editUsername()">Change Name</p>
 
-            <label for="email">Email:</label>
-            <p id="email" onclick="editEmail()">Change Email</p>
+                <label for="email">Email:</label>
+                <p id="email" onclick="editEmail()">Change Email</p>
 
-            <label for="age">Age:</label>
-            <p id="age" onclick="editAge()">Change Age</p>
-
-            <label for="address">Address:</label>
-            <p id="address" onclick="editAddress()">Change Address</p>
-        </div>
-
-        <!-- Profile Picture -->
-        <div>
-            <p>Profile Picture:</p>
-            <img id="profile-pic" src="studentpfp.jpg" alt="Profile Picture" width="100" height="100">
-            <input type="file" id="file-input" onchange="uploadProfilePic()">
+                <label for="age">Age:</label>
+                <p id="age" onclick="editAge()">Change Age</p>
+            </div>
         </div>
 
         <!-- Subscription Plans -->
