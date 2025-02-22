@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="timetable.css">
 </head>
 <body>
-    <!-- Sliding Menu -->
+    <span class="open-btn" id="openBtn">&#9776;</span>
     <div class="menu" id="menu">
         <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentpfp.html">Student Profile</a>
@@ -17,43 +17,22 @@
         <a href="#" id="logoutBtn">Logout</a>
     </div>
 
-    <!-- Open menu button -->
-    <span class="open-btn" id="openBtn">&#9776;</span>
-
-    <!-- Calendar -->
-    <div class="calendar">
-        <div class="calendar-header">
-            <button class="prev">&#10094;</button>
-            <span id="monthYear"></span>
-            <button class="next">&#10095;</button>
+    <div class="calendar-container">
+        <div class="month-header">
+            <button id="prevMonth">&#8592;</button>
+            <span id="monthYear">February 2025</span>
+            <button id="nextMonth">&#8594;</button>
         </div>
-        <div class="calendar-grid" id="calendarGrid"></div>
+        <div class="calendar-box" id="calendar"></div>
     </div>
-<!-- Event Slide -->
-<div id="eventSlide" class="event-slide">
-    <div class="event-header">
-        <span onclick="closeEventSlide()" class="close-btn">&#8592;</span>
-        <h3>Event on <span id="eventDate">Date</span></h3>
-    </div>
-    <div class="event-content">
-        <input type="text" placeholder="Event Title" id="eventTitle">
-        <textarea placeholder="Event Description" id="eventDescription"></textarea>
-        <button onclick="saveEvent()">Save Event</button>
-    </div>
-</div>
 
-    <!-- Event Slide Panel -->
-    <div class="event-slide" id="eventSlide">
-        <button class="close-slide" id="closeSlide">X</button>
-        <h2>Event Details</h2>
-        <form id="eventForm">
-            <label for="eventTitle">Title:</label>
-            <input type="text" id="eventTitle" required>
-            <label for="eventDesc">Description:</label>
-            <textarea id="eventDesc"></textarea>
-            <button type="submit" id="saveEvent">Save Event</button>
-            <button type="button" id="deleteEvent">Delete Event</button>
-        </form>
+    <!-- Event Menu (Sliding from Right) -->
+    <div class="event-menu" id="eventMenu">
+        <span class="close-event-menu" id="closeEventMenu">&#8592;</span>
+        <h2>Events for <span id="selectedDate"></span></h2>
+        <ul id="eventList"></ul>
+        <input type="text" id="eventInput" placeholder="Add an event">
+        <button id="addEventBtn">Add Event</button>
     </div>
 
     <script src="timetable.js"></script>
