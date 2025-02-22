@@ -4,36 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-
-<!-- Hamburger Menu (Three lines) -->
-<div class="hamburger-menu" onclick="toggleMenu()">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-</div>
-
-<div class="dashboard-container">
-
-    <!-- Left Sliding Menu -->
-    <div class="left-menu" id="leftMenu">
-        <a href="studentpfp.html">Student Profile</a>
-        <a href="settings.html">Settings</a>
-        <a href="customer-support.html">Customer Support</a>
-        <a href="login.html">Logout</a>
+    <div id="menu" class="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <ul>
+            <li><a href="studentpfp.html">Student Profile</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="customer-support.html">Customer Support</a></li>
+            <li><a href="login.html" class="logout">Logout</a></li>
+        </ul>
     </div>
 
-    <!-- Main Content Area -->
-    <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-            Welcome, <span id="user-name">[Name]</span>!
-        </div>
+    <div class="main-container">
+        <header>
+            <h1>Welcome, <span id="userName">User</span>!</h1>
+        </header>
 
-        <!-- Grid of Boxes -->
-        <div class="grid">
+        <section class="boxes">
             <div class="box"><a href="timetable.html">Calendar</a></div>
             <div class="box"><a href="lectures.html">Lectures</a></div>
             <div class="box"><a href="assignments.html">Assignments</a></div>
@@ -41,21 +31,20 @@
             <div class="box"><a href="announcements.html">Announcements</a></div>
             <div class="box"><a href="budget.html">Budget</a></div>
             <div class="box"><a href="study.html">Study Mode</a></div>
+        </section>
 
-            <!-- Circle button with motivation -->
-            <div class="circle-button" onclick="showMotivation()">Click Me</div>
+        <div class="click-me-circle" onclick="showMotivation()">
+            <div class="circle-text">Click Me</div>
         </div>
     </div>
 
-</div>
+    <div id="motivation-dialog" class="dialog-box">
+        <div class="dialog-content">
+            <p>Keep pushing forward, you're doing amazing!</p>
+            <button onclick="closeDialog()">Close</button>
+        </div>
+    </div>
 
-<!-- Dialogue Box for Motivation -->
-<div id="motivation-dialog" class="dialog-box">
-    <p>Keep going, you're doing amazing! Stay focused and success will follow!</p>
-    <button class="close-btn" onclick="closeDialog()">Close</button>
-</div>
-
-<script src="dashboard.js"></script>
-
+    <script src="dashboard.js"></script>
 </body>
 </html>
