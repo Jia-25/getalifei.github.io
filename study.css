@@ -132,3 +132,32 @@ body {
 .square:hover {
     background-color: rgba(255, 255, 255, 0.9);
 }
+
+.add-material {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.add-material:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.add-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Hide file input */
+.material-input {
+    display: none;
+}
+
