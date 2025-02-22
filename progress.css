@@ -1,0 +1,149 @@
+/* Global Styles */
+body {
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Background Image */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Sliding Menu */
+.menu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: left 0.5s ease-in-out;
+    padding-top: 60px;
+    z-index: 100;
+}
+
+.menu.open {
+    left: 0;
+}
+
+/* Menu Links Styling */
+.menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Close Button Styling */
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* Open Button (Hamburger Icon) Styling */
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    padding: 30px;
+}
+
+/* Progress Heading */
+#progressHeading {
+    font-size: 3rem;
+    color: black;
+    text-align: left;
+}
+
+/* Course Form */
+.course-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.course-form input, .course-form select, .course-form button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Courses List */
+.courses-list {
+    margin-top: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* SGPA Section */
+.sgpa {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
