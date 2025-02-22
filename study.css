@@ -46,23 +46,6 @@ body {
     color: black;
 }
 
-
-
-/* Menu Links Styling */
-.menu a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.menu a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
 /* Close Button Styling */
 .close-btn {
     position: absolute;
@@ -149,4 +132,9 @@ body {
 /* Hide file input */
 .material-input {
     display: none;
+}
+
+/* Menu visibility when open */
+.menu.open {
+    left: 0;
 }
