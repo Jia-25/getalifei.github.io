@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Sliding Menu -->
@@ -20,36 +20,32 @@
     <!-- Open menu button -->
     <span class="open-btn" id="openBtn">&#9776;</span>
 
-    <!-- Background Image -->
-    <div class="background"></div>
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1>Welcome, (name of the person logging in)</h1>
+        </header>
 
-    <!-- Dashboard Content -->
-    <div class="dashboard-content">
-        <h1 id="welcomeText">Welcome to your Dashboard! <span id="userName"></span>!</h1>
+        <section class="grid">
+            <div class="square"><a href="timetable.html">Calendar</a></div>
+            <div class="square"><a href="lectures.html">Lectures</a></div>
+            <div class="square"><a href="assignments.html">Assignments</a></div>
+            <div class="square"><a href="progress.html">Progress</a></div>
+            <div class="square"><a href="announcements.html">Announcements</a></div>
+            <div class="square"><a href="budget.html">Budget</a></div>
+            <div class="square"><a href="study.html">Study Mode</a></div>
+        </section>
 
-        <!-- Squares Section -->
-        <div class="squares">
-            <div class="square" id="calendar">Calendar</div>
-            <div class="square" id="lectures">Lectures</div>
-            <div class="square" id="assignments">Assignments</div>
-            <div class="square" id="progress">Progress</div>
-            <div class="square" id="announcements">Announcements</div>
-            <div class="square" id="budget">Budget</div>
-            <div class="square" id="studyMode">Study Mode</div>
-        </div>
-
-        <!-- Motivation Button -->
-        <div class="motivation">
-            <div class="motivation-circle" id="motivationBtn">Motivation</div>
-        </div>
-
-        <!-- Motivation Dialogue -->
-        <div class="motivation-dialogue" id="motivationDialogue">
-            <p>"Keep pushing yourself, success is right around the corner!"</p>
-            <button id="closeDialogue">Close</button>
+        <!-- Motivation circle -->
+        <div class="motivation-circle" id="motivationCircle">
+            <p>Motivation</p>
         </div>
     </div>
 
-    <script src="dashboard.js"></script>
+    <div class="dialog-box" id="dialogBox">
+        <p>You're doing great! Keep up the hard work!</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
