@@ -45,27 +45,3 @@ function displayFlashcards() {
         flashcardContainer.appendChild(cardElement);
     });
 }
-
-function startTest() {
-    if (flashcards.length === 0) {
-        alert("No flashcards available for testing!");
-        return;
-    }
-    currentTestIndex = 0;
-    testContainer.style.display = "block";
-    showQuestion();
-}
-
-function showQuestion() {
-    testQuestion.innerText = flashcards[currentTestIndex].question;
-    document.getElementById("user-answer").value = "";
-}
-
-function checkAnswer() {
-    let userAnswer = document.getElementById("user-answer").value.trim().toLowerCase();
-    let correctAnswer = flashcards[currentTestIndex].answer.trim().toLowerCase();
-    let accuracy = userAnswer === correctAnswer ? 100 : 0;
-
-    document.getElementById("accuracy-circle").innerText = accuracy + "%";
-}
-
