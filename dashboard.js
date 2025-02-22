@@ -22,4 +22,4 @@ function setUserName(name) {
 }
 
 // Assume the username comes from some login/signup logic
-setUserName("!");
+setUserName("");
