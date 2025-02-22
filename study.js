@@ -86,8 +86,10 @@ function uploadMaterial(event) {
 
         materialItem.appendChild(materialName);
         materialList.appendChild(materialItem);
-
-        // Optionally, you can add the file to the list, upload to a server, etc.
-        // For this example, we're just showing the file name in the UI.
     }
 }
+
+// Flashcards Button Click Event
+document.getElementById("flashcardButton").addEventListener("click", function () {
+    window.location.href = "flashcards.html";  // Redirect to the flashcards page
+});
