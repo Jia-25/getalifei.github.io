@@ -15,18 +15,6 @@ document.addEventListener("click", function(event) {
         menu.classList.remove("open");  // Close menu if clicked outside
     }
 });
-// Motivation Button Functionality
-const motivationBtn = document.getElementById("motivationBtn");
-const motivationDialogue = document.getElementById("motivationDialogue");
-const closeDialogueBtn = document.getElementById("closeDialogue");
-
-motivationBtn.addEventListener("click", function() {
-    motivationDialogue.style.display = "block";
-});
-
-closeDialogueBtn.addEventListener("click", function() {
-    motivationDialogue.style.display = "none";
-});
 
 // Handle Add Button Click to Open File Input
 const addButtons = document.querySelectorAll('.add-button');
