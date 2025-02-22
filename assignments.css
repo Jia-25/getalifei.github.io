@@ -133,7 +133,7 @@ header h1 {
     position: absolute;
     top: 10px;   /* Position it 10px from the top */
     left: 10px;  /* Position it 10px from the left */
-    color: white; /* White color for the icon */
+    color: #111; /* White color for the icon */
 }
 
 /* Menu visibility when open */
