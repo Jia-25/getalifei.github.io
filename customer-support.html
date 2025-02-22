@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support</title>
+    <link rel="stylesheet" href="customer-support.css">
+</head>
+<body>
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <a href="studentProfile.html">Student Profile</a>
+        <a href="settings.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
+    </div>
+
+    <!-- Open Menu Button -->
+    <span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
+
+    <!-- Customer Support Content -->
+    <div class="container">
+        <h1>Customer Support</h1>
+
+        <!-- FAQs Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <ul id="faq-list">
+                <!-- FAQs will be added dynamically from JavaScript -->
+            </ul>
+        </div>
+
+        <!-- Bot-driven Support Section -->
+        <div class="support-section">
+            <h2>General Questions</h2>
+            <p>Select a question to get an automated answer:</p>
+            <select id="question-select">
+                <option value="">-- Choose a Question --</option>
+                <option value="account-issues">How do I reset my password?</option>
+                <option value="payment-issues">How can I update my payment method?</option>
+                <option value="profile-issues">How do I update my profile information?</option>
+                <option value="support-hours">What are the support hours?</option>
+            </select>
+
+            <div id="bot-answer" class="bot-answer">
+                <!-- Bot answer will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="customer-support.js"></script>
+</body>
+</html>
