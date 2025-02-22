@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Get a Life</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <!-- Sliding Menu -->
-    <div id="menu" class="menu">
-        <a href="student-profile.html">Student Profile</a>
-        <a href="account.html">Account</a>
-        <a href="settings.html">Settings</a>
-        <a href="customer-support.html">Customer Support</a>
+
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <a href="#">Student Profile</a>
+        <a href="#">Account</a>
+        <a href="#">Settings</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
     </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Menu Toggle Button -->
-        <span class="menu-icon" onclick="toggleMenu()">&#9776; Menu</span>
+    <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div> <!-- Menu Icon -->
 
-        <!-- Dashboard Content -->
+    <div class="main-content">
         <h1>Get a Life</h1>
-        
-        <!-- Boxes -->
         <div class="boxes">
-            <div class="box" onclick="window.location.href='timetable.html'">
+            <div class="box">
                 <h3>Timetable</h3>
             </div>
-            <div class="box" onclick="window.location.href='lectures.html'">
+            <div class="box">
                 <h3>Lectures</h3>
             </div>
-            <div class="box" onclick="window.location.href='assignments.html'">
+            <div class="box">
                 <h3>Assignments</h3>
             </div>
-            <div class="box" onclick="window.location.href='student-progress.html'">
+            <div class="box">
                 <h3>Student Progress</h3>
             </div>
         </div>
