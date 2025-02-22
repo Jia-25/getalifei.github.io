@@ -1,4 +1,3 @@
-// Sliding Menu Functionality
 document.getElementById("openBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.add("open");
 });
@@ -7,132 +6,104 @@ document.getElementById("closeBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.remove("open");
 });
 
-// Calendar Logic
-const calendarGrid = document.getElementById("calendarGrid");
+document.getElementById("closeEventMenu").addEventListener("click", function() {
+    document.getElementById("eventMenu").classList.remove("open");
+});
+
+const calendar = document.getElementById("calendar");
 const monthYear = document.getElementById("monthYear");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
 
-let currentDate = new Date();
-let selectedDate = null;
-let events = {}; // Store events in a dictionary
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let events = JSON.parse(localStorage.getItem("calendarEvents")) || {};
 
-// Function to render calendar
-function renderCalendar() {
-    const month = currentDate.getMonth();
-    const year = currentDate.getFullYear();
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const daysInMonth = lastDay.getDate();
-    
-    monthYear.innerHTML = `${firstDay.toLocaleString('default', { month: 'long' })} ${year}`;
+function updateCalendar() {
+    calendar.innerHTML = "";
+    let daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    monthYear.textContent = new Date(currentYear, currentMonth).toLocaleString("default", { month: "long", year: "numeric" });
 
-    calendarGrid.innerHTML = ''; // Clear the grid
-    
-    // Render empty spaces before the 1st day
-    for (let i = 0; i < firstDay.getDay(); i++) {
-        const emptyDiv = document.createElement("div");
-        calendarGrid.appendChild(emptyDiv);
-    }
-    
-    // Render the days of the month
     for (let day = 1; day <= daysInMonth; day++) {
-        const dateDiv = document.createElement("div");
-        dateDiv.textContent = day;
-        dateDiv.dataset.date = `${year}-${month + 1}-${day}`;
-        
-        // Add event mark if there's an event on that day
-        if (events[dateDiv.dataset.date]) {
-            dateDiv.style.backgroundColor = '#aaf';
+        let dayDiv = document.createElement("div");
+        dayDiv.textContent = day;
+        dayDiv.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
+
+        if (events[dayDiv.dataset.date]) {
+            dayDiv.classList.add("has-event");
         }
 
-        dateDiv.addEventListener("click", () => openEventSlide(dateDiv.dataset.date));
-        calendarGrid.appendChild(dateDiv);
+        dayDiv.addEventListener("click", function() {
+            openEventMenu(dayDiv.dataset.date);
+        });
+
+        calendar.appendChild(dayDiv);
     }
 }
-// Open event slide when a calendar day is clicked
-function openEventSlide(date) {
-    // Populate the event slide with the selected date (you can also add more details if needed)
-    document.getElementById('eventDate').value = date;
 
-    // Show the event slide
-    document.getElementById("eventSlide").classList.add("open");
+function openEventMenu(date) {
+    document.getElementById("eventMenu").classList.add("open");
+    document.getElementById("selectedDate").textContent = date;
+    document.getElementById("eventList").innerHTML = "";
+
+    if (events[date]) {
+        events[date].forEach((eventText, index) => {
+            let li = document.createElement("li");
+            li.textContent = eventText;
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "X";
+            deleteBtn.style.marginLeft = "10px";
+            deleteBtn.addEventListener("click", function() {
+                events[date].splice(index, 1);
+                if (events[date].length === 0) {
+                    delete events[date];
+                }
+                localStorage.setItem("calendarEvents", JSON.stringify(events));
+                updateCalendar();
+                openEventMenu(date);
+            });
+
+            li.appendChild(deleteBtn);
+            document.getElementById("eventList").appendChild(li);
+        });
+    }
 }
 
-// Close event slide
-function closeEventSlide() {
-    document.getElementById("eventSlide").classList.remove("open");
-}
+document.getElementById("addEventBtn").addEventListener("click", function() {
+    let selectedDate = document.getElementById("selectedDate").textContent;
+    let eventText = document.getElementById("eventInput").value.trim();
 
-// Example event date click (you can bind this to actual calendar date elements)
-document.querySelectorAll('.calendar-box .day').forEach(day => {
-    day.addEventListener('click', () => {
-        openEventSlide(day.innerText);
-    });
+    if (eventText) {
+        if (!events[selectedDate]) {
+            events[selectedDate] = [];
+        }
+        events[selectedDate].push(eventText);
+        localStorage.setItem("calendarEvents", JSON.stringify(events));
+        document.getElementById("eventInput").value = "";
+        updateCalendar();
+        openEventMenu(selectedDate);
+    }
 });
-// Save event functionality (you can replace this with real data handling)
-function saveEvent() {
-    const title = document.getElementById("eventTitle").value;
-    const description = document.getElementById("eventDescription").value;
-    const date = document.getElementById("eventDate").value;
 
-    // Save event logic here (e.g., sending data to a server, saving locally, etc.)
-    console.log(`Event saved: ${title} on ${date}`);
-
-    // Close the event slide after saving
-    closeEventSlide();
-}
-
-// Function to open the event slide
-function openEventSlide(date) {
-    selectedDate = date;
-    document.getElementById("eventSlide").classList.add("open");
-    const event = events[date];
-    
-    if (event) {
-        document.getElementById("eventTitle").value = event.title;
-        document.getElementById("eventDesc").value = event.description;
+prevMonth.addEventListener("click", function() {
+    if (currentMonth === 0) {
+        currentMonth = 11;
+        currentYear--;
     } else {
-        document.getElementById("eventTitle").value = '';
-        document.getElementById("eventDesc").value = '';
+        currentMonth--;
     }
-}
-
-// Close the event slide
-document.getElementById("closeSlide").addEventListener("click", () => {
-    document.getElementById("eventSlide").classList.remove("open");
+    updateCalendar();
 });
 
-// Handle event form submission
-document.getElementById("eventForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const title = document.getElementById("eventTitle").value;
-    const description = document.getElementById("eventDesc").value;
-    
-    if (selectedDate) {
-        events[selectedDate] = { title, description };
-        renderCalendar(); // Re-render the calendar with the new event
-        document.getElementById("eventSlide").classList.remove("open");
+nextMonth.addEventListener("click", function() {
+    if (currentMonth === 11) {
+        currentMonth = 0;
+        currentYear++;
+    } else {
+        currentMonth++;
     }
+    updateCalendar();
 });
 
-// Handle event deletion
-document.getElementById("deleteEvent").addEventListener("click", () => {
-    if (selectedDate) {
-        delete events[selectedDate];
-        renderCalendar(); // Re-render the calendar after deletion
-        document.getElementById("eventSlide").classList.remove("open");
-    }
-});
-
-// Navigate to previous/next month
-document.querySelector('.prev').addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-});
-
-// Initialize the calendar
-renderCalendar();
+updateCalendar();
