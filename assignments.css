@@ -97,7 +97,7 @@ header h1 {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    z-index: 300px
+    z-index: 300
 }
 
 .menu a {
