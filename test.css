@@ -1,0 +1,82 @@
+/* General Styles */
+body {
+    font-family: "Times New Roman", serif;
+    background: url('dashboard.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Sliding Menu Styles */
+.menu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.menu.open {
+    left: 0;
+}
+
+/* Test Page Styles */
+.main-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.styled-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.styled-btn:hover {
+    background: #45a049;
+}
+
+#score {
+    margin-top: 20px;
+    font-size: 20px;
+}
