@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span>
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="account.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="customer-support.html">Customer Support</a>
+        <a href="login.html" id="logoutBtn">Logout</a>
+    </div>
+    <span class="open-btn" id="openBtn">&#9776;</span>
+    <h1>Flashcards</h1>
+    <div class="flashcard">
+        <textarea id="question" placeholder="Write Question..."></textarea>
+        <textarea id="answer" placeholder="Write Answer..."></textarea>
+    </div>
+    <button onclick="saveFlashcard()">Save Flashcard</button>
+    
+    <div class="test-container">
+        <h2>Test Yourself</h2>
+        <p id="test-question">Click 'Start Test' to begin</p>
+        <input type="text" id="user-answer" placeholder="Your Answer...">
+        <button onclick="checkAnswer()">Check</button>
+        <div class="accuracy-circle" id="accuracy-circle">100</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
 
