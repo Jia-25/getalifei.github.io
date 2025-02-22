@@ -43,6 +43,17 @@ document.getElementById("addCourseBtn").addEventListener("click", function() {
     cell2.textContent = creditHours;
     cell3.textContent = getGradeLetter(grade);
 
+    // Add a delete button for each course
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.addEventListener("click", function() {
+        row.remove(); // Delete the row
+        calculateSGPA(); // Recalculate SGPA after deleting
+    });
+    cell4.appendChild(deleteButton);
+
+
     // Clear input fields
     document.getElementById("courseName").value = "";
     document.getElementById("creditHours").value = "";
