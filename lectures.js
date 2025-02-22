@@ -53,10 +53,11 @@ fileInputs.forEach(input => {
     });
 });
 
-// Function to Add Remove Button Listener
-function addRemoveListener(topic) {
-    document.querySelector(`[data-topic="${topic}"]`).addEventListener('click', function() {
+// Delegate event listener for dynamically added remove buttons
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-button')) {
+        const topic = event.target.getAttribute('data-topic');
         document.getElementById(`${topic}-file`).value = "";
         document.getElementById(`${topic}-file-info`).textContent = "No file uploaded";
-    });
-}
+    }
+});
