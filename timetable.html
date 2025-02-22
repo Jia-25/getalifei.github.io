@@ -1,3 +1,4 @@
+<!-- Updated timetable.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,25 +17,15 @@
         <a href="customer-support.html">Customer Support</a>
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
-
+    
     <div class="calendar-container">
-        <div class="month-header">
+        <div class="calendar-header">
             <button id="prevMonth">&#8592;</button>
-            <span id="monthYear">February 2025</span>
+            <h2 id="monthYear"></h2>
             <button id="nextMonth">&#8594;</button>
         </div>
-        <div class="calendar-box" id="calendar"></div>
+        <div id="calendar" class="calendar-grid"></div>
     </div>
-
-    <!-- Event Menu (Sliding from Right) -->
-    <div class="event-menu" id="eventMenu">
-        <span class="close-event-menu" id="closeEventMenu">&#8592;</span>
-        <h2>Events for <span id="selectedDate"></span></h2>
-        <ul id="eventList"></ul>
-        <input type="text" id="eventInput" placeholder="Add an event">
-        <button id="addEventBtn">Add Event</button>
-    </div>
-
     <script src="timetable.js"></script>
 </body>
 </html>
