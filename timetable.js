@@ -82,6 +82,14 @@ document.getElementById("closeBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.remove("open");
 });
 
+// Close the event panel when the cross button is clicked
+closeEventPanel.addEventListener("click", closeEventPanelFunction);
+
+// Function to close the event panel
+function closeEventPanelFunction() {
+    eventPanel.classList.remove("open");
+}
+
 // Initialize the calendar with the current month
 const today = new Date();
 let currentMonth = today.getMonth();
