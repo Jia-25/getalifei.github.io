@@ -62,10 +62,28 @@ const materials = [
     "PDF Resource: React.js Tutorial"
 ];
 
+// Display initial study materials
 const squaresContainer = document.querySelector(".squares");
 materials.forEach(material => {
     const square = document.createElement("div");
     square.classList.add("square");
     square.textContent = material;
     squaresContainer.appendChild(square);
+});
+
+// Handle adding new materials via file input
+function uploadMaterial(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const fileName = file.name;
+        const newMaterial = document.createElement("div");
+        newMaterial.classList.add("square");
+        newMaterial.textContent = `Uploaded: ${fileName}`;
+        squaresContainer.appendChild(newMaterial);
+    }
+}
+
+// Add functionality to the "+" icon to trigger file input
+document.querySelector('.add-material').addEventListener('click', function() {
+    document.querySelector('.material-input').click();
 });
