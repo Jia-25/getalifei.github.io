@@ -152,15 +152,11 @@ let currentYear = currentDate.getFullYear();
 generateCalendar(currentMonth, currentYear);
 
 // JavaScript for opening and closing the menu
-function openMenu() {
-    document.getElementById("myMenu").classList.remove("closed");
-    document.getElementById("myMenu").classList.add("open");
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('open');
 }
 
-function closeMenu() {
-    document.getElementById("myMenu").classList.remove("open");
-    document.getElementById("myMenu").classList.add("closed");
-}
 
 // Event listeners for opening/closing the menu
 document.getElementById("menuToggle").addEventListener("click", openMenu);
