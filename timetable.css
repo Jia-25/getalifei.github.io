@@ -1,12 +1,13 @@
-/* General styling */
+/* General Styling */
 body {
     font-family: 'Times New Roman', serif;
-    background-color: #f4f4f4;
+    background-image: url('dashboard.jpg');
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
 
-/* Sliding Menu styling */
+/* Sliding Menu */
 .menu {
     height: 100%;
     width: 250px;
@@ -53,85 +54,98 @@ body {
     left: 0;
 }
 
-/* Calendar styles */
-.calendar {
+/* Calendar Styling */
+.calendar-container {
+    margin-left: 250px; /* Shift calendar to the left to make space for the sliding menu */
     padding: 20px;
-    margin-left: 250px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 100px;
 }
 
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.calendar-grid {
+.calendar-box {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
-    margin-top: 20px;
 }
 
-.calendar-grid div {
-    background-color: #fff;
-    padding: 20px;
+.calendar-box .day {
+    width: 100%;
+    padding: 15px;
     text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.calendar-grid div:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+.calendar-box .day:hover {
+    background-color: #f0f0f0;
 }
 
-/* Event Slide Panel */
+.calendar-box .day.selected {
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Event Slide (Right Side) */
 .event-slide {
+    width: 300px;
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    right: -300px; /* Initially hidden on the right */
+    background-color: #111;
+    overflow-x: hidden;
     transition: 0.5s;
+    padding-top: 60px;
+    color: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.event-slide .event-header {
+    font-size: 1.5rem;
+    padding: 10px;
+    background-color: #333;
+    text-align: center;
+}
+
+.event-slide .event-content {
+    padding: 15px;
+}
+
+.event-slide .event-content input,
+.event-slide .event-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.event-slide .event-content button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.event-slide .event-content button:hover {
+    background-color: #4cae4c;
 }
 
 .event-slide.open {
-    right: 0;
+    right: 0; /* Slide the event panel in */
 }
 
-.event-slide h2 {
-    text-align: center;
-}
-
-.event-slide input, .event-slide textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 1rem;
-}
-
-.event-slide button {
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.event-slide .close-slide {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* Adjust for smaller screens */
+/* Adjustments for smaller screens */
 @media (max-width: 768px) {
-    .calendar-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .calendar-container {
+        margin-left: 0;
+    }
+    .event-slide {
+        width: 100%;
     }
 }
