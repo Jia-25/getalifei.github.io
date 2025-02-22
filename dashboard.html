@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Sliding Menu -->
@@ -17,32 +17,40 @@
         <a href="#" id="logoutBtn">Logout</a>
     </div>
 
-    <!-- Open Menu Button -->
+    <!-- Open menu button -->
     <span class="open-btn" id="openBtn">&#9776;</span>
 
-    <!-- Main Dashboard Content -->
-    <div class="dashboard-container">
-        <div class="header">
-            <h1>Welcome, <span id="username"></span>!</h1>
-        </div>
+    <!-- Background Image -->
+    <div class="background"></div>
 
-        <div class="dashboard-grid">
-            <div class="square" onclick="window.location.href='timetable.html'">Calendar</div>
-            <div class="square" onclick="window.location.href='lectures.html'">Lectures</div>
-            <div class="square" onclick="window.location.href='assignments.html'">Assignments</div>
-            <div class="square" onclick="window.location.href='progress.html'">Progress</div>
-            <div class="square" onclick="window.location.href='announcements.html'">Announcements</div>
-            <div class="square" onclick="window.location.href='budget.html'">Budget</div>
-            <div class="square" onclick="window.location.href='study.html'">Study Mode</div>
-        </div>
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <h1 id="welcomeText">Welcome, <span id="userName"></span>!</h1>
 
-        <!-- Motivation Circle -->
-        <div class="motivation">
-            <div class="circle" onclick="showMotivation()">Motivation</div>
-            <div id="motivationBox" class="motivation-box">
-                <p>"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." – Christian D. Larson</p>
-                <button onclick="closeMotivation()">Close</button>
+        <!-- Squares Section -->
+        <div class="squares">
+            <div class="row">
+                <div class="square" id="calendar">Calendar</div>
+                <div class="square" id="lectures">Lectures</div>
+                <div class="square" id="assignments">Assignments</div>
+                <div class="square" id="progress">Progress</div>
             </div>
+            <div class="row">
+                <div class="square" id="announcements">Announcements</div>
+                <div class="square" id="budget">Budget</div>
+                <div class="square" id="studyMode">Study Mode</div>
+            </div>
+        </div>
+
+        <!-- Motivation Button -->
+        <div class="motivation">
+            <div class="motivation-circle" id="motivationBtn">Motivation</div>
+        </div>
+
+        <!-- Motivation Dialogue -->
+        <div class="motivation-dialogue" id="motivationDialogue">
+            <p>"Keep pushing yourself, success is right around the corner!"</p>
+            <button id="closeDialogue">Close</button>
         </div>
     </div>
 
