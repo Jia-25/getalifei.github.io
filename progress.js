@@ -1,3 +1,22 @@
+// Menu Toggle
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
+});
+
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
+});
+// Optional: Automatically close the menu when clicking outside
+document.addEventListener("click", function(event) {
+    const menu = document.getElementById("menu");
+    const openBtn = document.getElementById("openBtn");
+
+    if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
+        menu.classList.remove("open");  // Close menu if clicked outside
+    }
+});
+
+
 // progress.js
 
 document.getElementById("addCourseBtn").addEventListener("click", function() {
