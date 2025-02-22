@@ -74,6 +74,15 @@ h1 {
     background-color: #3E1D5C; /* Darker Purple */
 }
 
+.menu #logoutBtn {
+    margin-top: auto;
+    background-color: #C72C41;
+}
+
+.menu #logoutBtn:hover {
+    background-color: #9b1d30;
+}
+
 /* Menu Icon */
 .menu-icon {
     font-size: 30px;
@@ -82,6 +91,16 @@ h1 {
     left: 20px;
     cursor: pointer;
     color: #5A2D82;
+}
+
+/* Close button (Arrow) */
+.close-btn {
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
 }
 
 /* To hide the menu when it's closed */
