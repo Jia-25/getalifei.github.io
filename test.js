@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load flashcards from localStorage
-    const flashcards = JSON.parse(localStorage.getItem("flashcards"));
-    
+    const flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+
     const testForm = document.getElementById("testForm");
+    const flashcardsContainer = document.createElement("div");
+    flashcardsContainer.classList.add("flashcards-container");
 
     flashcards.forEach((flashcard, index) => {
         const questionDiv = document.createElement('div');
@@ -23,27 +25,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Handle form submission
-    document.getElementById("submitBtn").addEventListener("click", function() {
-        let correct = 0;
-        let wrong = [];
+    document.getElementById("submitBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // Clear previous flashcards
+        flashcardsContainer.innerHTML = "";
 
         flashcards.forEach((flashcard, index) => {
             const userAnswer = document.getElementById(`answer-${index}`).value.trim();
-            if (userAnswer.toLowerCase() === flashcard.answer.toLowerCase()) {
-                correct++;
-            } else {
-                wrong.push({ question: flashcard.question, answer: flashcard.answer });
-            }
+            const isCorrect = userAnswer.toLowerCase() === flashcard.answer.toLowerCase();
+
+            // Create a flashcard
+            const flashcardDiv = document.createElement("div");
+            flashcardDiv.classList.add("flashcard");
+
+            flashcardDiv.innerHTML = `
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <p>${flashcard.question}</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <p>${isCorrect ? "✅ Correct!" : "❌ Correct Answer: " + flashcard.answer}</p>
+                    </div>
+                </div>
+            `;
+
+            // Flip functionality
+            flashcardDiv.addEventListener("click", function() {
+                flashcardDiv.classList.toggle("flipped");
+            });
+
+            flashcardsContainer.appendChild(flashcardDiv);
         });
 
-        // Display score
-        const scoreDiv = document.getElementById("score");
-        scoreDiv.innerHTML = `
-            <p>You scored ${correct} out of ${flashcards.length}</p>
-            ${wrong.length > 0 ? `<p>You got the following questions wrong:</p>` : ''}
-            <ul>
-                ${wrong.map(item => `<li><b>Q:</b> ${item.question} <b>A:</b> ${item.answer}</li>`).join('')}
-            </ul>
-        `;
+        document.body.appendChild(flashcardsContainer);
     });
 });
