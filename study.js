@@ -3,87 +3,91 @@ document.getElementById("openMenu").addEventListener("click", function () {
     document.getElementById("menu").classList.add("open");
 });
 
-document.getElementById("closeMenu").addEventListener("click", function () {
+document.getElementById("closeBtn").addEventListener("click", function () {
     document.getElementById("menu").classList.remove("open");
 });
 
 // Optional: Automatically close the menu when clicking outside
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
     const menu = document.getElementById("menu");
-    const openBtn = document.getElementById("openBtn");
+    const openBtn = document.getElementById("openMenu");
 
     if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
         menu.classList.remove("open");  // Close menu if clicked outside
     }
 });
+
 // Pomodoro Timer Logic
-let timer;
-let timeLeft = 25 * 60; // 25 minutes in seconds
-let isRunning = false;
+let timerInterval;
+let minutes = 25;
+let seconds = 0;
 
-document.getElementById("startTimer").addEventListener("click", function () {
-    if (!isRunning) {
-        isRunning = true;
-        startPomodoro();
-    }
-});
+const timerDisplay = document.getElementById("timerDisplay");
+const startButton = document.getElementById("startTimer");
+const resetButton = document.getElementById("resetTimer");
 
-document.getElementById("resetTimer").addEventListener("click", function () {
-    isRunning = false;
-    clearInterval(timer);
-    timeLeft = 25 * 60;
-    document.getElementById("timerDisplay").textContent = formatTime(timeLeft);
-});
+// Start the timer when the "Start" button is clicked
+startButton.addEventListener("click", function () {
+    // Disable the start button to prevent multiple starts
+    startButton.disabled = true;
 
-function startPomodoro() {
-    timer = setInterval(function () {
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            alert("Pomodoro Complete! Take a break.");
-            isRunning = false; // Reset the isRunning state after timer finishes
+    timerInterval = setInterval(function () {
+        if (seconds === 0) {
+            if (minutes === 0) {
+                clearInterval(timerInterval); // Stop the timer when 00:00 is reached
+                alert("Time's up! Take a break.");
+                startButton.disabled = false; // Re-enable the start button
+                return;
+            }
+            minutes--;
+            seconds = 59;
         } else {
-            timeLeft--;
-            document.getElementById("timerDisplay").textContent = formatTime(timeLeft);
+            seconds--;
         }
+
+        // Update the timer display
+        timerDisplay.textContent = formatTime(minutes, seconds);
     }, 1000);
-}
-
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`;
-}
-
-// Example for displaying student-posted study materials
-const materials = [
-    "Course Notes: JavaScript",
-    "Study Guide: Algorithms",
-    "Lecture Slides: Web Development",
-    "PDF Resource: React.js Tutorial"
-];
-
-// Display initial study materials
-const squaresContainer = document.querySelector(".squares");
-materials.forEach(material => {
-    const square = document.createElement("div");
-    square.classList.add("square");
-    square.textContent = material;
-    squaresContainer.appendChild(square);
 });
 
-// Handle adding new materials via file input
+// Reset the timer when the "Reset" button is clicked
+resetButton.addEventListener("click", function () {
+    clearInterval(timerInterval);
+    minutes = 25;
+    seconds = 0;
+    timerDisplay.textContent = formatTime(minutes, seconds);
+    startButton.disabled = false; // Re-enable the start button
+});
+
+// Helper function to format time as MM:SS
+function formatTime(minutes, seconds) {
+    return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
+
+// File upload functionality
+const addMaterialButton = document.querySelector(".add-material");
+const materialInput = document.querySelector(".material-input");
+
+// Show the file input when the "+" sign is clicked
+addMaterialButton.addEventListener("click", function () {
+    materialInput.click();
+});
+
+// Handle file upload
 function uploadMaterial(event) {
     const file = event.target.files[0];
     if (file) {
-        const fileName = file.name;
-        const newMaterial = document.createElement("div");
-        newMaterial.classList.add("square");
-        newMaterial.textContent = `Uploaded: ${fileName}`;
-        squaresContainer.appendChild(newMaterial);
+        const materialList = document.querySelector(".squares");
+        const materialItem = document.createElement("div");
+        materialItem.classList.add("material-item");
+
+        const materialName = document.createElement("p");
+        materialName.textContent = file.name;
+
+        materialItem.appendChild(materialName);
+        materialList.appendChild(materialItem);
+
+        // Optionally, you can add the file to the list, upload to a server, etc.
+        // For this example, we're just showing the file name in the UI.
     }
 }
-
-// Add functionality to the "+" icon to trigger file input
-document.querySelector('.add-material').addEventListener('click', function() {
-    document.querySelector('.material-input').click();
-});
