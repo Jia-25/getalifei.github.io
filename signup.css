@@ -26,7 +26,7 @@ body {
 h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 3rem;
-    color: #5A2D82; /* Dark Purple */
+    color: #000a66;
     margin-bottom: 20px;
 }
 
@@ -54,7 +54,7 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #5A2D82; /* Highlight border on focus */
+    border-color: #2d4282; /* Highlight border on focus */
     outline: none;
 }
 
@@ -73,7 +73,7 @@ input[type="checkbox"] {
 /* Sign Up Button Styling */
 .signup-btn {
     padding: 10px;
-    background-color: #5A2D82; /* Dark Purple */
+    background-color: #192b5e;
     color: white;
     border: none;
     border-radius: 4px;
@@ -83,11 +83,11 @@ input[type="checkbox"] {
 }
 
 .signup-btn:hover {
-    background-color: #3E1D5C; /* Darker Purple */
+    background-color: #091330; /* Darker Purple */
 }
 
 .signup-btn:disabled {
-    background-color: #D8B7DD; /* Light Grey */
+    background-color: #939fc2; /* Light Grey */
     cursor: not-allowed;
 }
 
@@ -97,7 +97,7 @@ input[type="checkbox"] {
 }
 
 .login-link a {
-    color: #5A2D82;
+    color: #0733b8;
     text-decoration: none;
 }
 
