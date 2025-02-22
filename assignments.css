@@ -12,6 +12,12 @@ body {
     color: #fff;
 }
 
+header h1 {
+    text-align: left;
+    font-size: 2.5rem;
+    color: black;
+}
+
 /* Container for Upload Boxes */
 .main-container {
     display: grid;
