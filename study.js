@@ -11,7 +11,6 @@ closeBtn.addEventListener("click", () => {
     menu.classList.remove("open");
 });
 
-
 // Pomodoro Timer Logic
 let timerInterval;
 let minutes = 25;
@@ -83,9 +82,3 @@ function uploadMaterial(event) {
         materialList.appendChild(materialItem);
     }
 }
-
-
-// Flashcards Button Click Event
-document.getElementById("flashcardButton").addEventListener("click", function () {
-    window.location.href = "flashcards.html";  // Redirect to the flashcards page
-});
