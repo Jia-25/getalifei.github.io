@@ -3,75 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timetable</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="timetable.css">
+    <title>Calendar</title>
 </head>
 <body>
-
-    <!-- Sliding Menu -->
-    <div id="myMenu" class="menu closed">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-        <a href="dashboard.html">Home</a>
-        <a href="account.html">Account</a>
-        <a href="settings.html">Settings</a>
-        <a href="support.html">Customer Support</a>
-        <a href="javascript:void(0)" id="logoutBtn">Logout</a>
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Calendar</a></li>
+        </ul>
     </div>
-
-    <!-- Menu Icon in top-left corner -->
-    <div class="menu-icon" id="menuIcon" onclick="openMenu()">&#9776; Menu</div>
-
-    <!-- Main content container -->
-    <div class="container">
+    
+    <!-- Main Content -->
+    <div class="main-content">
         <header>
-            <h1>Timetable</h1>
-            <div class="month-year">
-                <span id="prev" class="arrow">&#8592;</span>
-                <span id="currentMonth"></span>
-                <span id="currentYear"></span>
-                <span id="next" class="arrow">&#8594;</span>
-            </div>
+            <h1>Calendar</h1>
         </header>
-
-        <div class="calendar">
-            <div class="days-of-week">
-                <div class="day">Sun</div>
-                <div class="day">Mon</div>
-                <div class="day">Tue</div>
-                <div class="day">Wed</div>
-                <div class="day">Thu</div>
-                <div class="day">Fri</div>
-                <div class="day">Sat</div>
-            </div>
-
-            <div id="calendarDays" class="calendar-days">
-                <!-- Calendar days will be inserted here by JavaScript -->
+        
+        <div class="calendar-container">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button class="prev">❮</button>
+                    <span class="month-year"></span>
+                    <button class="next">❯</button>
+                </div>
+                <div class="calendar-days"></div>
+                <div class="calendar-dates"></div>
             </div>
         </div>
-    </div>
-
-    <!-- Event Sidebar (appears when a day is selected) -->
-    <div id="eventSidebar" class="event-sidebar">
-        <div class="sidebar-header">
-            <span id="selectedDateTitle"></span>
-            <button class="add-event-btn" onclick="openAddEventModal()">+</button>
-        </div>
-        <div id="eventList" class="event-list">
-            <!-- Event items will appear here -->
-        </div>
-    </div>
-
-    <!-- Add/Edit Event Modal -->
-    <div id="addEventModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Add Event</h2>
-            <label for="eventName">Event Name:</label>
-            <input type="text" id="eventName" placeholder="Enter event name">
-            <label for="eventDescription">Event Description:</label>
-            <input type="text" id="eventDescription" placeholder="Enter event description">
-            <button onclick="saveEvent()">Save Event</button>
-            <button id="deleteEventBtn" onclick="deleteEvent()" style="display:none;">Delete Event</button>
+        
+        <!-- Event Modal -->
+        <div class="modal" id="event-modal">
+            <div class="modal-content">
+                <h3>Edit Event</h3>
+                <input type="text" id="event-title" placeholder="Event Title">
+                <textarea id="event-description" placeholder="Event Description"></textarea>
+                <button id="save-event">Save</button>
+                <button id="delete-event">Delete</button>
+                <button id="close-modal">Close</button>
+            </div>
         </div>
     </div>
 
