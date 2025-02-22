@@ -46,4 +46,3 @@ document.getElementById("motivationCircle").addEventListener("click", function()
         dialogBox.style.pointerEvents = 'auto'; // Re-enable clicking after 5 seconds
     }, 5000);
 });
-
