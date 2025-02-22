@@ -27,7 +27,20 @@
     <!-- Calendar Content -->
     <div class="calendar-container">
         <h1>Calendar</h1>
-        <div id="calendar"></div>
+        <!-- Month/Year Navigation -->
+    <div class="calendar-nav">
+        <button id="prevYearBtn">&#171; Previous Year</button>
+        <button id="prevMonthBtn">&#8249; Previous Month</button>
+        <span id="currentMonthYear"></span> <!-- Display Month and Year -->
+        <button id="nextMonthBtn">Next Month &#8250;</button>
+        <button id="nextYearBtn">Next Year &#187;</button>
+    </div>
+
+    <!-- Weekday Labels -->
+    <div id="weekdays" class="weekdays"></div>
+
+    <!-- Calendar Grid -->
+    <div id="calendar"></div>
 
         <!-- Slide-in panel for event details -->
         <div id="event-panel" class="event-panel">
