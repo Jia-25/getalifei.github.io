@@ -1,0 +1,90 @@
+/* Add your styles for the account page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#deleteWarning {
+    margin-top: 10px;
+    color: red;
+}
+
+#confirmDeleteBtn {
+    background-color: red;
+}
+
+#confirmDeleteBtn:hover {
+    background-color: darkred;
+}
+
+.open-btn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+.menu.open {
+    left: 0;
+}
+
+.menu a {
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #575757;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
