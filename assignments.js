@@ -38,26 +38,25 @@ addButtons.forEach(button => {
     });
 });
 
-// Display File Info after Upload
+// Display File Info after Upload and Add Remove Button
 const fileInputs = document.querySelectorAll('.file-input');
 fileInputs.forEach(input => {
     input.addEventListener('change', function(event) {
         const assignment = event.target.id.split('-')[0];
         const fileInfo = document.getElementById(`${assignment}-file-info`);
-        
+
         if (event.target.files.length > 0) {
             const fileName = event.target.files[0].name;
-            fileInfo.textContent = `Uploaded: ${fileName}`;
-            
-            // Example: Add marks when file is uploaded (this can be updated later)
-            const marksPanel = document.getElementById('marksPanel');
-            if (assignment === 'assignment1') {
-                document.getElementById('marks1').textContent = '85';  // Example marks
-            } else if (assignment === 'assignment2') {
-                document.getElementById('marks2').textContent = '92';  // Example marks
-            } else if (assignment === 'assignment3') {
-                document.getElementById('marks3').textContent = '78';  // Example marks
-            }
+            fileInfo.innerHTML = `Uploaded: ${fileName} <button class="remove-button" data-assignment="${assignment}">Remove</button>`;
         }
     });
+});
+
+// Delegate event listener for dynamically added remove buttons
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('remove-button')) {
+        const assignment = event.target.getAttribute('data-assignment');
+        document.getElementById(`${assignment}-file`).value = "";
+        document.getElementById(`${assignment}-file-info`).textContent = "No file uploaded";
+    }
 });
