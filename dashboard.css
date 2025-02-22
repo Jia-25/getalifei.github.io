@@ -25,13 +25,18 @@ body {
     width: 250px;
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -250px; /* Initially off-screen */
     background-color: #111;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: left 0.5s ease-in-out; /* Smooth transition for sliding effect */
     padding-top: 60px;
 }
 
+.menu.open {
+    left: 0; /* Move the menu to the left when 'open' class is added */
+}
+
+/* Menu Links Styling */
 .menu a {
     padding: 10px 15px;
     text-decoration: none;
@@ -46,7 +51,7 @@ body {
     color: black;
 }
 
-/* Close Button */
+/* Close Button Styling */
 .close-btn {
     position: absolute;
     top: 0;
@@ -57,12 +62,13 @@ body {
     cursor: pointer;
 }
 
-/* Open Button (Hamburger) */
+/* Open Button (Hamburger Icon) Styling */
 .open-btn {
     font-size: 36px;
     cursor: pointer;
     margin: 10px;
 }
+
 
 /* Dashboard Content */
 .dashboard-content {
