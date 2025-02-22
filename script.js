@@ -51,7 +51,7 @@ document.getElementById('signup-form').addEventListener('submit', function(event
         alert("Sign-up successful!");
 
         // Redirect to the profile page after sign-up
-        window.location.href = 'studentProfile.html'; // Redirect to the profile page
+        window.location.href = 'dashboard.html'; // Redirect to the profile page
     } else {
         alert("Please fix the errors in the form.");
     }
