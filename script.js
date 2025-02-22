@@ -1,3 +1,4 @@
+// Sign-up form validation and storage of data
 document.getElementById('signup-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting the default way
 
@@ -39,18 +40,18 @@ document.getElementById('signup-form').addEventListener('submit', function(event
         valid = false;
     }
 
-    // If form is valid, proceed with submission (simulate sign-up success)
+    // If form is valid, store the data in localStorage and proceed with submission
     if (valid) {
-        // Simulate successful sign-up (replace with actual backend integration)
-        console.log("Name:", name);
-        console.log("Email:", email);
-        console.log("Password:", password);
+        // Store the user data in localStorage
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
 
         // Show success message (optional)
         alert("Sign-up successful!");
 
-        // Redirect to the dashboard page after sign-up
-        window.location.href = 'dashboard.html'; // Redirect to the dashboard
+        // Redirect to the profile page after sign-up
+        window.location.href = 'studentProfile.html'; // Redirect to the profile page
     } else {
         alert("Please fix the errors in the form.");
     }
@@ -64,6 +65,7 @@ document.getElementById('signup-form').addEventListener('input', function() {
     const confirmPassword = document.getElementById('confirm-password').value;
     const submitBtn = document.getElementById('submit-btn');
 
+    // Enable submit button only if all fields are filled correctly
     if (name && email && password && confirmPassword) {
         submitBtn.disabled = false;
     } else {
