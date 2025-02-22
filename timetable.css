@@ -93,6 +93,26 @@ body {
     background-color: #ddd;
 }
 
+/* Weekdays Row */
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.weekdays div {
+    padding: 10px 0;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.weekdays div:nth-child(1) {
+    color: red; /* Highlight Sunday in red */
+}
+
+
 /* Event panel (slide-in) */
 .event-panel {
     position: fixed;
