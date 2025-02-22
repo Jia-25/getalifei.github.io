@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <span class="open-btn" id="openBtn">&#9776;</span>
-    
+
+    <!-- Sliding Menu -->
     <div class="menu" id="menu">
         <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentpfp.html">Student Profile</a>
@@ -17,26 +17,33 @@
         <a href="customer-support.html">Customer Support</a>
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
+    <span class="open-btn" id="openBtn">&#9776;</span>
 
     <h1>Flashcards</h1>
+
+    <!-- Flashcard Input -->
     <div>
-        <input type="text" id="question" placeholder="Enter Question">
-        <input type="text" id="answer" placeholder="Enter Answer">
+        <textarea id="question" placeholder="Enter question"></textarea>
+        <textarea id="answer" placeholder="Enter answer"></textarea>
         <button onclick="saveFlashcard()">Add Flashcard</button>
     </div>
-    
-    <div id="flashcard-container" class="flashcard-container"></div>
 
-    <h2>Test Yourself</h2>
-    <button onclick="startTest()">Start Test</button>
+    <!-- Flashcard Container -->
+    <div class="flashcard-container" id="flashcard-container"></div>
 
+    <!-- Test Yourself Section -->
     <div class="test-container" id="test-container" style="display: none;">
+        <h2>Test Yourself</h2>
         <p id="test-question"></p>
-        <input type="text" id="user-answer" placeholder="Enter Your Answer">
-        <button onclick="checkAnswer()">Check Answer</button>
+        <input type="text" id="user-answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer()">Check</button>
         <div class="accuracy-circle" id="accuracy-circle">0%</div>
     </div>
+
+    <!-- Start Test Button -->
+    <button onclick="startTest()">Test Yourself</button>
 
     <script src="script.js"></script>
 </body>
 </html>
+
