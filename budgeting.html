@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span>
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="account.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </div>
+    <span class="open-btn" id="openBtn">&#9776;</span>
+    <div class="container">
+        <h1>Budget Planner</h1>
+        <div class="input-group">
+            <label for="limit">Set Monthly Limit ($)</label>
+            <input type="number" id="limit" placeholder="Enter monthly spending limit">
+        </div>
+        <div class="input-group">
+            <label for="purchase">Add Purchase ($)</label>
+            <input type="number" id="purchase" placeholder="Enter purchase amount">
+        </div>
+        <button onclick="addPurchase()">Add Purchase</button>
+        <p class="status" id="status">Spent: $0</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
