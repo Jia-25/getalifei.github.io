@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards</title>
-    <link rel="stylesheet" href="flashcards.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <span class="open-btn" id="openBtn">&#9776;</span>
+    
     <div class="menu" id="menu">
         <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentpfp.html">Student Profile</a>
@@ -15,22 +17,25 @@
         <a href="customer-support.html">Customer Support</a>
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
-    <span class="open-btn" id="openBtn">&#9776;</span>
+
     <h1>Flashcards</h1>
-    <div class="flashcard">
-        <textarea id="question" placeholder="Write Question..."></textarea>
-        <textarea id="answer" placeholder="Write Answer..."></textarea>
+    <div>
+        <input type="text" id="question" placeholder="Enter Question">
+        <input type="text" id="answer" placeholder="Enter Answer">
+        <button onclick="saveFlashcard()">Add Flashcard</button>
     </div>
-    <button onclick="saveFlashcard()">Save Flashcard</button>
     
+    <div id="flashcard-container" class="flashcard-container"></div>
+
+    <h2>Test Yourself</h2>
     <div class="test-container">
-        <h2>Test Yourself</h2>
-        <p id="test-question">Click 'Start Test' to begin</p>
-        <input type="text" id="user-answer" placeholder="Your Answer...">
+        <input type="text" id="user-answer" placeholder="Enter Your Answer">
         <button onclick="checkAnswer()">Check</button>
         <div class="accuracy-circle" id="accuracy-circle">100</div>
     </div>
-    <script src="flashcards.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
+        
