@@ -4,66 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Sliding Menu (same as on account settings) -->
+    <!-- Sliding Menu -->
     <div class="menu" id="menu">
-        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentProfile.html">Student Profile</a>
         <a href="settings.html">Account Settings</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="#">Customer Support</a>
-        <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
+        <a href="#" id="logoutBtn">Logout</a>
     </div>
 
-    <!-- Open menu button -->
-    <span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
-
-    <!-- Left Menu Strip -->
-    <div id="menu-strip" class="menu-strip">
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-    </div>
-
-    <!-- Main Menu -->
-    <div id="menu" class="menu">
-        <ul>
-            <li><a href="studentpfp.html">Student Profile</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="customer-support.html">Customer Support</a></li>
-            <li><a href="login.html" class="logout">Logout</a></li>
-        </ul>
-    </div>
+    <!-- Open Menu Button -->
+    <span class="open-btn" id="openBtn">&#9776;</span>
 
     <!-- Main Dashboard Content -->
-    <div class="main-container">
-        <header>
-            <h1>Welcome <span id="userName">User</span>!</h1>
-        </header>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Welcome, <span id="username"></span>!</h1>
+        </div>
 
-        <section class="boxes">
-            <div class="box"><a href="timetable.html">Calendar</a></div>
-            <div class="box"><a href="lectures.html">Lectures</a></div>
-            <div class="box"><a href="assignments.html">Assignments</a></div>
-            <div class="box"><a href="progress.html">Progress</a></div>
-            <div class="box"><a href="announcements.html">Announcements</a></div>
-            <div class="box"><a href="budget.html">Budget</a></div>
-            <div class="box"><a href="study.html">Study Mode</a></div>
-        </section>
+        <div class="dashboard-grid">
+            <div class="square" onclick="window.location.href='timetable.html'">Calendar</div>
+            <div class="square" onclick="window.location.href='lectures.html'">Lectures</div>
+            <div class="square" onclick="window.location.href='assignments.html'">Assignments</div>
+            <div class="square" onclick="window.location.href='progress.html'">Progress</div>
+            <div class="square" onclick="window.location.href='announcements.html'">Announcements</div>
+            <div class="square" onclick="window.location.href='budget.html'">Budget</div>
+            <div class="square" onclick="window.location.href='study.html'">Study Mode</div>
+        </div>
 
-        <div class="click-me-circle" onclick="showMotivation()">
-            <div class="circle-text">Click Me</div>
+        <!-- Motivation Circle -->
+        <div class="motivation">
+            <div class="circle" onclick="showMotivation()">Motivation</div>
+            <div id="motivationBox" class="motivation-box">
+                <p>"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." – Christian D. Larson</p>
+                <button onclick="closeMotivation()">Close</button>
+            </div>
         </div>
     </div>
 
-    <div id="motivation-dialog" class="dialog-box">
-        <div class="dialog-content">
-            <p>Keep pushing forward, you're doing amazing!</p>
-            <button onclick="closeDialog()">Close</button>
-        </div>
-    </div>
-
-    <script src="dashboard.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
