@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Dashboard</title>
+    <link rel="stylesheet" href="study.css">
+    <script defer src="study.js"></script>
+</head>
+
+<body>
+    <!-- Background Image -->
+    <div class="background"></div>
+
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeMenu">&times;</span>
+        <a href="#">Home</a>
+        <a href="#">Lectures</a>
+        <a href="#">Assignments</a>
+        <a href="#">Progress</a>
+        <a href="#">Study</a>
+    </div>
+
+    <!-- Open Button for Menu -->
+    <span class="open-btn" id="openMenu">&#9776;</span>
+
+    <div class="dashboard-content">
+        <h1 id="welcomeText">Welcome to your Study Dashboard</h1>
+
+        <!-- Pomodoro Timer Section -->
+        <div class="pomodoro">
+            <h2>Pomodoro Timer</h2>
+            <div class="pomodoro-clock">
+                <p id="timerDisplay">25:00</p>
+                <button id="startTimer">Start</button>
+                <button id="resetTimer">Reset</button>
+            </div>
+        </div>
+
+        <!-- Study Materials Section -->
+        <div class="study-materials">
+            <h2>Study Materials</h2>
+            <div class="squares">
+                <!-- The student posted materials will go here -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
