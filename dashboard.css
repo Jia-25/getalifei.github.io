@@ -1,92 +1,104 @@
-body {
-    background-color: #003135;
-    font-family: 'Arial', sans-serif;
-    color: #a28089;
+/* Reset default styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-header h1 {
+/* Background Image */
+body {
+    background: url('your-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Header */
+.header {
     text-align: left;
-    color: #d8f0eb;
-    font-size: 3rem;
-    margin-left: 20px;
+    padding: 30px;
 }
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 250px; /* Adjusted padding for the strip */
+.header h1 {
+    font-size: 40px;
+    color: black;
 }
 
-.boxes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 20px;
-}
-
-.box {
-    background-color: #024950;
-    color: #d8f0eb;
-    font-size: 2rem; /* Increased font size */
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     padding: 20px;
-    margin: 10px;
-    width: 200px;
-    height: 200px;
-    text-align: center;
+}
+
+.square {
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    transition: background-color 0.3s;
 }
 
-.box a {
-    text-decoration: none;
-    color: inherit;
-    font-family: 'Dancing Script', cursive;
+.square:hover {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-.click-me-circle {
+/* Motivation Circle */
+.motivation {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 100px;
-    height: 100px;
-    background-color: #d0bdf4;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    color: white;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.5rem;
+    justify-content: center;
+    font-size: 20px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.dialog-box {
+.motivation-box {
+    display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 100px;
+    right: 20px;
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
 }
 
-.dialog-content {
-    color: white;
-    text-align: center;
+.motivation-box p {
+    font-size: 16px;
+    color: black;
 }
 
-.dialog-box button {
-    background-color: #f03264;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+.motivation-box button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
     cursor: pointer;
+}
+
+/* Sliding Menu */
+.open-btn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
 }
 
 .menu {
@@ -95,72 +107,30 @@ header h1 {
     left: -250px;
     width: 250px;
     height: 100%;
-    background-color: #AFDDE5;
+    background-color: #333;
     transition: 0.3s;
-    z-index: 10;
-    padding-top: 60px;
-}
-
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu ul li {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
-    display: block;
-    font-family: 'Arial', sans-serif;
-}
-
-.menu ul li a.logout {
-    background-color: #f03264;
-    color: white; /* Keep the logout text white */
-    font-family: 'Arial', sans-serif;
-}
-
-.menu ul li:hover {
-    background-color: #ddd;
-}
-
-.menu-toggle {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-.logout:hover {
-    background-color: #f03264;
 }
 
 .menu.open {
     left: 0;
 }
 
-/* Left strip for toggle */
-.menu-strip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    background-color: #AFDDE5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    z-index: 20;
+.menu a {
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
 }
 
-#userName {
-    color: #d8f0eb;
+.menu a:hover {
+    background-color: #575757;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 }
