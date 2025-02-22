@@ -106,4 +106,102 @@ header h1 {
 
 .menu ul li {
     padding: 15px;
-    
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.menu ul li a.logout {
+    background-color: #f03264;
+    color: white;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu.open {
+    left: 0;
+}
+
+.menu-strip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-color: #AFDDE5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.event-slide {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+}
+
+.event-slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.event-slide .close {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.event-slide form {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-slide form input,
+.event-slide form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.event-slide form button {
+    padding: 10px;
+    background-color: #f03264;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.event-slide form button:hover {
+    background-color: #f4a6b1;
+}
+
+.event-slide form button[type="button"] {
+    background-color: #e53935;
+    margin-top: 5px;
+}
+
+.event-slide form button[type="button"]:hover {
+    background-color: #ff6363;
+}
