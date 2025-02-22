@@ -143,3 +143,13 @@ closeEventPanel.addEventListener("click", closeEventPanelFunction);
 
 // Initialize the calendar with the current month
 generateCalendar(currentMonth, currentYear);
+
+// Menu toggle functionality
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
+});
+
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
+});
+
