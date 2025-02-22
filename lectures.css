@@ -86,6 +86,7 @@ h1 {
     position: relative;
     margin: 20px;
     text-align: center;
+     z-index: 1;
 }
 
 .plus-sign {
