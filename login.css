@@ -76,13 +76,15 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
+/* Ensure the link color is black */
 .signup-link a {
-    color: #0733b8;
+    color: black; /* Change the text color of the link to black */
     text-decoration: none;
 }
 
+/* Hover effect for the link */
 .signup-link a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline on hover */
 }
 
 /* Responsive styling */
