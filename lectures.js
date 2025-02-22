@@ -38,16 +38,25 @@ addButtons.forEach(button => {
     });
 });
 
-// Display File Info after Upload
+// Display File Info after Upload and Add Remove Button
 const fileInputs = document.querySelectorAll('.file-input');
 fileInputs.forEach(input => {
     input.addEventListener('change', function(event) {
         const topic = event.target.id.split('-')[0];
         const fileInfo = document.getElementById(`${topic}-file-info`);
-        
+
         if (event.target.files.length > 0) {
             const fileName = event.target.files[0].name;
-            fileInfo.textContent = `Uploaded: ${fileName}`;
+            fileInfo.innerHTML = `Uploaded: ${fileName} <button class="remove-button" data-topic="${topic}">Remove</button>`;
+            addRemoveListener(topic);
         }
     });
 });
+
+// Function to Add Remove Button Listener
+function addRemoveListener(topic) {
+    document.querySelector(`[data-topic="${topic}"]`).addEventListener('click', function() {
+        document.getElementById(`${topic}-file`).value = "";
+        document.getElementById(`${topic}-file-info`).textContent = "No file uploaded";
+    });
+}
