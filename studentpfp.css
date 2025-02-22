@@ -9,20 +9,21 @@ body {
     color: #fff;
 }
 
+/* Container for content */
 .container {
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     max-width: 600px;
-    margin: 20px auto;
 }
 
+/* Headings */
 h1 {
     font-size: 2rem;
 }
 
-/* The Menu */
+/* Sliding Menu */
 .menu {
     height: 100%;
     width: 250px;
@@ -35,6 +36,7 @@ h1 {
     padding-top: 60px;
 }
 
+/* Menu links */
 .menu a {
     padding: 10px 15px;
     text-decoration: none;
@@ -44,6 +46,7 @@ h1 {
     transition: 0.3s;
 }
 
+/* Hover effect for menu links */
 .menu a:hover {
     background-color: #ddd;
     color: black;
@@ -60,7 +63,7 @@ h1 {
     cursor: pointer;
 }
 
-/* Open Button (hamburger) */
+/* Open Button (hamburger menu) */
 .open-btn {
     font-size: 36px;
     cursor: pointer;
@@ -75,9 +78,4 @@ input[type="file"] {
 /* Menu visibility when open */
 .menu.open {
     left: 0;
-}
-
-/* Content section */
-.container {
-    margin-left: 20px;
 }
