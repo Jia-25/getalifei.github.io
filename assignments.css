@@ -15,11 +15,12 @@ body {
 /* Container for Upload Boxes */
 .main-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
     gap: 20px;
     justify-content: center;
     align-items: center;
     width: 80%;
+    padding: 20px;
 }
 
 /* Upload Box */
@@ -47,6 +48,7 @@ body {
 
 .plus-sign:hover {
     color: black;
+    transform: scale(1.1); /* Slight grow effect on hover */
 }
 
 /* Buttons */
@@ -70,12 +72,27 @@ body {
 
 .styled-btn:hover {
     background: #45a049;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
 }
 
 /* Hide default file input */
 .fileInput {
     display: none;
 }
+
+/* Menu Styles */
+.menu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
 .menu a {
     padding: 10px 15px;
     text-decoration: none;
@@ -107,6 +124,7 @@ body {
     cursor: pointer;
     margin: 10px;
 }
+
 /* Menu visibility when open */
 .menu.open {
     left: 0;
