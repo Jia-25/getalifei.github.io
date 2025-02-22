@@ -1,31 +1,51 @@
-<!-- Updated timetable.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timetable</title>
-    <link rel="stylesheet" href="timetable.css">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+    <script defer src="calendar.js"></script>
 </head>
 <body>
-    <span class="open-btn" id="openBtn">&#9776;</span>
+
+    <!-- Sliding Menu -->
     <div class="menu" id="menu">
-        <span class="close-btn" id="closeBtn">&#8592;</span>
+        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
         <a href="studentpfp.html">Student Profile</a>
         <a href="account.html">Account Settings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="customer-support.html">Customer Support</a>
-        <a href="login.html" id="logoutBtn">Logout</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
     </div>
-    
+
+    <!-- Open menu button -->
+    <span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
+
+    <!-- Calendar Content -->
     <div class="calendar-container">
-        <div class="calendar-header">
-            <button id="prevMonth">&#8592;</button>
-            <h2 id="monthYear"></h2>
-            <button id="nextMonth">&#8594;</button>
+        <h1>Calendar</h1>
+        <div id="calendar"></div>
+
+        <!-- Slide-in panel for event details -->
+        <div id="event-panel" class="event-panel">
+            <div class="panel-header">
+                <h2>Event Details</h2>
+                <span id="closeEventPanel" class="close-btn">&#10005;</span>
+            </div>
+            <div class="event-content">
+                <p><strong>Date:</strong> <span id="selected-date"></span></p>
+                <p><strong>Event Title:</strong></p>
+                <input type="text" id="event-title">
+                <p><strong>Event Description:</strong></p>
+                <textarea id="event-description"></textarea>
+                <div class="buttons">
+                    <button id="save-event">Save Event</button>
+                    <button id="delete-event">Delete Event</button>
+                </div>
+            </div>
         </div>
-        <div id="calendar" class="calendar-grid"></div>
     </div>
-    <script src="timetable.js"></script>
+
 </body>
 </html>
