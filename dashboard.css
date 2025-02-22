@@ -49,31 +49,36 @@ h1 {
 
 /* Sliding Menu Styles */
 .menu {
+    position: fixed;
+    left: 0;
+    top: 0;
     height: 100%;
     width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
     background-color: #5A2D82; /* Dark Purple */
-    overflow-x: hidden;
-    transition: 0.5s;
+    transform: translateX(-100%); /* Start off-screen */
+    transition: transform 0.3s ease;
     padding-top: 60px;
     color: white;
+    z-index: 1001;
 }
 
+/* Style for the menu items */
 .menu a {
     padding: 10px 15px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: white;
+    text-decoration: none;  /* Removes underline */
+    font-size: 18px;
+    color: white;  /* Set desired color for the tab text */
     display: block;
-    transition: 0.3s;
+    transition: background-color 0.3s ease, padding 0.3s ease; /* Transition for background and padding */
 }
 
+/* Style for when hovering over the menu item */
 .menu a:hover {
-    background-color: #3E1D5C; /* Darker Purple */
+    background-color: #575757; /* Set highlight color */
+    padding-left: 20px; /* Expanding effect on hover */
 }
 
+/* Logout button */
 .menu #logoutBtn {
     margin-top: auto;
     background-color: #C72C41;
@@ -85,29 +90,38 @@ h1 {
 
 /* Menu Icon */
 .menu-icon {
-    font-size: 30px;
     position: absolute;
     top: 20px;
     left: 20px;
+    font-size: 30px;
     cursor: pointer;
     color: #5A2D82;
+    background: none;
+    border: none;
+    z-index: 1000; /* Ensure the menu icon is on top of other elements */
 }
 
-/* Close button (Arrow) */
+/* Close button (X) for the sliding menu */
 .close-btn {
-    font-size: 30px;
     position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
     color: white;
+    cursor: pointer;
 }
 
 /* To hide the menu when it's closed */
 .menu.closed {
-    left: -250px;
+    transform: translateX(-100%); /* Move menu off-screen */
 }
 
+/* Open menu state */
 .menu.open {
-    left: 0;
+    transform: translateX(0); /* Slide the menu into view */
+}
+
+/* Optional: Style for active menu item (if needed) */
+.menu a.active {
+    background-color: #3e8e41; /* Color for the active tab */
 }
