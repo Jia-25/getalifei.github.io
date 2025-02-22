@@ -64,14 +64,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Menu toggle functionality
-    document.getElementById("openBtn").addEventListener("click", function() {
-        document.getElementById("menu").classList.add("open");
-    });
+    
+    // Sliding Menu Functionality
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
+});
 
-    document.getElementById("closeBtn").addEventListener("click", function() {
-        document.getElementById("menu").classList.remove("open");
-    });
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
+});
 
     // Logout functionality
     document.getElementById("logoutBtn").addEventListener("click", function() {
