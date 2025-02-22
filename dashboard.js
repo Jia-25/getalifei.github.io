@@ -8,6 +8,19 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("menu").classList.remove("open");
     });
 
+    // Motivation Button Functionality
+const motivationBtn = document.getElementById("motivationBtn");
+const motivationDialogue = document.getElementById("motivationDialogue");
+const closeDialogueBtn = document.getElementById("closeDialogue");
+
+motivationBtn.addEventListener("click", function() {
+    motivationDialogue.style.display = "block";
+});
+
+closeDialogueBtn.addEventListener("click", function() {
+    motivationDialogue.style.display = "none";
+});
+
 
     // Setting User Name (from signup/login.js)
     const userName = 'John Doe'; // Replace with dynamic data from signup.js or login.js
