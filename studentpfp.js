@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const age = localStorage.getItem('age') || '';  // Use empty string if age is not saved
 
     // Display the fetched data
-    document.getElementById('nameDisplay').textContent = name || "Name not set";
-    document.getElementById('emailDisplay').textContent = email || "Email not set";
+    document.getElementById('student-name').textContent = name || "Name not set";
+    document.getElementById('student-email').textContent = email || "Email not set";
 
     // Set the age input value
-    document.getElementById('age').value = age;
+    document.getElementById('student-age').textContent = age || "Age not set";
 
     // Handle profile picture upload
-    const profilePicInput = document.getElementById('profilePic');
+    const profilePicInput = document.getElementById('file-input');
     const pfpImage = document.getElementById('pfp');
 
     profilePicInput.addEventListener('change', function(e) {
@@ -51,8 +51,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Save the age
     document.getElementById('saveBtn').addEventListener('click', function() {
-        const age = document.getElementById('age').value;
-        localStorage.setItem('age', age); // Save the age in localStorage
-        alert('Profile updated successfully!');
+        const newAge = prompt("Enter new age:", document.getElementById('student-age').textContent);
+        if (newAge && !isNaN(newAge)) {
+            localStorage.setItem('age', newAge); // Save the age in localStorage
+            document.getElementById('student-age').textContent = newAge; // Update displayed age
+            alert('Profile updated successfully!');
+        } else {
+            alert('Please enter a valid age.');
+        }
     });
 });
+
+// Menu toggle functionality
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
+});
+
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
+});
+
+// Editable Age functionality
+function editAge() {
+    const currentAge = document.getElementById("student-age").textContent;
+    const newAge = prompt("Enter new age:", currentAge);
+    if (newAge) {
+        document.getElementById("student-age").textContent = newAge;
+    }
+}
+
+// Profile picture upload functionality
+function uploadProfilePic() {
+    const fileInput = document.getElementById("file-input");
+    const profilePic = document.getElementById("pfp");
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        profilePic.src = e.target.result;
+    }
+
+    if (fileInput.files[0]) {
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
