@@ -14,12 +14,91 @@ body {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
+}
+
+/* Account Box */
+.account-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.account-box .profile-pic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-info {
+    margin-left: 20px;
+    max-width: 400px;
 }
 
 h1 {
     font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Editable Fields */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+p {
+    margin: 5px 0;
+    cursor: pointer;
+    color: #ff8c00;
+}
+
+/* Subscription Plans */
+.subscription-plans {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.plan {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.plan:hover {
+    background-color: #ff8c00;
+}
+
+.plan h3 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.plan p {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+    color: #fff;
+}
+
+.plan ul li {
+    margin: 5px 0;
 }
 
 /* The Menu */
@@ -75,56 +154,4 @@ input[type="file"] {
 /* Menu visibility when open */
 .menu.open {
     left: 0;
-}
-
-/* Editable Fields */
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-p {
-    margin: 5px 0;
-    cursor: pointer;
-    color: #ff8c00;
-}
-
-.subscription-plans {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.plan {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 8px;
-    width: 30%;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.plan:hover {
-    background-color: #ff8c00;
-}
-
-.plan h3 {
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-.plan p {
-    font-size: 1.2rem;
-    color: #fff;
-}
-
-.plan ul {
-    list-style-type: none;
-    padding: 0;
-    color: #fff;
-}
-
-.plan ul li {
-    margin: 5px 0;
 }
