@@ -1,0 +1,76 @@
+body {
+    font-family: "Times New Roman", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.menu {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.menu.open {
+    left: 0;
+}
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    margin: 10px;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    font-size: 1.2rem;
+}
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.safe { color: green; }
+.warning { color: orange; }
+.danger { color: red; }
