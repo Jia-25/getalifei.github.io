@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     closeMusicBtn.addEventListener("click", function () {
-        musicMenu.style.right = "-300px"; // Slide menu out
+        musicMenu.style.right = "-500px"; // Slide menu out
     });
 
     // Simulated YouTube Audio Playback
