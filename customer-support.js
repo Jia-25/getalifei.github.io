@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Load FAQ into the FAQ section
+    // Load FAQ into the FAQ section (for showing the full list)
     const faqList = document.getElementById("faq-list");
     faqs.forEach(faq => {
         const listItem = document.createElement("li");
@@ -32,21 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedQuestion = this.value;
         const botAnswer = document.getElementById("bot-answer");
 
-        switch (selectedQuestion) {
-            case "account-issues":
-                botAnswer.innerHTML = "To reset your password, go to the login page and click on 'Forgot Password'. You will receive an email with the reset instructions.";
-                break;
-            case "payment-issues":
-                botAnswer.innerHTML = "To update your payment method, go to the 'Account Settings' page and navigate to the 'Payment Methods' section.";
-                break;
-            case "profile-issues":
-                botAnswer.innerHTML = "To update your profile information, go to the 'Profile' section and click 'Edit Profile' to make changes.";
-                break;
-            case "support-hours":
-                botAnswer.innerHTML = "Our customer support is available 24/7, and you can contact us anytime for assistance.";
-                break;
-            default:
-                botAnswer.innerHTML = "";
+        // If no question is selected
+        if (selectedQuestion === "") {
+            botAnswer.innerHTML = "";
+            return;
+        }
+
+        // Find the matching FAQ
+        const selectedFAQ = faqs.find(faq => faq.question === selectedQuestion);
+        
+        // Display the corresponding answer
+        if (selectedFAQ) {
+            botAnswer.innerHTML = selectedFAQ.answer;
+        } else {
+            botAnswer.innerHTML = "Sorry, I could not find an answer to your question.";
         }
     });
 
