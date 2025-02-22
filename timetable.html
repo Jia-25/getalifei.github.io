@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <link rel="stylesheet" href="timetable.css">
+</head>
+<body>
+
+    <!-- Sliding Menu -->
+    <div id="myMenu" class="menu closed">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="dashboard.html">Home</a>
+        <a href="account.html">Account</a>
+        <a href="settings.html">Settings</a>
+        <a href="support.html">Customer Support</a>
+        <a href="javascript:void(0)" id="logoutBtn">Logout</a>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">
+        <header>
+            <h1>Timetable</h1>
+            <div class="month-year">
+                <span id="prev" class="arrow">&#8592;</span>
+                <span id="currentMonth"></span>
+                <span id="currentYear"></span>
+                <span id="next" class="arrow">&#8594;</span>
+            </div>
+            <!-- Menu icon to open sliding menu -->
+            <span class="menu-icon" onclick="openMenu()">&#9776; Menu</span>
+        </header>
+
+        <div class="calendar">
+            <div class="days-of-week">
+                <div class="day">Sun</div>
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thu</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+            </div>
+
+            <div id="calendarDays" class="calendar-days">
+                <!-- Calendar days will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="timetable.js"></script>
+    <script>
+        // Open the sliding menu
+        function openMenu() {
+            document.getElementById("myMenu").classList.remove("closed");
+            document.getElementById("myMenu").classList.add("open");
+        }
+
+        // Close the sliding menu
+        function closeMenu() {
+            document.getElementById("myMenu").classList.remove("open");
+            document.getElementById("myMenu").classList.add("closed");
+        }
+
+        // Logout functionality
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+            alert("You have logged out.");
+            // You can clear sessionStorage or redirect to login page
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
