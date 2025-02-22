@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments</title>
+    <link rel="stylesheet" href="assignments.css">
+</head>
+<body>
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span>
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="account.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </div>
+
+    <!-- Open menu button -->
+    <span class="open-btn" id="openBtn">&#9776;</span>
+
+    <!-- Background Image -->
+    <div class="background"></div>
+
+    <!-- Assignments Content -->
+    <div class="assignments-content">
+        <h1 id="assignmentsHeading">Assignments</h1>
+
+        <!-- Category Boxes with Add Button -->
+        <div class="squares">
+            <div class="square">
+                <p>Assignment 1</p>
+                <button class="add-button" data-assignment="assignment1">Add Assignment File</button>
+                <input type="file" id="assignment1-file" class="file-input" accept=".pdf,.docx,.pptx,.jpg,.jpeg,.png" hidden>
+                <div class="file-info" id="assignment1-file-info"></div>
+            </div>
+
+            <div class="square">
+                <p>Assignment 2</p>
+                <button class="add-button" data-assignment="assignment2">Add Assignment File</button>
+                <input type="file" id="assignment2-file" class="file-input" accept=".pdf,.docx,.pptx,.jpg,.jpeg,.png" hidden>
+                <div class="file-info" id="assignment2-file-info"></div>
+            </div>
+
+            <div class="square">
+                <p>Assignment 3</p>
+                <button class="add-button" data-assignment="assignment3">Add Assignment File</button>
+                <input type="file" id="assignment3-file" class="file-input" accept=".pdf,.docx,.pptx,.jpg,.jpeg,.png" hidden>
+                <div class="file-info" id="assignment3-file-info"></div>
+            </div>
+        </div>
+
+        <!-- Marks Panel (on the right side) -->
+        <div class="marks-panel">
+            <h2>Marks Received</h2>
+            <div class="marks" id="marksPanel">
+                <p>Assignment 1: <span id="marks1">-</span></p>
+                <p>Assignment 2: <span id="marks2">-</span></p>
+                <p>Assignment 3: <span id="marks3">-</span></p>
+            </div>
+        </div>
+
+        <!-- Motivation Button -->
+        <div class="motivation">
+            <div class="motivation-circle" id="motivationBtn">Motivation</div>
+        </div>
+
+        <!-- Motivation Dialogue -->
+        <div class="motivation-dialogue" id="motivationDialogue">
+            <p>"You are doing great! Keep up the hard work!"</p>
+            <button id="closeDialogue">Close</button>
+        </div>
+    </div>
+
+    <script src="assignments.js"></script>
+</body>
+</html>
