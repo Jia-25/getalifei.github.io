@@ -30,6 +30,7 @@ body {
     overflow-x: hidden;
     transition: left 0.5s ease-in-out; /* Smooth transition for sliding effect */
     padding-top: 60px;
+    z-index: 100;
 }
 
 .menu.open {
@@ -88,7 +89,9 @@ body {
     grid-gap: 20px;
     margin-top: 50px;
     padding: 10px;
-    justify-items: center; /* Ensures that items are centered */
+    justify-items: center;
+    position: relative;
+    z-index: 1;/* Ensures that items are centered */
 }
 
 .square {
