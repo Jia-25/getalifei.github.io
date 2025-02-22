@@ -155,3 +155,15 @@ generateCalendar(currentMonth, currentYear);
 function getDaysInMonth(month, year) {
     return new Date(year, month + 1, 0).getDate();
 }
+
+// JavaScript for opening and closing the menu
+function openMenu() {
+    document.getElementById("myMenu").classList.remove("closed");
+    document.getElementById("myMenu").classList.add("open");
+}
+
+function closeMenu() {
+    document.getElementById("myMenu").classList.remove("open");
+    document.getElementById("myMenu").classList.add("closed");
+}
+
