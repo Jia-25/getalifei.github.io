@@ -1,13 +1,90 @@
-/* General body styling */
 body {
-    font-family: 'Arial', sans-serif;
+    background-color: #003135;
+    font-family: 'Dancing Script', cursive;
+    color: #a28089;
     margin: 0;
     padding: 0;
-    background-color: #003135;
+}
+
+header h1 {
+    text-align: left;
     color: #d8f0eb;
+    font-size: 3rem;
+    margin-left: 20px;
+}
+
+.main-container {
     display: flex;
-    flex-direction: row;
-    transition: margin-left 0.3s ease;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 250px; /* Adjusted padding for the strip */
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for the days of the week */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.calendar .day {
+    background-color: #024950;
+    color: #d8f0eb;
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.calendar .day a {
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Dancing Script', cursive;
+}
+
+.calendar .day.empty {
+    background-color: transparent;
+}
+
+.click-me-circle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #d0bdf4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dialog-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
+
+.dialog-content {
+    color: white;
+    text-align: center;
+}
+
+.dialog-box button {
+    background-color: #f03264;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .menu {
@@ -58,15 +135,10 @@ body {
     cursor: pointer;
 }
 
-.logout:hover {
-    background-color: #f03264;
-}
-
 .menu.open {
     left: 0;
 }
 
-/* Left strip for toggle */
 .menu-strip {
     position: fixed;
     top: 0;
@@ -78,60 +150,4 @@ body {
     justify-content: center;
     align-items: flex-start;
     z-index: 20;
-}
-
-
-/* Main Content */
-.main-content {
-    margin-left: 250px;
-    padding: 20px;
-    width: 100%;
-}
-
-header h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-/* Calendar Header */
-#calendarHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-/* Calendar Days */
-#calendarDays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    text-align: center;
-}
-
-.calendar-day {
-    padding: 15px;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.calendar-day:hover {
-    background-color: #d8f0eb;
-}
-
-.empty {
-    background-color: transparent;
-}
-
-.has-event {
-    background-color: #b0e0e6;
-}
-
-.event-indicator {
-    font-size: 0.8rem;
-    color: #1e3c5a;
 }
