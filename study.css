@@ -46,6 +46,77 @@ body {
     color: black;
 }
 
+/* Study Music Button */
+#studyMusicBtn {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#studyMusicBtn:hover {
+    background-color: #444;
+}
+
+/* Right Sliding Music Menu */
+.music-menu {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    background-color: #222;
+    transition: 0.5s;
+    padding: 20px;
+    color: white;
+}
+
+.music-menu h2 {
+    margin-top: 0;
+}
+
+.music-menu input {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.music-menu button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.music-menu button:hover {
+    background-color: #666;
+}
+
+/* Close button */
+.close-music-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Progress Bar */
+#progressBar {
+    width: 100%;
+    height: 10px;
+    margin-top: 10px;
+}
+
 /* Menu Links Styling */
 .menu a {
     padding: 10px 15px;
