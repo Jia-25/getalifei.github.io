@@ -1,12 +1,67 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-image: url('dashboard.jpg');
+    font-family: "Times New Roman", serif;
+    background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
 }
 
-/* Sliding Menu */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.assignment-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.assignment-box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-box {
+    flex-direction: column;
+}
+
+.upload-btn, .preview-btn, .delete-btn {
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.upload-btn {
+    background: gray;
+    color: white;
+}
+
+.preview-btn {
+    background: blue;
+    color: white;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+}
+
+.plus-box {
+    font-size: 48px;
+    font-weight: bold;
+    color: gray;
+    cursor: pointer;
+}
+
 .menu {
     height: 100%;
     width: 250px;
@@ -33,7 +88,6 @@ body {
     color: black;
 }
 
-/* Close button */
 .close-btn {
     position: absolute;
     top: 0;
@@ -44,79 +98,12 @@ body {
     cursor: pointer;
 }
 
-/* Open Button (hamburger) */
 .open-btn {
     font-size: 36px;
     cursor: pointer;
     margin: 10px;
 }
 
-/* Menu visibility when open */
 .menu.open {
     left: 0;
-}
-
-/* Main content styling */
-.main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.box {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-}
-
-.left {
-    width: 300px;
-}
-
-.right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-}
-
-#plusSignContainer {
-    font-size: 50px;
-    color: #333;
-    cursor: pointer;
-}
-
-input[type="file"] {
-    margin-top: 10px;
-}
-
-button {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ddd;
-}
-
-#filePreviewContainer {
-    margin-top: 20px;
-}
-
-#filePreviewContainer button {
-    margin-top: 10px;
-}
-
-#filePreviewContainer button.delete {
-    background-color: red;
-    color: white;
-}
-
-#filePreviewContainer button.preview {
-    background-color: grey;
-    color: white;
 }
