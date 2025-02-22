@@ -1,4 +1,4 @@
-// Menu toggle functionality
+// Menu Toggle
 document.getElementById("openBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.add("open");
 });
@@ -20,9 +20,26 @@ closeDialogueBtn.addEventListener("click", function() {
     motivationDialogue.style.display = "none";
 });
 
-// Redirect on category box click
-document.querySelectorAll('.category-box').forEach(function(box) {
-    box.addEventListener('click', function() {
-        alert('Category clicked!');
+// Handle Add Button Click to Open File Input
+const addButtons = document.querySelectorAll('.add-button');
+addButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const topic = this.getAttribute('data-topic');
+        const fileInput = document.getElementById(`${topic}-file`);
+        fileInput.click();
+    });
+});
+
+// Display File Info after Upload
+const fileInputs = document.querySelectorAll('.file-input');
+fileInputs.forEach(input => {
+    input.addEventListener('change', function(event) {
+        const topic = event.target.id.split('-')[0];
+        const fileInfo = document.getElementById(`${topic}-file-info`);
+        
+        if (event.target.files.length > 0) {
+            const fileName = event.target.files[0].name;
+            fileInfo.textContent = `Uploaded: ${fileName}`;
+        }
     });
 });
