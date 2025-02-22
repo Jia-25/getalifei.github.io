@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar</title>
-    <link rel="stylesheet" href="timetable.css">
-    <script defer src="timetable.js"></script>
+    <link rel="stylesheet" href="calendar.css">
+    <script defer src="calendar.js"></script>
 </head>
 <body>
-         <!-- Background Image -->
+    <!-- Background Image -->
     <div class="background"></div>
-    
-   <!-- Sliding Menu -->
-<div class="menu" id="menu">
-    <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
-    <a href="studentpfp.html">Student Profile</a>
-    <a href="account.html">Account Settings</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="customer-support.html">Customer Support</a>
-    <a href="login.html" id="logoutBtn">Logout</a> <!-- Logout Button -->
-</div>
 
-<!-- Open menu button -->
-<span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="account.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="timetable.html">Timetable</a>
+        <a href="customer-support.html">Customer Support</a>
+        <a href="login.html" id="logoutBtn">Logout</a>
+    </div>
 
+    <!-- Open menu button -->
+    <span class="open-btn" id="openBtn">&#9776;</span>
 
     <!-- Calendar Content -->
     <div class="calendar-container">
         <h1>Calendar</h1>
+        
         <!-- Month/Year Navigation -->
-    <div class="calendar-nav">
-        <button id="prevYearBtn">&#171; Previous Year</button>
-        <button id="prevMonthBtn">&#8249; Previous Month</button>
-        <span id="currentMonthYear"></span> <!-- Display Month and Year -->
-        <button id="nextMonthBtn">Next Month &#8250;</button>
-        <button id="nextYearBtn">Next Year &#187;</button>
-    </div>
+        <div class="calendar-nav">
+            <button id="prevYearBtn">&#171; Previous Year</button>
+            <button id="prevMonthBtn">&#8249; Previous Month</button>
+            <span id="currentMonthYear"></span>
+            <button id="nextMonthBtn">Next Month &#8250;</button>
+            <button id="nextYearBtn">Next Year &#187;</button>
+        </div>
 
-    <!-- Weekday Labels -->
-    <div id="weekdays" class="weekdays"></div>
+        <!-- Weekday Labels -->
+        <div id="weekdays" class="weekdays"></div>
 
-    <!-- Calendar Grid -->
-    <div id="calendar"></div>
+        <!-- Calendar Grid -->
+        <div id="calendar"></div>
 
         <!-- Slide-in panel for event details -->
         <div id="event-panel" class="event-panel">
@@ -62,6 +63,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
