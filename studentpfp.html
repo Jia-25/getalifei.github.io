@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="studentpfp.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Profile</h1>
+        
+        <div class="profile">
+            <!-- Profile Picture -->
+            <img id="profile-pic" src="studentpfp.jpg" alt="Profile Picture" class="profile-pic">
+            
+            <!-- Upload Profile Picture -->
+            <input type="file" id="file-upload" accept="image/*">
+            <button onclick="uploadProfilePic()">Upload New Profile Picture</button>
+            
+            <!-- Student Info -->
+            <div class="student-info">
+                <p><strong>Name:</strong> <span id="student-name">John Doe</span></p>
+                <p><strong>Email:</strong> <span id="student-email">johndoe@example.com</span></p>
+                <p><strong>Age:</strong> <span id="student-age">20</span></p>
+            </div>
+            
+            <!-- Change Password Form -->
+            <form id="password-change-form">
+                <h3>Change Password</h3>
+                <label for="old-password">Old Password:</label>
+                <input type="password" id="old-password" name="old-password" required>
+                
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password" required>
+                
+                <label for="confirm-password">Confirm New Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                
+                <button type="submit">Change Password</button>
+                <span id="password-error" class="error-message"></span>
+            </form>
+        </div>
+    </div>
+
+    <script src="studentpfp.js"></script>
+</body>
+</html>
