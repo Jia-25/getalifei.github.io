@@ -1,6 +1,6 @@
 body {
     background-color: #003135;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Arial', sans-serif;
     color: #a28089;
     margin: 0;
     padding: 0;
@@ -114,14 +114,16 @@ header h1 {
 
 .menu ul li a {
     text-decoration: none;
-    color: #a28089;
+    color: black;
     font-size: 1.2rem;
     display: block;
+    font-family: 'Arial', sans-serif;
 }
 
 .menu ul li a.logout {
     background-color: #f03264;
-    color: white;
+    color: white; /* Keep the logout text white */
+    font-family: 'Arial', sans-serif;
 }
 
 .menu ul li:hover {
