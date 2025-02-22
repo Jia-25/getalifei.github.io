@@ -31,14 +31,16 @@
                 <input type="file" id="file-input" onchange="uploadProfilePic()">
             </div>
             <div class="account-info">
-                <label for="username">Name:</label>
-                <p id="username" onclick="editUsername()">Change Name</p>
+                <label for="name">Name:</label>
+                <div class="editable-box" id="name-box" onclick="editName()">
+                    <p id="name-text">Click to edit your name</p>
+                </div>
 
                 <label for="email">Email:</label>
-                <p id="email" onclick="editEmail()">Change Email</p>
+                <p id="email" onclick="editEmail()">Click to edit your email</p>
 
                 <label for="age">Age:</label>
-                <p id="age" onclick="editAge()">Change Age</p>
+                <p id="age" onclick="editAge()">Click to edit your age</p>
             </div>
         </div>
 
