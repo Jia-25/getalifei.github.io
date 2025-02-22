@@ -40,6 +40,7 @@ function startPomodoro() {
         if (timeLeft <= 0) {
             clearInterval(timer);
             alert("Pomodoro Complete! Take a break.");
+            isRunning = false; // Reset the isRunning state after timer finishes
         } else {
             timeLeft--;
             document.getElementById("timerDisplay").textContent = formatTime(timeLeft);
