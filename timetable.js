@@ -1,109 +1,50 @@
-document.getElementById("openBtn").addEventListener("click", function() {
-    document.getElementById("menu").classList.add("open");
-});
-
-document.getElementById("closeBtn").addEventListener("click", function() {
-    document.getElementById("menu").classList.remove("open");
-});
-
-document.getElementById("closeEventMenu").addEventListener("click", function() {
-    document.getElementById("eventMenu").classList.remove("open");
-});
-
+// Updated timetable.js
 const calendar = document.getElementById("calendar");
 const monthYear = document.getElementById("monthYear");
 const prevMonth = document.getElementById("prevMonth");
 const nextMonth = document.getElementById("nextMonth");
 
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-let events = JSON.parse(localStorage.getItem("calendarEvents")) || {};
+const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let currentDate = new Date();
 
-function updateCalendar() {
+function renderCalendar() {
     calendar.innerHTML = "";
-    let daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    monthYear.textContent = new Date(currentYear, currentMonth).toLocaleString("default", { month: "long", year: "numeric" });
-
-    for (let day = 1; day <= daysInMonth; day++) {
-        let dayDiv = document.createElement("div");
-        dayDiv.textContent = day;
-        dayDiv.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
-
-        if (events[dayDiv.dataset.date]) {
-            dayDiv.classList.add("has-event");
-        }
-
-        dayDiv.addEventListener("click", function() {
-            openEventMenu(dayDiv.dataset.date);
-        });
-
-        calendar.appendChild(dayDiv);
+    
+    // Create header for days of the week
+    daysOfWeek.forEach(day => {
+        let dayHeader = document.createElement("div");
+        dayHeader.textContent = day;
+        dayHeader.classList.add("day-header");
+        calendar.appendChild(dayHeader);
+    });
+    
+    let firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+    let totalDays = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    
+    for (let i = 0; i < firstDay; i++) {
+        let emptyCell = document.createElement("div");
+        emptyCell.classList.add("empty-cell");
+        calendar.appendChild(emptyCell);
     }
+    
+    for (let day = 1; day <= totalDays; day++) {
+        let dayCell = document.createElement("div");
+        dayCell.textContent = day;
+        dayCell.classList.add("day-cell");
+        calendar.appendChild(dayCell);
+    }
+    
+    monthYear.textContent = currentDate.toLocaleString("default", { month: "long", year: "numeric" });
 }
 
-function openEventMenu(date) {
-    document.getElementById("eventMenu").classList.add("open");
-    document.getElementById("selectedDate").textContent = date;
-    document.getElementById("eventList").innerHTML = "";
-
-    if (events[date]) {
-        events[date].forEach((eventText, index) => {
-            let li = document.createElement("li");
-            li.textContent = eventText;
-
-            let deleteBtn = document.createElement("button");
-            deleteBtn.textContent = "X";
-            deleteBtn.style.marginLeft = "10px";
-            deleteBtn.addEventListener("click", function() {
-                events[date].splice(index, 1);
-                if (events[date].length === 0) {
-                    delete events[date];
-                }
-                localStorage.setItem("calendarEvents", JSON.stringify(events));
-                updateCalendar();
-                openEventMenu(date);
-            });
-
-            li.appendChild(deleteBtn);
-            document.getElementById("eventList").appendChild(li);
-        });
-    }
-}
-
-document.getElementById("addEventBtn").addEventListener("click", function() {
-    let selectedDate = document.getElementById("selectedDate").textContent;
-    let eventText = document.getElementById("eventInput").value.trim();
-
-    if (eventText) {
-        if (!events[selectedDate]) {
-            events[selectedDate] = [];
-        }
-        events[selectedDate].push(eventText);
-        localStorage.setItem("calendarEvents", JSON.stringify(events));
-        document.getElementById("eventInput").value = "";
-        updateCalendar();
-        openEventMenu(selectedDate);
-    }
+prevMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
 });
 
-prevMonth.addEventListener("click", function() {
-    if (currentMonth === 0) {
-        currentMonth = 11;
-        currentYear--;
-    } else {
-        currentMonth--;
-    }
-    updateCalendar();
+nextMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
 });
 
-nextMonth.addEventListener("click", function() {
-    if (currentMonth === 11) {
-        currentMonth = 0;
-        currentYear++;
-    } else {
-        currentMonth++;
-    }
-    updateCalendar();
-});
-
-updateCalendar();
+renderCalendar();
