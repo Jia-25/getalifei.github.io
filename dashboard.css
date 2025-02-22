@@ -8,7 +8,7 @@ body {
 
 header h1 {
     text-align: left;
-    color: #OFA4AF;
+    color: #d8f0eb;
     font-size: 3rem;
     margin-left: 20px;
 }
@@ -17,6 +17,7 @@ header h1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 250px; /* Adjusted padding for the strip */
 }
 
 .boxes {
@@ -28,8 +29,8 @@ header h1 {
 
 .box {
     background-color: #024950;
-    color: #OFA4AF;
-    font-size: 1.5rem;
+    color: #d8f0eb;
+    font-size: 2rem; /* Increased font size */
     padding: 20px;
     margin: 10px;
     width: 200px;
@@ -77,6 +78,15 @@ header h1 {
 .dialog-content {
     color: white;
     text-align: center;
+}
+
+.dialog-box button {
+    background-color: #f03264;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .menu {
@@ -135,6 +145,20 @@ header h1 {
     left: 0;
 }
 
+/* Left strip for toggle */
+.menu-strip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-color: #AFDDE5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 20;
+}
+
 #userName {
-    color: #OFA4AF;
+    color: #d8f0eb;
 }
