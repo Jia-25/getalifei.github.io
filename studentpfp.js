@@ -39,30 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             reader.readAsDataURL(file);
         }
     });
-
-    // Editable Age functionality
-    document.getElementById('student-age').addEventListener('click', function() {
-        const currentAge = document.getElementById('student-age').textContent;
-        const newAge = prompt("Enter new age:", currentAge);
-        if (newAge && !isNaN(newAge)) {
-            localStorage.setItem('age', newAge);  // Save the new age in localStorage
-            document.getElementById('student-age').textContent = newAge;  // Update displayed age
-        } else {
-            alert('Please enter a valid age.');
-        }
-    });
-
-    // Editable Address functionality
-    document.getElementById('student-address').addEventListener('click', function() {
-        const currentAddress = document.getElementById('student-address').textContent;
-        const newAddress = prompt("Enter new address:", currentAddress);
-        if (newAddress) {
-            localStorage.setItem('address', newAddress);  // Save the new address in localStorage
-            document.getElementById('student-address').textContent = newAddress;  // Update displayed address
-        } else {
-            alert('Please enter a valid address.');
-        }
-    });
+    
 
     
     // Sliding Menu Functionality
