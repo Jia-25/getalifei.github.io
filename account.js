@@ -17,13 +17,12 @@ document.getElementById("closeBtn").addEventListener("click", function() {
     const profilePic = localStorage.getItem('profilePic') || 'studentpfp.jpg';
 
     // Display the fetched data
-    document.getElementById('username').textContent = name || "Username not set";
+    document.getElementById('name-text').textContent = name || "Click to edit your name";
     document.getElementById('email').textContent = email || "Email not set";
     document.getElementById('age').textContent = age || "Age not set";
     document.getElementById('profile-pic').src = profilePic;
 
-    // Editable Fields (Username, Email, Age, Address)
-    document.getElementById('username').addEventListener('click', editUsername);
+    // Editable Fields (Name, Email, Age, Address)
     document.getElementById('email').addEventListener('click', editEmail);
     document.getElementById('age').addEventListener('click', editAge);
 
@@ -47,15 +46,32 @@ document.getElementById("closeBtn").addEventListener("click", function() {
     });
 });
 
-// Editable Fields Functions
-function editUsername() {
-    const newUsername = prompt("Enter new username:", document.getElementById('username').textContent);
-    if (newUsername) {
-        localStorage.setItem('name', newUsername);
-        document.getElementById('username').textContent = newUsername;
+// Editable Name Function
+function editName() {
+    const nameBox = document.getElementById('name-box');
+    const currentName = document.getElementById('name-text').textContent;
+
+    nameBox.innerHTML = `
+        <input type="text" id="name-input" value="${currentName}" />
+        <button onclick="saveName()">Save</button>
+    `;
+}
+
+// Save Name Function
+function saveName() {
+    const newName = document.getElementById('name-input').value;
+    if (newName) {
+        localStorage.setItem('name', newName);
+        document.getElementById('name-text').textContent = newName;
+        document.getElementById('name-box').innerHTML = `
+            <p id="name-text">${newName}</p>
+        `;
+    } else {
+        alert("Name cannot be empty!");
     }
 }
 
+// Editable Fields Functions (Email, Age)
 function editEmail() {
     const newEmail = prompt("Enter new email:", document.getElementById('email').textContent);
     if (newEmail) {
