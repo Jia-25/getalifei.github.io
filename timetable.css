@@ -47,16 +47,19 @@ body {
     color: white;
 }
 
-/* Menu icon positioning in the top-right corner */
+/* Style for the menu icon */
 .menu-icon {
+    position: absolute;
+    top: 20px; /* Adjust the distance from the top */
+    left: 20px; /* Adjust the distance from the left */
     font-size: 30px;
-    position: fixed;
-    top: 20px;
-    right: 20px; /* Change from left to right for top-right corner */
     cursor: pointer;
-    color: #5A2D82;
-    z-index: 9999; /* Ensure the menu icon stays above content */
+    color: #333; /* Change color as needed */
+    background: none;
+    border: none;
+    z-index: 1000; /* Ensure the menu icon is on top of other elements */
 }
+
 
 /* Calendar container styles */
 .container {
