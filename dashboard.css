@@ -28,7 +28,7 @@ body {
     left: -250px; /* Initially off-screen */
     background-color: #111;
     overflow-x: hidden;
-    transition: left 0.5s ease-in-out; /* Smooth transition for sliding effect */
+    transition: left 0.5s ease-in-out;
     padding-top: 60px;
     z-index: 100;
 }
@@ -82,12 +82,12 @@ body {
     text-align: left;
 }
 
-/* Squares Section - 2 Squares in 4 Rows */
+/* Squares Section - 2 Squares per Row across 4 Rows */
 .squares {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 2 squares in each row */
-    grid-template-rows: repeat(2, auto); /* 4 rows */
-    grid-gap: 10px; /* Distance between the squares */
+    grid-template-columns: repeat(2, 1fr); /* 2 squares in each row */
+    grid-template-rows: repeat(4, auto); /* 4 rows */
+    grid-gap: 30px; /* Distance between the squares */
     margin-top: 50px;
     padding: 10px;
     justify-items: center; /* Centers items horizontally */
@@ -97,8 +97,8 @@ body {
 
 /* Square Styling */
 .square {
-    width: 200px; /* Set width */
-    height: 200px; /* Set height */
+    width: 200px;
+    height: 200px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     display: flex;
@@ -123,15 +123,15 @@ body {
 }
 
 .motivation-circle {
-    width: 100px; /* Increased size */
-    height: 100px; /* Increased size */
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-color: #333;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem; /* Increased font size for better visibility */
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
