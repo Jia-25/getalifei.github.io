@@ -48,6 +48,38 @@ function renderCalendar() {
         calendarGrid.appendChild(dateDiv);
     }
 }
+// Open event slide when a calendar day is clicked
+function openEventSlide(date) {
+    // Populate the event slide with the selected date (you can also add more details if needed)
+    document.getElementById('eventDate').value = date;
+
+    // Show the event slide
+    document.getElementById("eventSlide").classList.add("open");
+}
+
+// Close event slide
+function closeEventSlide() {
+    document.getElementById("eventSlide").classList.remove("open");
+}
+
+// Example event date click (you can bind this to actual calendar date elements)
+document.querySelectorAll('.calendar-box .day').forEach(day => {
+    day.addEventListener('click', () => {
+        openEventSlide(day.innerText);
+    });
+});
+// Save event functionality (you can replace this with real data handling)
+function saveEvent() {
+    const title = document.getElementById("eventTitle").value;
+    const description = document.getElementById("eventDescription").value;
+    const date = document.getElementById("eventDate").value;
+
+    // Save event logic here (e.g., sending data to a server, saving locally, etc.)
+    console.log(`Event saved: ${title} on ${date}`);
+
+    // Close the event slide after saving
+    closeEventSlide();
+}
 
 // Function to open the event slide
 function openEventSlide(date) {
