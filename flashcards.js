@@ -35,9 +35,13 @@ function displayFlashcards() {
         let cardElement = document.createElement("div");
         cardElement.classList.add("flashcard");
         cardElement.innerHTML = `
-            <p>${card.question}</p>
+            <div class="front">${card.question}</div>
+            <div class="back">${card.answer}</div>
             <button class="remove-btn" onclick="removeFlashcard(${index})">✖</button>
         `;
+        cardElement.addEventListener("click", function() {
+            this.classList.toggle("flipped");
+        });
         flashcardContainer.appendChild(cardElement);
     });
 }
@@ -58,30 +62,10 @@ function showQuestion() {
 }
 
 function checkAnswer() {
-    let userAnswer = document.getElementById("user-answer").value;
-    let correctAnswer = flashcards[currentTestIndex].answer;
-    let accuracy = compareAnswers(userAnswer, correctAnswer);
+    let userAnswer = document.getElementById("user-answer").value.trim().toLowerCase();
+    let correctAnswer = flashcards[currentTestIndex].answer.trim().toLowerCase();
+    let accuracy = userAnswer === correctAnswer ? 100 : 0;
 
-    let accuracyCircle = document.getElementById("accuracy-circle");
-    accuracyCircle.innerText = Math.round(accuracy) + "%";
-    accuracyCircle.style.background = `conic-gradient(red ${accuracy}%, white ${accuracy}%)`;
-
-    currentTestIndex++;
-    if (currentTestIndex < flashcards.length) {
-        setTimeout(showQuestion, 1000);
-    } else {
-        setTimeout(() => alert("Test completed!"), 1000);
-    }
+    document.getElementById("accuracy-circle").innerText = accuracy + "%";
 }
 
-function compareAnswers(user, correct) {
-    let total = correct.length;
-    let matched = 0;
-
-    for (let i = 0; i < total; i++) {
-        if (user[i] && user[i].toLowerCase() === correct[i].toLowerCase()) {
-            matched++;
-        }
-    }
-    return (matched / total) * 100;
-}
