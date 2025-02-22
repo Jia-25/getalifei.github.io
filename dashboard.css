@@ -3,7 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #E6E6FA; /* Lavender background */
+    background-color: #edf756; /* Dusty White background */
     color: #333;
     overflow-x: hidden;
 }
@@ -12,7 +12,7 @@ body {
 h1 {
     font-family: 'Dancing Script', cursive;
     font-size: 3rem;
-    color: #5A2D82; /* Dark Purple */
+    color: #51e2f5; /* Bright Blue */
     text-align: center;
     margin-top: 50px;
 }
@@ -31,7 +31,7 @@ h1 {
 }
 
 .box {
-    background-color: #D8B7DD; /* Light Purple */
+    background-color: #9df9ef; /* Blue Green */
     padding: 40px;
     border-radius: 8px;
     cursor: pointer;
@@ -39,12 +39,12 @@ h1 {
 }
 
 .box:hover {
-    background-color: #C79BD7; /* Slightly darker purple */
+    background-color: #51e2f5; /* Bright Blue */
 }
 
 .box h3 {
     font-size: 1.5rem;
-    color: #5A2D82; /* Dark Purple */
+    color: #ffa8B6; /* Pink Sand */
 }
 
 /* Sliding Menu Styles */
@@ -54,7 +54,7 @@ h1 {
     top: 0;
     height: 100%;
     width: 250px;
-    background-color: #5A2D82; /* Dark Purple */
+    background-color: #51e2f5; /* Bright Blue */
     transform: translateX(-100%); /* Start off-screen */
     transition: transform 0.3s ease;
     padding-top: 60px;
@@ -74,18 +74,18 @@ h1 {
 
 /* Style for when hovering over the menu item */
 .menu a:hover {
-    background-color: #575757; /* Set highlight color */
+    background-color: #ffa8B6; /* Pink Sand */
     padding-left: 20px; /* Expanding effect on hover */
 }
 
 /* Logout button */
 .menu #logoutBtn {
     margin-top: auto;
-    background-color: #C72C41;
+    background-color: #ff6b81; /* Light Pink */
 }
 
 .menu #logoutBtn:hover {
-    background-color: #9b1d30;
+    background-color: #ff3552; /* Darker Pink */
 }
 
 /* Menu Icon */
@@ -95,7 +95,7 @@ h1 {
     left: 20px;
     font-size: 30px;
     cursor: pointer;
-    color: #5A2D82;
+    color: #51e2f5; /* Bright Blue */
     background: none;
     border: none;
     z-index: 1000; /* Ensure the menu icon is on top of other elements */
