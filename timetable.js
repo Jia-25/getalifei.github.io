@@ -36,14 +36,16 @@ function generateCalendar(month, year) {
         dayElement.innerHTML = `<span>${i}</span>`;
 
         const dateKey = `${month + 1}/${i}/${year}`;
-        const storedEvent = localStorage.getItem(dateKey);
-        if (storedEvent) {
-            const event = JSON.parse(storedEvent);
-            const eventIndicator = document.createElement("div");
-            eventIndicator.classList.add("event-indicator");
-            eventIndicator.innerText = event.name;
-            dayElement.appendChild(eventIndicator);
-            dayElement.classList.add("has-event");
+        const storedEvents = localStorage.getItem(dateKey);
+        if (storedEvents) {
+            const events = JSON.parse(storedEvents);
+            events.forEach(event => {
+                const eventIndicator = document.createElement("div");
+                eventIndicator.classList.add("event-indicator");
+                eventIndicator.innerText = event.name;
+                dayElement.appendChild(eventIndicator);
+                dayElement.classList.add("has-event");
+            });
         }
 
         // Event listener to open modal for editing or adding events
@@ -75,20 +77,37 @@ function generateCalendar(month, year) {
 
 // Open modal to add/edit event
 function openModal(date) {
-    const storedEvent = localStorage.getItem(date);
-    if (storedEvent) {
-        const event = JSON.parse(storedEvent);
-        document.getElementById("modalTitle").innerText = "Edit Event";
-        document.getElementById("eventName").value = event.name;
-        document.getElementById("eventDescription").value = event.description;
-        document.getElementById("deleteEventBtn").style.display = "inline-block";
-    } else {
-        document.getElementById("modalTitle").innerText = "Add Event";
-        document.getElementById("eventName").value = "";
-        document.getElementById("eventDescription").value = "";
-        document.getElementById("deleteEventBtn").style.display = "none";
-    }
+    const storedEvents = localStorage.getItem(date);
+    const events = storedEvents ? JSON.parse(storedEvents) : [];
+    document.getElementById("modalTitle").innerText = "Add Event";
+    document.getElementById("eventName").value = "";
+    document.getElementById("eventDescription").value = "";
+    document.getElementById("deleteEventBtn").style.display = "none";
     document.getElementById("selectedDate").innerText = date;
+    
+    // Display the list of events in the modal (if any)
+    const eventListContainer = document.getElementById("eventListContainer");
+    eventListContainer.innerHTML = ""; // Clear previous events
+
+    events.forEach((event, index) => {
+        const eventItem = document.createElement("div");
+        eventItem.classList.add("event-item");
+
+        const eventName = document.createElement("div");
+        eventName.innerText = event.name;
+        eventItem.appendChild(eventName);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerText = "Delete";
+        deleteButton.classList.add("delete-btn");
+        deleteButton.onclick = function() {
+            deleteEvent(date, index);
+        };
+
+        eventItem.appendChild(deleteButton);
+        eventListContainer.appendChild(eventItem);
+    });
+
     document.getElementById("addEventModal").style.display = "block";
 }
 
@@ -104,8 +123,10 @@ function saveEvent() {
     const description = document.getElementById("eventDescription").value;
 
     if (name && description) {
-        const event = { name, description };
-        localStorage.setItem(date, JSON.stringify(event));
+        let events = JSON.parse(localStorage.getItem(date)) || [];
+        events.push({ name, description });
+        localStorage.setItem(date, JSON.stringify(events));
+
         generateCalendar(currentMonth, currentYear);
         closeModal();
     } else {
@@ -114,9 +135,11 @@ function saveEvent() {
 }
 
 // Delete event from calendar
-function deleteEvent() {
-    const date = document.getElementById("selectedDate").innerText;
-    localStorage.removeItem(date);
+function deleteEvent(date, eventIndex) {
+    const events = JSON.parse(localStorage.getItem(date));
+    events.splice(eventIndex, 1); // Remove the event at the specified index
+    localStorage.setItem(date, JSON.stringify(events));
+
     generateCalendar(currentMonth, currentYear);
     closeModal();
 }
@@ -127,3 +150,8 @@ let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
 
 generateCalendar(currentMonth, currentYear);
+
+// Function to get the number of days in a month (defined again for scope)
+function getDaysInMonth(month, year) {
+    return new Date(year, month + 1, 0).getDate();
+}
