@@ -17,6 +17,8 @@ function addPurchase() {
     let purchaseAmount = parseFloat(document.getElementById("purchase").value) || 0;
     spent += purchaseAmount;
     updateStatus();
+
+ document.getElementById("purchase").value = "";
 }
 
 function updateStatus() {
