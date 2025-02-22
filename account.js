@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Sliding Menu Functionality
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
+});
+
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
+});
+    
     // Fetch data from localStorage
     const name = localStorage.getItem('name');
     const email = localStorage.getItem('email');
