@@ -9,32 +9,29 @@
 <body>
     <!-- Sliding Menu -->
     <div class="menu" id="menu">
-        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentpfp.html">Student Profile</a>
         <a href="account.html">Account Settings</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="customer-support.html">Customer Support</a>
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
-
-    <!-- Open menu button -->
     <span class="open-btn" id="openBtn">&#9776;</span>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <div class="box left">
-            <h3>Upload Assignment</h3>
-            <input type="file" id="fileInput" accept=".pdf" />
-            <button id="uploadBtn">Upload Assignment</button>
-            <div id="filePreviewContainer"></div>
-        </div>
-        <div class="box right">
-            <div id="plusSignContainer">
-                <span id="plusSign">+</span>
+    <div class="container">
+        <h1>Assignments</h1>
+        <div class="assignment-container" id="assignments">
+            <div class="assignment-box upload-box" id="upload-box-1">
+                <button class="upload-btn" onclick="uploadFile(1)">Upload Assignment</button>
+                <input type="file" id="file-input-1" accept=".pdf" style="display:none;" onchange="handleFileUpload(1)">
+                <div class="file-actions" id="file-actions-1" style="display:none;">
+                    <button class="preview-btn" onclick="previewFile(1)">Preview File</button>
+                    <button class="delete-btn" onclick="deleteFile(1)">Delete File</button>
+                </div>
             </div>
+            <div class="assignment-box plus-box" onclick="addNewUploadBox()">+</div>
         </div>
     </div>
-
     <script src="assignments.js"></script>
 </body>
 </html>
