@@ -1,14 +1,12 @@
+/* Global Styles */
 body {
-    font-family: Times New Roman, serif;
-    background-image: url('dashboard.jpg');
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Times New Roman', serif;
     margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
+/* Sliding Menu */
 .menu {
     height: 100%;
     width: 250px;
@@ -35,6 +33,7 @@ body {
     color: black;
 }
 
+/* Close button */
 .close-btn {
     position: absolute;
     top: 0;
@@ -45,57 +44,88 @@ body {
     cursor: pointer;
 }
 
+/* Open Button (hamburger) */
 .open-btn {
     font-size: 36px;
     cursor: pointer;
     margin: 10px;
 }
 
+/* Menu visibility when open */
 .menu.open {
     left: 0;
 }
 
+/* Calendar */
 .calendar-container {
-    background: rgba(255, 255, 255, 0.9);
+    margin-left: 250px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
 }
 
-.calendar-header {
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+.calendar-cell {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calendar-cell:hover {
+    background-color: #ddd;
+}
+
+/* Event panel (slide-in) */
+.event-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.5s;
+    padding: 20px;
+}
+
+.event-panel .panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.calendar-header button {
-    background: blue;
-    color: white;
-    border: none;
-    padding: 5px 10px;
+.event-panel .event-content {
+    margin-bottom: 20px;
+}
+
+.event-panel .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-panel .buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
 }
 
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+.event-panel.open {
+    right: 0;
 }
 
-.day-header {
-    font-weight: bold;
+input[type="text"], textarea {
+    width: 100%;
     padding: 10px;
-    background: #ddd;
-    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
 }
 
-.day-cell, .empty-cell {
-    padding: 15px;
-    background: white;
-    border-radius: 5px;
-    text-align: center;
+textarea {
+    height: 100px;
 }
