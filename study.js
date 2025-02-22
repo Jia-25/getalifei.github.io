@@ -83,99 +83,52 @@ function uploadMaterial(event) {
         materialList.appendChild(materialItem);
     }
 }
-// Study Music Menu Toggle
-document.getElementById("studyMusicBtn").addEventListener("click", function() {
-    document.getElementById("musicMenu").style.right = "0";
-});
 
-document.getElementById("closeMusicBtn").addEventListener("click", function() {
-    document.getElementById("musicMenu").style.right = "-300px";
-});
+// Ensure the script runs after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+    // Study Music Menu Toggle
+    const studyMusicBtn = document.getElementById("studyMusicBtn");
+    const musicMenu = document.getElementById("musicMenu");
+    const closeMusicBtn = document.getElementById("closeMusicBtn");
 
-// YouTube Audio Search and Playback (Basic Implementation)
-document.getElementById("searchMusicBtn").addEventListener("click", function() {
-    let query = document.getElementById("musicSearch").value;
-    if (query) {
-        searchYouTube(query);
-    }
-});
+    studyMusicBtn.addEventListener("click", function () {
+        musicMenu.style.right = "0"; // Slide menu in
+    });
 
-// Simulated YouTube Audio Playback
-let audioPlaying = false;
-document.getElementById("playPauseBtn").addEventListener("click", function() {
-    if (!audioPlaying) {
-        this.innerText = "Pause";
-        audioPlaying = true;
-        simulateAudioProgress();
-    } else {
-        this.innerText = "Play";
-        audioPlaying = false;
-    }
-});
+    closeMusicBtn.addEventListener("click", function () {
+        musicMenu.style.right = "-300px"; // Slide menu out
+    });
 
-// Simulate Audio Progress Bar
-function simulateAudioProgress() {
-    let progressBar = document.getElementById("progressBar");
-    let progress = 0;
-    let interval = setInterval(() => {
-        if (!audioPlaying || progress >= 100) {
-            clearInterval(interval);
+    // Simulated YouTube Audio Playback
+    let audioPlaying = false;
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const progressBar = document.getElementById("progressBar");
+
+    playPauseBtn.addEventListener("click", function () {
+        if (!audioPlaying) {
+            playPauseBtn.innerText = "Pause";
+            audioPlaying = true;
+            simulateAudioProgress();
         } else {
-            progress += 1;
-            progressBar.value = progress;
+            playPauseBtn.innerText = "Play";
+            audioPlaying = false;
         }
-    }, 1000);
-}
+    });
 
-// Study Music Menu Toggle
-document.getElementById("studyMusicBtn").addEventListener("click", function() {
-    document.getElementById("musicMenu").style.right = "0";
-});
-
-document.getElementById("closeMusicBtn").addEventListener("click", function() {
-    document.getElementById("musicMenu").style.right = "-300px";
-});
-
-// YouTube Audio Search and Playback (Basic Implementation)
-document.getElementById("searchMusicBtn").addEventListener("click", function() {
-    let query = document.getElementById("musicSearch").value;
-    if (query) {
-        searchYouTube(query);
+    // Simulate Audio Progress Bar
+    function simulateAudioProgress() {
+        let progress = 0;
+        let interval = setInterval(() => {
+            if (!audioPlaying || progress >= 100) {
+                clearInterval(interval);
+            } else {
+                progress += 1;
+                progressBar.value = progress;
+            }
+        }, 1000);
     }
 });
 
-// Simulated YouTube Audio Playback
-let audioPlaying = false;
-document.getElementById("playPauseBtn").addEventListener("click", function() {
-    if (!audioPlaying) {
-        this.innerText = "Pause";
-        audioPlaying = true;
-        simulateAudioProgress();
-    } else {
-        this.innerText = "Play";
-        audioPlaying = false;
-    }
-});
-
-// Simulate Audio Progress Bar
-function simulateAudioProgress() {
-    let progressBar = document.getElementById("progressBar");
-    let progress = 0;
-    let interval = setInterval(() => {
-        if (!audioPlaying || progress >= 100) {
-            clearInterval(interval);
-        } else {
-            progress += 1;
-            progressBar.value = progress;
-        }
-    }, 1000);
-}
-
-// Function to Simulate YouTube Search (Needs API Integration)
-function searchYouTube(query) {
-    alert("Searching YouTube for: " + query);
-    // Here, you can integrate YouTube API to fetch and play actual audio.
-}
 
 // Flashcards Button Click Event
 document.getElementById("flashcardButton").addEventListener("click", function () {
