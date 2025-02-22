@@ -29,6 +29,18 @@
         </div>
         <div class="calendar-grid" id="calendarGrid"></div>
     </div>
+<!-- Event Slide -->
+<div id="eventSlide" class="event-slide">
+    <div class="event-header">
+        <span onclick="closeEventSlide()" class="close-btn">&#8592;</span>
+        <h3>Event on <span id="eventDate">Date</span></h3>
+    </div>
+    <div class="event-content">
+        <input type="text" placeholder="Event Title" id="eventTitle">
+        <textarea placeholder="Event Description" id="eventDescription"></textarea>
+        <button onclick="saveEvent()">Save Event</button>
+    </div>
+</div>
 
     <!-- Event Slide Panel -->
     <div class="event-slide" id="eventSlide">
