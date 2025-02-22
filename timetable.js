@@ -1,103 +1,106 @@
-let events = {}; // Store events as an object with date keys
-let currentDate = ''; // Keep track of the selected date
-
-// Toggle Menu
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('open');
-}
-
-// Show Motivation Dialog
-function showMotivation() {
-    const dialog = document.getElementById('motivation-dialog');
-    dialog.style.display = 'block';
-}
-
-// Close Motivation Dialog
-function closeDialog() {
-    const dialog = document.getElementById('motivation-dialog');
-    dialog.style.display = 'none';
-}
-
-// Update User Name
-function setUserName(name) {
-    document.getElementById('userName').textContent = name;
-}
-
-// Generate Calendar
-function generateCalendar() {
-    const calendar = document.getElementById('calendar');
-    const date = new Date();
-    const month = date.getMonth();
-    const year = date.getFullYear();
-
-    // Set the month/year title
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
-    ];
-    document.querySelector("header h1").textContent = `${monthNames[month]} ${year}`;
-
-    // Get the first day of the month
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const totalDays = lastDay.getDate();
-    const firstDayWeekday = firstDay.getDay();
-
-    // Clear any previous calendar days
-    calendar.innerHTML = '';
-
-    // Add empty cells for days before the start of the month
-    for (let i = 0; i < firstDayWeekday; i++) {
-        const emptyCell = document.createElement('div');
-        emptyCell.classList.add('day', 'empty');
-        calendar.appendChild(emptyCell);
-    }
-
-    // Add the days of the month
-    for (let i = 1; i <= totalDays; i++) {
-        const dayCell = document.createElement('div');
-        dayCell.classList.add('day');
-        dayCell.innerHTML = `<a href="#" onclick="openEventSlide('${year}-${month + 1}-${i}')">${i}</a>`;
-        calendar.appendChild(dayCell);
-    }
-}
-
-// Open Event Slide
-function openEventSlide(date) {
-    currentDate = date;
-    const eventData = events[date] || { title: '', description: '', time: '' };
-    
-    document.getElementById('event-title').value = eventData.title;
-    document.getElementById('event-description').value = eventData.description;
-    document.getElementById('event-time').value = eventData.time;
-
-    document.getElementById('event-slide').style.right = '0'; // Slide in
-}
-
-// Close Event Slide
-function closeEventSlide() {
-    document.getElementById('event-slide').style.right = '-400px'; // Slide out
-}
-
-// Save Event
-document.getElementById('event-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const title = document.getElementById('event-title').value;
-    const description = document.getElementById('event-description').value;
-    const time = document.getElementById('event-time').value;
-
-    events[currentDate] = { title, description, time };
-    closeEventSlide();
-    generateCalendar(); // Re-generate the calendar to show the event
+// Sliding Menu Functionality
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
 });
 
-// Delete Event
-function deleteEvent() {
-    delete events[currentDate];
-    closeEventSlide();
-    generateCalendar(); // Re-generate the calendar after deletion
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
+});
+
+// Calendar Logic
+const calendarGrid = document.getElementById("calendarGrid");
+const monthYear = document.getElementById("monthYear");
+
+let currentDate = new Date();
+let selectedDate = null;
+let events = {}; // Store events in a dictionary
+
+// Function to render calendar
+function renderCalendar() {
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    
+    monthYear.innerHTML = `${firstDay.toLocaleString('default', { month: 'long' })} ${year}`;
+
+    calendarGrid.innerHTML = ''; // Clear the grid
+    
+    // Render empty spaces before the 1st day
+    for (let i = 0; i < firstDay.getDay(); i++) {
+        const emptyDiv = document.createElement("div");
+        calendarGrid.appendChild(emptyDiv);
+    }
+    
+    // Render the days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dateDiv = document.createElement("div");
+        dateDiv.textContent = day;
+        dateDiv.dataset.date = `${year}-${month + 1}-${day}`;
+        
+        // Add event mark if there's an event on that day
+        if (events[dateDiv.dataset.date]) {
+            dateDiv.style.backgroundColor = '#aaf';
+        }
+
+        dateDiv.addEventListener("click", () => openEventSlide(dateDiv.dataset.date));
+        calendarGrid.appendChild(dateDiv);
+    }
 }
 
+// Function to open the event slide
+function openEventSlide(date) {
+    selectedDate = date;
+    document.getElementById("eventSlide").classList.add("open");
+    const event = events[date];
+    
+    if (event) {
+        document.getElementById("eventTitle").value = event.title;
+        document.getElementById("eventDesc").value = event.description;
+    } else {
+        document.getElementById("eventTitle").value = '';
+        document.getElementById("eventDesc").value = '';
+    }
+}
+
+// Close the event slide
+document.getElementById("closeSlide").addEventListener("click", () => {
+    document.getElementById("eventSlide").classList.remove("open");
+});
+
+// Handle event form submission
+document.getElementById("eventForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("eventTitle").value;
+    const description = document.getElementById("eventDesc").value;
+    
+    if (selectedDate) {
+        events[selectedDate] = { title, description };
+        renderCalendar(); // Re-render the calendar with the new event
+        document.getElementById("eventSlide").classList.remove("open");
+    }
+});
+
+// Handle event deletion
+document.getElementById("deleteEvent").addEventListener("click", () => {
+    if (selectedDate) {
+        delete events[selectedDate];
+        renderCalendar(); // Re-render the calendar after deletion
+        document.getElementById("eventSlide").classList.remove("open");
+    }
+});
+
+// Navigate to previous/next month
+document.querySelector('.prev').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+});
+
 // Initialize the calendar
-generateCalendar();
+renderCalendar();
