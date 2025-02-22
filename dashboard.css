@@ -85,9 +85,9 @@ body {
 /* Squares Section - 2 Squares in 4 Rows */
 .squares {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 squares in each row */
-    grid-template-rows: repeat(4, auto); /* 4 rows */
-    grid-gap: 30px; /* Distance between the squares */
+    grid-template-columns: repeat(4, 1fr); /* 2 squares in each row */
+    grid-template-rows: repeat(2, auto); /* 4 rows */
+    grid-gap: 10px; /* Distance between the squares */
     margin-top: 50px;
     padding: 10px;
     justify-items: center; /* Centers items horizontally */
