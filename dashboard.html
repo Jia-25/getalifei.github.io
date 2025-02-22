@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
+    <!-- Sliding Menu (same as on account settings) -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <a href="studentProfile.html">Student Profile</a>
+        <a href="settings.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
+    </div>
+
+    <!-- Open menu button -->
+    <span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
+
     <!-- Left Menu Strip -->
     <div id="menu-strip" class="menu-strip">
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
