@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Dashboard</title>
+    <title>Study Page</title>
     <link rel="stylesheet" href="study.css">
-    <script defer src="study.js"></script>
 </head>
-
 <body>
-    <!-- Background Image -->
-    <div class="background"></div>
 
     <!-- Sliding Menu -->
-    <div class="menu" id="menu">
-        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
-        <a href="studentpfp.html">Student Profile</a>
-        <a href="account.html">Account Settings</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="customer-support.html">Customer Support</a>
-        <a href="login.html" id="logoutBtn">Logout</a> <!-- Logout Button -->
+    <div id="menu" class="menu">
+        <span id="closeBtn" class="close-btn">&times;</span>
+        <a href="#">Home</a>
+        <a href="#">Materials</a>
+        <a href="#">Flashcards</a>
     </div>
 
-    <!-- Open Button for Menu -->
-    <span class="open-btn" id="openMenu">&#9776;</span>
+    <span id="openMenu" class="open-btn">&#9776;</span>
 
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Dashboard Content -->
     <div class="dashboard-content">
         <h1 id="welcomeText">Commencing Study Session</h1>
 
-        <!-- Pomodoro Timer Section -->
+        <!-- Pomodoro Timer -->
         <div class="pomodoro">
             <h2>Pomodoro Timer</h2>
-            <div class="pomodoro-clock">
-                <p id="timerDisplay">25:00</p>
-                <button id="startTimer">Start</button>
-                <button id="resetTimer">Reset</button>
-            </div>
+            <div id="timerDisplay" class="pomodoro-clock">25:00</div>
+            <button id="startTimer">Start</button>
+            <button id="resetTimer">Reset</button>
         </div>
 
         <!-- Study Materials Section -->
         <div class="study-materials">
             <h2>Study Materials</h2>
-            <div class="squares">
-                <!-- Box for adding new materials -->
-                <div class="square add-material">
+
+            <!-- Post Material & Create Flashcards Buttons -->
+            <div class="button-container">
+                <div class="add-material">
                     <span class="add-icon">+</span>
-                    <p>Post Material</p>
-                    <input type="file" class="material-input" style="display: none;" onchange="uploadMaterial(event)">
+                    <span>Post Material</span>
+                    <input type="file" class="material-input" onchange="uploadMaterial(event)">
                 </div>
-                <!-- The student posted materials will go here -->
+
+                <div class="add-material flashcards-button" onclick="location.href='flashcards.html'">
+                    <span class="add-icon">+</span>
+                    <span>Create Flashcards</span>
+                </div>
             </div>
         </div>
-
     </div>
-</body>
 
+    <script src="study.js"></script>
+</body>
 </html>
