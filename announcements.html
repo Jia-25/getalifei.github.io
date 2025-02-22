@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <link rel="stylesheet" href="announcements.css">
+</head>
+<body>
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span>
+        <a href="studentpfp.html">Student Profile</a>
+        <a href="account.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </div>
+
+    <!-- Open menu button -->
+    <span class="open-btn" id="openBtn">&#9776;</span>
+
+    <!-- Announcement Box -->
+    <div class="announcement-container">
+        <h1>Inbox</h1>
+        <div class="announcement-box">
+            <div class="announcement-header">
+                <span>From</span>
+                <span>Subject</span>
+                <span>Date</span>
+            </div>
+
+            <div class="announcement-item" onclick="viewAnnouncement(1)">
+                <span>Admin</span>
+                <span>Important Update</span>
+                <span>Feb 22, 2025</span>
+            </div>
+
+            <div class="announcement-item" onclick="viewAnnouncement(2)">
+                <span>Student Affairs</span>
+                <span>New Schedule</span>
+                <span>Feb 21, 2025</span>
+            </div>
+
+            <!-- Add more announcements here -->
+        </div>
+    </div>
+
+    <!-- Announcement Detail View -->
+    <div id="announcementModal" class="announcement-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modalSubject">Announcement Title</h2>
+            <p id="modalFrom">From: </p>
+            <p id="modalDate">Date: </p>
+            <p id="modalContent">Content of the announcement...</p>
+        </div>
+    </div>
+
+    <script src="announcements.js"></script>
+</body>
+</html>
