@@ -12,16 +12,6 @@ closeBtn.addEventListener("click", () => {
 });
 
 
-// Optional: Automatically close the menu when clicking outside
-document.addEventListener("click", function (event) {
-    const menu = document.getElementById("menu");
-    const openBtn = document.getElementById("openMenu");
-
-    if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
-        menu.classList.remove("open");  // Close menu if clicked outside
-    }
-});
-
 // Pomodoro Timer Logic
 let timerInterval;
 let minutes = 25;
