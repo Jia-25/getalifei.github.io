@@ -7,41 +7,31 @@
     <link rel="stylesheet" href="studentpfp.css">
 </head>
 <body>
-    <div class="profile-container">
-        <h1>Student Profile</h1>
-        <div class="profile-info">
-            <div class="profile-pic">
-                <label for="profilePic">Profile Picture</label>
-                <input type="file" id="profilePic" accept="image/*">
-                <img id="pfp" src="default-pfp.jpg" alt="Profile Picture" width="100" height="100">
-            </div>
+    <!-- Sliding Menu -->
+    <div class="menu" id="menu">
+        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <a href="studentProfile.html">Student Profile</a>
+        <a href="settings.html">Account Settings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">Customer Support</a>
+        <a href="#" id="logoutBtn">Logout</a> <!-- Logout Button -->
+    </div>
 
-            <div class="profile-details">
-                <label for="name">Name:</label>
-                <span id="nameDisplay"></span> <!-- Display name -->
+    <!-- Open menu button -->
+    <span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
 
-                <label for="email">Email:</label>
-                <span id="emailDisplay"></span> <!-- Display email -->
-
-                <label for="age">Age:</label>
-                <input type="number" id="age" value="" placeholder="Enter your age"> <!-- Editable Age -->
-                
-                <label for="changePassword">Change Password:</label>
-                <form id="changePasswordForm">
-                    <label for="oldPassword">Current Password:</label>
-                    <input type="password" id="oldPassword" required>
-
-                    <label for="newPassword">New Password:</label>
-                    <input type="password" id="newPassword" required>
-
-                    <label for="confirmNewPassword">Confirm New Password:</label>
-                    <input type="password" id="confirmNewPassword" required>
-
-                    <button type="submit">Update Password</button>
-                </form>
+    <!-- Student Profile Content -->
+    <div class="container">
+        <h1>Welcome, <span id="student-name"></span></h1>
+        <div>
+            <p>Email: <span id="student-email"></span></p>
+            <p>Age: <span id="student-age"></span> <button onclick="editAge()">Edit</button></p>
+            <div>
+                <p>Profile Picture:</p>
+                <img id="profile-pic" src="studentpfp.jpg" alt="Profile Picture" width="100" height="100">
+                <input type="file" id="file-input" onchange="uploadProfilePic()">
             </div>
         </div>
-        <button id="saveBtn">Save Changes</button>
     </div>
 
     <script src="studentpfp.js"></script>
