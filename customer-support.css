@@ -1,16 +1,25 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
+    background-image: url('dashboard.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
 }
 
 h1 {
-    color: #333;
+    color: #fff;
+    font-size: 2rem;
 }
 
 .faq-section, .support-section {
@@ -30,6 +39,7 @@ select {
     padding: 10px;
     font-size: 16px;
     margin: 10px 0;
+    border-radius: 4px;
 }
 
 .bot-answer {
@@ -53,11 +63,13 @@ button:hover {
 
 /* Sliding Menu */
 .open-btn {
-    font-size: 30px;
+    font-size: 36px;
     cursor: pointer;
     position: fixed;
     top: 10px;
     left: 10px;
+    color: white;
+    z-index: 100;
 }
 
 .menu {
@@ -66,8 +78,11 @@ button:hover {
     left: -250px;
     width: 250px;
     height: 100%;
-    background-color: #333;
+    background-color: #111;
+    overflow-x: hidden;
     transition: 0.3s;
+    padding-top: 60px;
+    z-index: 99;
 }
 
 .menu.open {
@@ -75,21 +90,39 @@ button:hover {
 }
 
 .menu a {
-    color: white;
     padding: 15px 20px;
     text-decoration: none;
+    font-size: 1.2rem;
+    color: #818181;
     display: block;
+    transition: 0.3s;
 }
 
 .menu a:hover {
-    background-color: #575757;
+    background-color: #ddd;
+    color: black;
 }
 
+/* Close button */
 .close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
     color: white;
     cursor: pointer;
+}
+
+/* Open Button (hamburger) */
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* Image upload input */
+input[type="file"] {
+    margin-top: 10px;
 }
