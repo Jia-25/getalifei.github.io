@@ -151,11 +151,6 @@ let currentYear = currentDate.getFullYear();
 
 generateCalendar(currentMonth, currentYear);
 
-// Function to get the number of days in a month (defined again for scope)
-function getDaysInMonth(month, year) {
-    return new Date(year, month + 1, 0).getDate();
-}
-
 // JavaScript for opening and closing the menu
 function openMenu() {
     document.getElementById("myMenu").classList.remove("closed");
@@ -167,3 +162,6 @@ function closeMenu() {
     document.getElementById("myMenu").classList.add("closed");
 }
 
+// Event listeners for opening/closing the menu
+document.getElementById("menuToggle").addEventListener("click", openMenu);
+document.getElementById("closeMenu").addEventListener("click", closeMenu);
