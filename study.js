@@ -99,6 +99,41 @@ document.addEventListener("DOMContentLoaded", function () {
         musicMenu.style.right = "-500px"; // Slide menu out
     });
 
+    document.getElementById("searchMusicBtn").addEventListener("click", function() {
+    let query = document.getElementById("musicSearchInput").value;
+    
+    if (query.trim() === "") {
+        alert("Please enter a search term!");
+        return;
+    }
+
+    searchYouTube(query);
+});
+
+// Function to search YouTube and return audio
+function searchYouTube(query) {
+    let apiKey = "YOUR_YOUTUBE_API_KEY"; // Replace with your actual API key
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${encodeURIComponent(query)}&key=${apiKey}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.items.length > 0) {
+                let videoId = data.items[0].id.videoId;
+                playAudio(videoId);
+            } else {
+                alert("No results found!");
+            }
+        })
+        .catch(error => console.error("Error fetching YouTube data:", error));
+}
+
+// Function to play audio without video
+function playAudio(videoId) {
+    let audioPlayer = document.getElementById("musicPlayer");
+    audioPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0`;
+}
+
     // Simulated YouTube Audio Playback
     let audioPlaying = false;
     const playPauseBtn = document.getElementById("playPauseBtn");
