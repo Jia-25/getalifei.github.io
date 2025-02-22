@@ -46,6 +46,27 @@
         </div>
     </div>
 
+    <!-- Slide-In Panel for Events -->
+    <div id="event-slide" class="event-slide">
+        <div class="event-slide-header">
+            <h2>Add/Edit Event</h2>
+            <span class="close" onclick="closeEventSlide()">&times;</span>
+        </div>
+        <form id="event-form">
+            <label for="event-title">Event Title</label>
+            <input type="text" id="event-title" name="title" required>
+
+            <label for="event-description">Description</label>
+            <textarea id="event-description" name="description" required></textarea>
+
+            <label for="event-time">Time</label>
+            <input type="time" id="event-time" name="time" required>
+
+            <button type="submit">Save Event</button>
+            <button type="button" onclick="deleteEvent()">Delete Event</button>
+        </form>
+    </div>
+
     <script src="timetable.js"></script>
 </body>
 </html>
