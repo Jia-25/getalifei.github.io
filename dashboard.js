@@ -8,7 +8,7 @@ document.getElementById("closeBtn").addEventListener("click", function() {
 });
 
 // Setting User Name (from signup/login.js)
-const userName = "John Doe"; // Replace with dynamic data from signup.js or login.js
+const userName = ; // Replace with dynamic data from signup.js or login.js
 document.getElementById("userName").textContent = userName;
 
 // Motivation Button Functionality
