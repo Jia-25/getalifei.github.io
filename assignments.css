@@ -76,3 +76,38 @@ body {
 .fileInput {
     display: none;
 }
+.menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* Open Button (hamburger) */
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    margin: 10px;
+}
+/* Menu visibility when open */
+.menu.open {
+    left: 0;
+}
