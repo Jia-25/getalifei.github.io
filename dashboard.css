@@ -82,22 +82,23 @@ body {
     text-align: left;
 }
 
-/* Squares Section - Two Rows */
+/* Squares Section - Two Rows (4 squares on top and 3 on bottom) */
 .squares {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 squares on top row */
+    grid-template-rows: auto auto; /* Two rows */
+    grid-gap: 30px; /* Distance between the squares */
     margin-top: 50px;
     padding: 10px;
-    justify-items: center;
-    position: relative;
-    z-index: 1;/* Ensures that items are centered */
+    justify-items: center; /* Centers items horizontally */
+    align-items: center;  /* Centers items vertically */
+    width: 100%;
 }
 
+/* Square Styling */
 .square {
-    width: 100;
-    height: 100;
-    padding-bottom: 100%; /* Ensures the square aspect ratio */
+    width: 200px; /* Set width */
+    height: 200px; /* Set height */
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     display: flex;
@@ -108,7 +109,6 @@ body {
     cursor: pointer;
     text-align: center;
     position: relative;
-    padding: 10px; /* Ensure the text has some padding */
 }
 
 .square:hover {
