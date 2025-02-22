@@ -7,37 +7,34 @@ document.getElementById("closeBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.remove("open");
 });
 
-// Trigger file input click when upload button is clicked
+// Upload button functionality
 document.getElementById("uploadBtn").addEventListener("click", function() {
-    const fileInput = document.getElementById("fileInput");
-    fileInput.click(); // Trigger the file explorer
+    document.getElementById("fileInput").click();
 });
 
-// Handle file selection
 document.getElementById("fileInput").addEventListener("change", function() {
     const file = this.files[0];
     if (file) {
         const filePreviewContainer = document.getElementById("filePreviewContainer");
         const previewButton = document.createElement("button");
         previewButton.textContent = "Preview File";
-        previewButton.classList.add("preview");
+        previewButton.classList.add("styled-btn");
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete File";
-        deleteButton.classList.add("delete");
+        deleteButton.classList.add("styled-btn");
 
         deleteButton.addEventListener("click", function() {
-            // Reset file input and remove preview and delete buttons
             document.getElementById("fileInput").value = '';
             filePreviewContainer.innerHTML = '';
         });
 
         previewButton.addEventListener("click", function() {
             const url = URL.createObjectURL(file);
-            window.open(url); // Open file in a new tab
+            window.open(url);
         });
 
-        filePreviewContainer.innerHTML = ''; // Clear previous previews
+        filePreviewContainer.innerHTML = '';
         filePreviewContainer.appendChild(previewButton);
         filePreviewContainer.appendChild(deleteButton);
     }
@@ -53,34 +50,31 @@ document.getElementById("plusSign").addEventListener("click", function() {
         newBox.innerHTML = `
             <h3>Upload Assignment</h3>
             <input type="file" class="fileInput" accept=".pdf" style="display: none;" />
-            <button class="uploadBtn">Upload Assignment</button>
+            <button class="styled-btn uploadBtn">Upload Assignment</button>
             <div class="filePreviewContainer"></div>
         `;
 
         document.querySelector(".right").appendChild(newBox);
 
-        // Open file explorer when button clicked
         newBox.querySelector(".uploadBtn").addEventListener("click", function() {
-            const fileInput = newBox.querySelector(".fileInput");
-            fileInput.click(); // Trigger file explorer
+            newBox.querySelector(".fileInput").click();
         });
 
-        // Handle file selection for the new box
         newBox.querySelector(".fileInput").addEventListener("change", function() {
             const file = this.files[0];
             if (file) {
                 const filePreviewContainer = newBox.querySelector(".filePreviewContainer");
                 const previewButton = document.createElement("button");
                 previewButton.textContent = "Preview File";
-                previewButton.classList.add("preview");
+                previewButton.classList.add("styled-btn");
 
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent = "Delete File";
-                deleteButton.classList.add("delete");
+                deleteButton.classList.add("styled-btn");
 
                 deleteButton.addEventListener("click", function() {
-                    fileInput.value = ''; // Reset file input
-                    filePreviewContainer.innerHTML = ''; // Clear preview and delete button
+                    fileInput.value = '';
+                    filePreviewContainer.innerHTML = '';
                 });
 
                 previewButton.addEventListener("click", function() {
@@ -88,13 +82,12 @@ document.getElementById("plusSign").addEventListener("click", function() {
                     window.open(url);
                 });
 
-                filePreviewContainer.innerHTML = ''; // Clear previous previews
+                filePreviewContainer.innerHTML = '';
                 filePreviewContainer.appendChild(previewButton);
                 filePreviewContainer.appendChild(deleteButton);
             }
         });
 
-        // Replace plus sign container with upload assignment content
         document.getElementById("plusSignContainer").style.display = 'none';
     }
 });
