@@ -76,6 +76,10 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
+.signup-link p {
+        color: black;
+    }
+
 /* Ensure the link color is black */
 .signup-link a {
     color: black; /* Change the text color of the link to black */
