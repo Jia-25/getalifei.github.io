@@ -51,39 +51,51 @@ function formatTime(minutes, seconds) {
     return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 }
 
-// File Upload and Preview Functionality
-const uploadBox = document.getElementById("uploadBox");
-const materialInput = document.getElementById("materialInput");
-const materialList = document.getElementById("materialList");
+// Get stored flashcards or initialize empty array
+let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 
-uploadBox.addEventListener("click", function () {
-    materialInput.click();
-});
+// Function to add a flashcard
+function addFlashcard() {
+    let question = document.getElementById("questionInput").value.trim();
+    let answer = document.getElementById("answerInput").value.trim();
 
-materialInput.addEventListener("change", function (event) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-        displayFile(files[i]);
+    if (question && answer) {
+        flashcards.push({ question, answer });
+        localStorage.setItem("flashcards", JSON.stringify(flashcards));
+        
+        // Clear inputs
+        document.getElementById("questionInput").value = "";
+        document.getElementById("answerInput").value = "";
+
+        // Refresh displayed list
+        displayFlashcards();
     }
-});
-
-// Function to Display Uploaded Files
-function displayFile(file) {
-    const materialItem = document.createElement("div");
-    materialItem.classList.add("material-item");
-
-    const materialName = document.createElement("span");
-    materialName.classList.add("material-name");
-    materialName.textContent = file.name;
-
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-btn");
-    deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", function () {
-        materialItem.remove();
-    });
-
-    materialItem.appendChild(materialName);
-    materialItem.appendChild(deleteButton);
-    materialList.appendChild(materialItem);
 }
+
+// Function to display flashcards list
+function displayFlashcards() {
+    let list = document.getElementById("flashcardList");
+    list.innerHTML = "";
+
+    flashcards.forEach((flashcard, index) => {
+        let item = document.createElement("li");
+        item.textContent = flashcard.question;
+        
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.onclick = function () { removeFlashcard(index); };
+
+        item.appendChild(deleteBtn);
+        list.appendChild(item);
+    });
+}
+
+// Function to remove a flashcard
+function removeFlashcard(index) {
+    flashcards.splice(index, 1);
+    localStorage.setItem("flashcards", JSON.stringify(flashcards));
+    displayFlashcards();
+}
+
+// Show existing flashcards on page load
+displayFlashcards();
