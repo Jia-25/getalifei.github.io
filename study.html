@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <!-- Sliding Menu (Left) -->
+    <!-- Sliding Menu -->
     <div class="menu" id="menu">
-        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
+        <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentpfp.html">Student Profile</a>
         <a href="account.html">Account Settings</a>
         <a href="dashboard.html">Dashboard</a>
@@ -19,41 +19,40 @@
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
 
-    <!-- Open menu button (Hamburger) -->
+    <!-- Open menu button -->
     <span class="open-btn" id="openBtn">&#9776;</span>
-    
+
     <!-- Background -->
     <div class="background"></div>
 
     <!-- Dashboard Content -->
     <div class="dashboard-content">
-        <h1 id="welcomeText">Commencing Study Session</h1>
+        <h1>Commencing Study Session</h1>
 
-        <!-- Pomodoro Timer -->
-        <div class="pomodoro">
-            <h2>Pomodoro Timer</h2>
-            <div id="timerDisplay" class="pomodoro-clock">25:00</div>
-            <button id="startTimer">Start</button>
-            <button id="resetTimer">Reset</button>
-        </div>
+        <!-- Study Sections -->
+        <div class="study-sections">
 
-        <!-- Study Materials Section -->
-        <div class="study-materials">
-            <h2>Study Materials</h2>
+            <!-- Study Material Upload -->
+            <div class="study-box" id="uploadBox">
+                <span>Upload Material</span>
+                <input type="file" class="material-input" id="materialInput">
+            </div>
 
-            <!-- Post Material & Create Flashcards Buttons -->
-            <div class="button-container">
-                <div class="add-material">
-                    <span class="add-icon">+</span>
-                    <span>Post Material</span>
-                    <input type="file" class="material-input" onchange="uploadMaterial(event)">
-                </div>
+            <!-- Test Yourself -->
+            <div class="study-box" onclick="location.href='test.html'">
+                <span>Test Yourself</span>
+            </div>
 
-                <div class="add-material flashcards-button" onclick="location.href='flashcards.html'">
-                    <span class="add-icon">+</span>
-                    <span>Create Flashcards</span>
+            <!-- Pomodoro Timer -->
+            <div class="study-box">
+                <span>Pomodoro Timer</span>
+                <div id="timerDisplay" class="pomodoro-clock">25:00</div>
+                <div class="timer-buttons">
+                    <button id="startTimer">Start</button>
+                    <button id="resetTimer">Reset</button>
                 </div>
             </div>
+
         </div>
     </div>
 
