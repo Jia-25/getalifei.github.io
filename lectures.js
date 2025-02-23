@@ -1,63 +1,48 @@
-// Menu Toggle
-document.getElementById("openBtn").addEventListener("click", function() {
-    document.getElementById("menu").classList.add("open");
-});
-
-document.getElementById("closeBtn").addEventListener("click", function() {
-    document.getElementById("menu").classList.remove("open");
-});
-// Optional: Automatically close the menu when clicking outside
-document.addEventListener("click", function(event) {
-    const menu = document.getElementById("menu");
-    const openBtn = document.getElementById("openBtn");
-
-    if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
-        menu.classList.remove("open");  // Close menu if clicked outside
-    }
-});
-// Motivation Button Functionality
-const motivationBtn = document.getElementById("motivationBtn");
-const motivationDialogue = document.getElementById("motivationDialogue");
-const closeDialogueBtn = document.getElementById("closeDialogue");
-
-motivationBtn.addEventListener("click", function() {
-    motivationDialogue.style.display = "block";
-});
-
-closeDialogueBtn.addEventListener("click", function() {
-    motivationDialogue.style.display = "none";
-});
-
-// Handle Add Button Click to Open File Input
-const addButtons = document.querySelectorAll('.add-button');
-addButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const topic = this.getAttribute('data-topic');
-        const fileInput = document.getElementById(`${topic}-file`);
-        fileInput.click();
+document.addEventListener('DOMContentLoaded', function() {
+    // Menu toggle functionality
+    document.getElementById("openBtn").addEventListener("click", function() {
+        document.getElementById("menu").classList.add("open");
     });
-});
 
-// Display File Info after Upload and Add Remove Button
-const fileInputs = document.querySelectorAll('.file-input');
-fileInputs.forEach(input => {
-    input.addEventListener('change', function(event) {
-        const topic = event.target.id.split('-')[0];
-        const fileInfo = document.getElementById(`${topic}-file-info`);
-
-        if (event.target.files.length > 0) {
-            const fileName = event.target.files[0].name;
-            fileInfo.innerHTML = `Uploaded: ${fileName} <button class="remove-button" data-topic="${topic}">Remove</button>`;
-            addRemoveListener(topic);
-        }
+    document.getElementById("closeBtn").addEventListener("click", function() {
+        document.getElementById("menu").classList.remove("open");
     });
-});
 
-// Delegate event listener for dynamically added remove buttons
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('remove-button')) {
-        const topic = event.target.getAttribute('data-topic');
-        document.getElementById(`${topic}-file`).value = "";
-        document.getElementById(`${topic}-file-info`).textContent = "No file uploaded";
-    }
+    // Select all upload boxes
+    document.querySelectorAll(".box").forEach(box => {
+        const plusSign = box.querySelector(".plus-sign");
+        const fileInput = box.querySelector(".fileInput");
+        const buttonContainer = box.querySelector(".button-container");
+        const previewBtn = box.querySelector(".preview-btn");
+        const deleteBtn = box.querySelector(".delete-btn");
+
+        // Handle file selection
+        plusSign.addEventListener("click", function() {
+            fileInput.click();
+        });
+
+        // Listen for file input change
+        fileInput.addEventListener("change", function() {
+            const file = this.files[0];
+
+            if (file) {
+                // Hide plus sign and show buttons
+                plusSign.style.display = "none";
+                buttonContainer.style.display = "flex";
+
+                // Preview button functionality
+                previewBtn.addEventListener("click", function() {
+                    const url = URL.createObjectURL(file);
+                    window.open(url);
+                });
+
+                // Delete button functionality
+                deleteBtn.addEventListener("click", function() {
+                    fileInput.value = "";
+                    buttonContainer.style.display = "none";
+                    plusSign.style.display = "block";
+                });
+            }
+        });
+    });
 });
