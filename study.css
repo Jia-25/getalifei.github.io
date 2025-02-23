@@ -55,6 +55,7 @@ input, button {
     padding-top: 60px;
 }
 
+/* Aligns menu text to the left */
 .menu a {
     padding: 10px 15px;
     text-decoration: none;
@@ -62,6 +63,7 @@ input, button {
     color: #818181;
     display: block;
     transition: 0.3s;
+    text-align: left; /* Ensures text is aligned to the left */
 }
 
 .menu a:hover {
@@ -69,6 +71,7 @@ input, button {
     color: black;
 }
 
+/* Close Button */
 .close-btn {
     position: absolute;
     top: 0;
@@ -77,19 +80,24 @@ input, button {
     margin-top: 20px;
     margin-right: 20px;
     cursor: pointer;
-    color: white;  /* Ensures text color is white */
-    background-color: transparent;  /* Optional: make the background transparent */
-    border: none;  /* Optional: removes any border */
+    color: white;
+    background-color: transparent;
+    border: none;
 }
 
-/* Open Button (hamburger) */
+/* Open Button (Hamburger Icon) */
 .open-btn {
     font-size: 36px;
     cursor: pointer;
     position: absolute;
     top: 10px;
     left: 10px;
-    color: white; /* Ensures the menu button is visible */
+    color: white;
+}
+
+/* Hides the open button when menu is open */
+.menu.open ~ .open-btn {
+    display: none;
 }
 
 /* Menu visibility when open */
