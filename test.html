@@ -14,17 +14,17 @@
     <!-- Back Button -->
     <button class="back-btn" onclick="goBack()">&#8592; Back</button>
 
-    <!-- Flashcard Container -->
     <div class="flashcard-container">
-        <h1>Test Yourself</h1>
-        <div id="flashcard" class="flashcard">
-            <div id="questionText" class="flashcard-content"></div>
+        <div class="flashcard" id="flashcard">
+            <div class="flashcard-content front" id="front-text">No questions added!</div>
+            <div class="flashcard-content back" id="back-text" style="display: none;"></div>
         </div>
 
+        <!-- Flashcard Controls -->
         <div class="flashcard-buttons">
-            <button id="prevBtn">Previous</button>
-            <button id="flipBtn">Flip</button>
-            <button id="nextBtn">Next</button>
+            <button onclick="prevCard()">Previous</button>
+            <button onclick="flipCard()">Flip</button>
+            <button onclick="nextCard()">Next</button>
         </div>
     </div>
 
