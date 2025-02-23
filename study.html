@@ -3,62 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Page</title>
+    <title>Study Session</title>
     <link rel="stylesheet" href="study.css">
 </head>
 <body>
-
     <!-- Sliding Menu -->
     <div class="menu" id="menu">
         <span class="close-btn" id="closeBtn">&#8592;</span>
         <a href="studentpfp.html">Student Profile</a>
         <a href="account.html">Account Settings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="timetable.html">Timetable</a>
         <a href="customer-support.html">Customer Support</a>
         <a href="login.html" id="logoutBtn">Logout</a>
     </div>
-
-    <!-- Open menu button -->
     <span class="open-btn" id="openBtn">&#9776;</span>
 
-    <!-- Background -->
-    <div class="background"></div>
+    <h1>Commencing Study Session</h1>
 
-    <!-- Dashboard Content -->
-    <div class="dashboard-content">
-        <h1>Commencing Study Session</h1>
+    <div class="container">
+        <!-- Question and Answer Box -->
+        <div class="box">
+            <h2>Enter Questions & Answers</h2>
+            <input type="text" id="questionInput" placeholder="Enter question">
+            <input type="text" id="answerInput" placeholder="Enter answer">
+            <button id="addBtn">Add</button>
+            <ul id="qaList"></ul>
+        </div>
 
-        <!-- Study Sections -->
-        <div class="study-sections">
+        <!-- Flashcard Test Box -->
+        <div class="box">
+            <a href="test.html" class="test-link">Test Yourself</a>
+        </div>
 
-            <!-- Flashcard Section -->
-            <div class="flashcard-container">
-                <h2>Enter Questions & Answers</h2>
-                
-                <input type="text" id="questionInput" class="flashcard-input" placeholder="Enter question">
-                <input type="text" id="answerInput" class="flashcard-input" placeholder="Enter answer">
-                <button class="add-flashcard-btn" onclick="addFlashcard()">Add</button>
-
-                <!-- Display Added Questions -->
-                <ul id="flashcardList" class="flashcard-list"></ul>
-            </div>
-
-            <!-- Test Yourself -->
-            <div class="study-box" onclick="location.href='test.html'">
-                <span>Test Yourself</span>
-            </div>
-
-            <!-- Pomodoro Timer -->
-            <div class="study-box">
-                <span>Pomodoro Timer</span>
-                <div id="timerDisplay" class="pomodoro-clock">25:00</div>
-                <div class="timer-buttons">
-                    <button id="startTimer">Start</button>
-                    <button id="resetTimer">Reset</button>
-                </div>
-            </div>
-
+        <!-- Pomodoro Timer Box -->
+        <div class="box">
+            <h2>Pomodoro Timer</h2>
+            <p id="timer">25:00</p>
+            <button id="startBtn">Start</button>
+            <button id="resetBtn">Reset</button>
         </div>
     </div>
 
