@@ -1,4 +1,5 @@
 /* Other styles remain unchanged */
+
 /* Global Styles */
 body {
     font-family: 'Times New Roman', serif;
@@ -115,40 +116,75 @@ body {
     cursor: pointer;
 }
 
-/* Study Material Preview List */
-.material-list {
-    margin-top: 10px;
-    text-align: left;
+/* Flashcard Section */
+.flashcard-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.material-item {
+/* Input Fields */
+.flashcard-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Flashcard List */
+.flashcard-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashcard-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
-    padding: 8px 12px;
-    margin: 5px 0;
+    font-size: 1.2rem;
     border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.material-name {
-    flex: 1;
-    font-size: 1rem;
-    color: black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Delete Button */
-.delete-btn {
-    background-color: red;
-    color: white;
+.flashcard-list button {
+    background-color: #ff4d4d;
     border: none;
+    color: white;
+    font-size: 1rem;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 0.9rem;
 }
 
-.delete-btn:hover {
-    background-color: darkred;
+.flashcard-list button:hover {
+    background-color: #cc0000;
+}
+
+/* Flashcard Add Button */
+.add-flashcard-btn {
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-flashcard-btn:hover {
+    background-color: #218838;
 }
