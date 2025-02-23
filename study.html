@@ -32,17 +32,17 @@
         <!-- Study Sections -->
         <div class="study-sections">
 
-            <!-- Add Questions Section -->
-        <div class="study-materials">
-            <h2>Enter Questions & Answers</h2>
-            
-            <input type="text" id="questionInput" placeholder="Enter question">
-            <input type="text" id="answerInput" placeholder="Enter answer">
-            <button onclick="addFlashcard()">Add</button>
+            <!-- Flashcard Section -->
+            <div class="flashcard-container">
+                <h2>Enter Questions & Answers</h2>
+                
+                <input type="text" id="questionInput" class="flashcard-input" placeholder="Enter question">
+                <input type="text" id="answerInput" class="flashcard-input" placeholder="Enter answer">
+                <button class="add-flashcard-btn" onclick="addFlashcard()">Add</button>
 
-            <!-- Display Added Questions -->
-            <ul id="flashcardList"></ul>
-        </div>
+                <!-- Display Added Questions -->
+                <ul id="flashcardList" class="flashcard-list"></ul>
+            </div>
 
             <!-- Test Yourself -->
             <div class="study-box" onclick="location.href='test.html'">
