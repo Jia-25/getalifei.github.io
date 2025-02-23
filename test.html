@@ -5,34 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Yourself</title>
     <link rel="stylesheet" href="test.css">
-    <script defer src="test.js"></script>
 </head>
 <body>
 
-    <!-- Sliding Menu -->
-    <div class="menu" id="menu">
-        <span class="close-btn" id="closeBtn">&#8592;</span> <!-- Arrow to close the menu -->
-        <a href="studentpfp.html">Student Profile</a>
-        <a href="account.html">Account Settings</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="customer-support.html">Customer Support</a>
-        <a href="login.html" id="logoutBtn">Logout</a> <!-- Logout Button -->
-    </div>
+    <!-- Background -->
+    <div class="background"></div>
 
-    <!-- Open menu button -->
-    <span class="open-btn" id="openBtn">&#9776;</span> <!-- Hamburger Menu Icon -->
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">&#8592; Back</button>
 
-    <!-- Main Content -->
-    <div class="main-container">
+    <!-- Flashcard Container -->
+    <div class="flashcard-container">
         <h1>Test Yourself</h1>
+        <div id="flashcard" class="flashcard">
+            <div id="questionText" class="flashcard-content"></div>
+        </div>
 
-        <form id="testForm"></form>
-        <button id="submitBtn" class="styled-btn">Submit</button>
-        <div id="score"></div>
-
-        <!-- Flashcards container -->
-        <div id="flashcardsContainer" class="flashcards-container"></div>
+        <div class="flashcard-buttons">
+            <button id="prevBtn">Previous</button>
+            <button id="flipBtn">Flip</button>
+            <button id="nextBtn">Next</button>
+        </div>
     </div>
 
+    <script src="test.js"></script>
 </body>
 </html>
