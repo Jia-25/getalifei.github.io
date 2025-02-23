@@ -1,8 +1,11 @@
 body {
     background: url('dashboard.jpg') no-repeat center center/cover;
+    height: 100vh;
     font-family: "Times New Roman", serif;
     text-align: center;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
