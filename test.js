@@ -4,13 +4,16 @@ window.onload = function() {
     const flashcard = document.querySelector(".flashcard");
     const front = flashcard.querySelector(".front");
     const back = flashcard.querySelector(".back");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const backBtn = document.getElementById("backBtn");
 
-    console.log("Loaded QA Data:", qaData); // Debugging: Check if questions exist
+    console.log("Loaded QA Data:", qaData); // Debugging check
 
     function loadFlashcard() {
         if (qaData.length > 0) {
-            front.textContent = qaData[index].question || "No Question";
-            back.textContent = qaData[index].answer || "No Answer";
+            front.textContent = qaData[index]?.question || "No Question";
+            back.textContent = qaData[index]?.answer || "No Answer";
         } else {
             front.textContent = "No Questions Added";
             back.textContent = "";
@@ -21,21 +24,21 @@ window.onload = function() {
         flashcard.classList.toggle("flipped");
     });
 
-    document.querySelector(".prev-btn").addEventListener("click", () => {
+    prevBtn.addEventListener("click", () => {
         if (qaData.length > 0) {
             index = (index - 1 + qaData.length) % qaData.length;
             loadFlashcard();
         }
     });
 
-    document.querySelector(".next-btn").addEventListener("click", () => {
+    nextBtn.addEventListener("click", () => {
         if (qaData.length > 0) {
             index = (index + 1) % qaData.length;
             loadFlashcard();
         }
     });
 
-    document.getElementById("backBtn").addEventListener("click", () => {
+    backBtn.addEventListener("click", () => {
         window.location.href = "study.html";
     });
 
