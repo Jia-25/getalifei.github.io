@@ -42,6 +42,7 @@ input, button {
     height: 100%;
 }
 
+/* The Menu */
 .menu {
     height: 100%;
     width: 250px;
@@ -49,23 +50,49 @@ input, button {
     top: 0;
     left: -250px;
     background-color: #111;
+    overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
 }
 
 .menu a {
-    color: white;
-    display: block;
-    padding: 15px;
+    padding: 10px 15px;
     text-decoration: none;
+    font-size: 1.2rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.open-btn, .close-btn {
-    font-size: 30px;
+.menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
     cursor: pointer;
-    margin: 10px;
+    color: white;  /* Ensures text color is white */
+    background-color: transparent;  /* Optional: make the background transparent */
+    border: none;  /* Optional: removes any border */
 }
 
+/* Open Button (hamburger) */
+.open-btn {
+    font-size: 36px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white; /* Ensures the menu button is visible */
+}
+
+/* Menu visibility when open */
 .menu.open {
     left: 0;
 }
