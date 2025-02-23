@@ -50,47 +50,57 @@ function formatTime(minutes, seconds) {
     return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 }
 
-// Flashcard Functionality
+// Load existing flashcards from localStorage
 let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 
+// Function to add a flashcard
 function addFlashcard() {
-    let question = document.getElementById("questionInput").value.trim();
-    let answer = document.getElementById("answerInput").value.trim();
+    let questionInput = document.getElementById("question").value.trim();
+    let answerInput = document.getElementById("answer").value.trim();
 
-    if (question && answer) {
-        flashcards.push({ question, answer });
-        localStorage.setItem("flashcards", JSON.stringify(flashcards));
-
-        document.getElementById("questionInput").value = "";
-        document.getElementById("answerInput").value = "";
-
-        displayFlashcards();
+    if (questionInput === "" || answerInput === "") {
+        alert("Please enter both a question and an answer!");
+        return;
     }
+
+    // Add new flashcard to array
+    flashcards.push({ question: questionInput, answer: answerInput });
+
+    // Save updated flashcards to localStorage
+    localStorage.setItem("flashcards", JSON.stringify(flashcards));
+
+    // Clear input fields
+    document.getElementById("question").value = "";
+    document.getElementById("answer").value = "";
+
+    // Refresh flashcard display (if applicable)
+    displayFlashcards();
 }
 
-function displayFlashcards() {
-    let list = document.getElementById("flashcardList");
-    list.innerHTML = "";
-
-    flashcards.forEach((flashcard, index) => {
-        let item = document.createElement("li");
-        item.textContent = flashcard.question;
-
-        let deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "❌";
-        deleteBtn.onclick = function () { removeFlashcard(index); };
-
-        item.appendChild(deleteBtn);
-        list.appendChild(item);
-    });
-}
-
+// Function to remove a flashcard
 function removeFlashcard(index) {
     flashcards.splice(index, 1);
     localStorage.setItem("flashcards", JSON.stringify(flashcards));
     displayFlashcards();
 }
 
+// Display flashcards on study page
+function displayFlashcards() {
+    let flashcardList = document.getElementById("flashcard-list");
+    flashcardList.innerHTML = "";
+
+    flashcards.forEach((flashcard, index) => {
+        let li = document.createElement("li");
+        li.textContent = `Q: ${flashcard.question} | A: ${flashcard.answer}`;
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.onclick = () => removeFlashcard(index);
+        li.appendChild(deleteBtn);
+        flashcardList.appendChild(li);
+    });
+}
+
+// Load flashcards when the page loads
 displayFlashcards();
 
 function goBack() {
