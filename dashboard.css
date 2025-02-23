@@ -42,7 +42,9 @@ body {
     margin-top: 20px;
     margin-right: 20px;
     cursor: pointer;
-    color: white;
+    color: white;  /* Ensures text color is white */
+    background-color: transparent;  /* Optional: make the background transparent */
+    border: none;  /* Optional: removes any border */
 }
 
 .open-btn {
