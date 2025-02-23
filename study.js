@@ -20,7 +20,6 @@ const timerDisplay = document.getElementById("timerDisplay");
 const startButton = document.getElementById("startTimer");
 const resetButton = document.getElementById("resetTimer");
 
-// Start the timer when the "Start" button is clicked
 startButton.addEventListener("click", function () {
     startButton.disabled = true;
     timerInterval = setInterval(function () {
@@ -40,7 +39,6 @@ startButton.addEventListener("click", function () {
     }, 1000);
 });
 
-// Reset the timer when the "Reset" button is clicked
 resetButton.addEventListener("click", function () {
     clearInterval(timerInterval);
     minutes = 25;
@@ -49,33 +47,21 @@ resetButton.addEventListener("click", function () {
     startButton.disabled = false;
 });
 
-// Helper function to format time as MM:SS
 function formatTime(minutes, seconds) {
     return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 }
 
-// File upload functionality
-const addMaterialButton = document.querySelector(".add-material");
-const materialInput = document.querySelector(".material-input");
+// File Upload Functionality
+const uploadBox = document.getElementById("uploadBox");
+const materialInput = document.getElementById("materialInput");
 
-addMaterialButton.addEventListener("click", function () {
+uploadBox.addEventListener("click", function () {
     materialInput.click();
 });
 
-function uploadMaterial(event) {
+materialInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
     if (file) {
-        const materialList = document.querySelector(".squares");
-        const materialItem = document.createElement("div");
-        materialItem.classList.add("material-item");
-        const materialName = document.createElement("p");
-        materialName.textContent = file.name;
-        materialItem.appendChild(materialName);
-        materialList.appendChild(materialItem);
+        alert(`Uploaded: ${file.name}`);
     }
-}
-
-// Flashcards Button Click Event
-document.getElementById("flashcardButton").addEventListener("click", function () {
-    window.location.href = "flashcards.html";
 });
