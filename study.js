@@ -1,15 +1,14 @@
 // Sliding Menu Functionality
-const menu = document.getElementById("menu");
-const openBtn = document.getElementById("openBtn");
-const closeBtn = document.getElementById("closeBtn");
+document.addEventListener('DOMContentLoaded', function() {
 
-openBtn.addEventListener("click", function() {
-    menu.classList.add("open");
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.add("open");
 });
 
-closeBtn.addEventListener("click", function() {
-    menu.classList.remove("open");
+document.getElementById("closeBtn").addEventListener("click", function() {
+    document.getElementById("menu").classList.remove("open");
 });
+    
 
 // Pomodoro Timer Logic
 let timerInterval;
@@ -97,3 +96,4 @@ displayFlashcards();
 function goBack() {
     window.history.back();
 }
+                      }
