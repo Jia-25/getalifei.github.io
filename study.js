@@ -51,17 +51,39 @@ function formatTime(minutes, seconds) {
     return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 }
 
-// File Upload Functionality
+// File Upload and Preview Functionality
 const uploadBox = document.getElementById("uploadBox");
 const materialInput = document.getElementById("materialInput");
+const materialList = document.getElementById("materialList");
 
 uploadBox.addEventListener("click", function () {
     materialInput.click();
 });
 
 materialInput.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    if (file) {
-        alert(`Uploaded: ${file.name}`);
+    const files = event.target.files;
+    for (let i = 0; i < files.length; i++) {
+        displayFile(files[i]);
     }
 });
+
+// Function to Display Uploaded Files
+function displayFile(file) {
+    const materialItem = document.createElement("div");
+    materialItem.classList.add("material-item");
+
+    const materialName = document.createElement("span");
+    materialName.classList.add("material-name");
+    materialName.textContent = file.name;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", function () {
+        materialItem.remove();
+    });
+
+    materialItem.appendChild(materialName);
+    materialItem.appendChild(deleteButton);
+    materialList.appendChild(materialItem);
+}
