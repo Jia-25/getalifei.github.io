@@ -1,8 +1,7 @@
 // Load stored flashcards
 let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 let currentIndex = 0;
-let isFlipped = false;
-
+let flashcard = document.getElementById("flashcard");
 let frontText = document.getElementById("front-text");
 let backText = document.getElementById("back-text");
 
@@ -10,7 +9,7 @@ let backText = document.getElementById("back-text");
 function displayFlashcard() {
     if (flashcards.length === 0) {
         frontText.textContent = "No questions added!";
-        backText.textContent = "";
+        backText.textContent = "No answer available";
         return;
     }
 
@@ -18,24 +17,16 @@ function displayFlashcard() {
     backText.textContent = flashcards[currentIndex].answer;
 }
 
-// Flip the card
+// Flip the card with animation
 function flipCard() {
-    isFlipped = !isFlipped;
-
-    if (isFlipped) {
-        frontText.style.display = "none";
-        backText.style.display = "block";
-    } else {
-        frontText.style.display = "block";
-        backText.style.display = "none";
-    }
+    flashcard.classList.toggle("flip");
 }
 
 // Move to the previous card
 function prevCard() {
     if (flashcards.length === 0) return;
     currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
-    isFlipped = false;
+    flashcard.classList.remove("flip"); // Ensure it resets to front when changing
     displayFlashcard();
 }
 
@@ -43,7 +34,7 @@ function prevCard() {
 function nextCard() {
     if (flashcards.length === 0) return;
     currentIndex = (currentIndex + 1) % flashcards.length;
-    isFlipped = false;
+    flashcard.classList.remove("flip"); // Ensure it resets to front when changing
     displayFlashcard();
 }
 
