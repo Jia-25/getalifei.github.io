@@ -1,115 +1,39 @@
-/* Global Styles */
-body {
-    font-family: 'Times New Roman', serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+/* Other styles remain unchanged */
+
+/* Study Material Preview List */
+.material-list {
+    margin-top: 10px;
+    text-align: left;
 }
 
-/* Background Image */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('dashboard.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
+.material-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Sliding Menu */
-.menu {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.menu a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.menu a:hover {
-    background-color: #ddd;
+.material-name {
+    flex: 1;
+    font-size: 1rem;
     color: black;
 }
 
-/* Open and Close Buttons */
-.close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 36px;
-    margin-top: 20px;
-    margin-right: 20px;
-    cursor: pointer;
-}
-
-.open-btn {
-    font-size: 36px;
-    cursor: pointer;
-    margin: 10px;
-}
-
-/* Dashboard Content */
-.dashboard-content {
-    padding: 30px;
-    text-align: center;
-}
-
-/* Three Box Layout */
-.study-sections {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
-}
-
-/* Box Styles */
-.study-box {
-    width: 250px;
-    height: 250px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 1.5rem;
+/* Delete Button */
+.delete-btn {
+    background-color: red;
     color: white;
+    border: none;
+    padding: 5px 10px;
     cursor: pointer;
-    text-align: center;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }
 
-.study-box:hover {
-    background-color: rgba(0, 0, 0, 1);
-}
-
-/* Hidden File Input */
-.material-input {
-    display: none;
-}
-
-/* Pomodoro Timer */
-.pomodoro-clock {
-    font-size: 2rem;
-    margin: 20px;
-}
-
-.timer-buttons button {
-    padding: 10px 15px;
-    font-size: 1rem;
-    margin: 5px;
-    cursor: pointer;
+.delete-btn:hover {
+    background-color: darkred;
 }
