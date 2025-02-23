@@ -83,3 +83,31 @@ body {
     background: #555;
     transform: scale(1.05);
 }
+
+/* Style the Back Button Like Prev & Next */
+#backBtn {
+    width: 120px;
+    height: 45px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
+    margin: 20px;
+    display: inline-block; /* Ensures proper styling */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover and Active Effects */
+#backBtn:hover {
+    background: #555;
+    transform: scale(1.05);
+}
+
+#backBtn:active {
+    transform: scale(0.95);
+}
