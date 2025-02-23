@@ -7,29 +7,15 @@
     <link rel="stylesheet" href="test.css">
 </head>
 <body>
-
-    <!-- Background -->
-    <div class="background"></div>
-
-    <!-- Back Button -->
-    <button class="back-btn" onclick="goBack()">&#8592; Back</button>
-
-    <!-- Flashcard Section -->
+    <button id="backBtn">← Back</button>
     <div class="flashcard-container">
-        <div class="flashcard-wrapper">
-            <div class="flashcard" id="flashcard">
-                <div class="flashcard-content front" id="front-text">No questions added!</div>
-                <div class="flashcard-content back" id="back-text">No answer available</div>
-            </div>
-        </div>
-
-        <!-- Flashcard Controls -->
-        <div class="flashcard-buttons">
-            <button onclick="prevCard()">Previous</button>
-            <button onclick="flipCard()">Flip</button>
-            <button onclick="nextCard()">Next</button>
+        <div class="flashcard">
+            <div class="front"></div>
+            <div class="back"></div>
         </div>
     </div>
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
 
     <script src="test.js"></script>
 </body>
