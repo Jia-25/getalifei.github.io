@@ -20,46 +20,36 @@
     <!-- Open menu button -->
     <span class="open-btn" id="openBtn">&#9776;</span>
 
-    <!-- Background Image -->
-    <div class="background"></div>
+    <!-- Main Content -->
+    <div class="main-container">
+        <header>
+            <h1>Lectures</h1>
+        </header>
 
-    <!-- Lectures Content -->
-    <div class="lectures-content">
-        <h1 id="lecturesHeading">Lectures</h1>
-
-        <!-- Category Boxes with Add Button -->
-        <div class="squares">
-            <div class="square">
-                <p>Topic 1</p>
-                <button class="add-button" data-topic="topic1">Add Slides/Videos/PDF</button>
-                <input type="file" id="topic1-file" class="file-input" accept=".pdf,.mp4,.pptx,.jpg,.jpeg,.png" hidden>
-                <div class="file-info" id="topic1-file-info">No file uploaded</div>
-            </div>
-
-            <div class="square">
-                <p>Topic 2</p>
-                <button class="add-button" data-topic="topic2">Add Slides/Videos/PDF</button>
-                <input type="file" id="topic2-file" class="file-input" accept=".pdf,.mp4,.pptx,.jpg,.jpeg,.png" hidden>
-                <div class="file-info" id="topic2-file-info">No file uploaded</div>
-            </div>
-
-            <div class="square">
-                <p>Topic 3</p>
-                <button class="add-button" data-topic="topic3">Add Slides/Videos/PDF</button>
-                <input type="file" id="topic3-file" class="file-input" accept=".pdf,.mp4,.pptx,.jpg,.jpeg,.png" hidden>
-                <div class="file-info" id="topic3-file-info">No file uploaded</div>
+        <!-- Upload Boxes for Lectures -->
+        <div class="box">
+            <span class="plus-sign">+</span>
+            <input type="file" class="fileInput" accept=".pdf, .mp4, .pptx, .jpg, .jpeg, .png">
+            <div class="button-container">
+                <button class="styled-btn preview-btn">Preview File</button>
+                <button class="styled-btn delete-btn">Delete File</button>
             </div>
         </div>
-
-        <!-- Motivation Button -->
-        <div class="motivation">
-            <div class="motivation-circle" id="motivationBtn">Motivation</div>
+        <div class="box">
+            <span class="plus-sign">+</span>
+            <input type="file" class="fileInput" accept=".pdf, .mp4, .pptx, .jpg, .jpeg, .png">
+            <div class="button-container">
+                <button class="styled-btn preview-btn">Preview File</button>
+                <button class="styled-btn delete-btn">Delete File</button>
+            </div>
         </div>
-
-        <!-- Motivation Dialogue -->
-        <div class="motivation-dialogue" id="motivationDialogue">
-            <p>"Keep pushing yourself, success is right around the corner!"</p>
-            <button id="closeDialogue">Close</button>
+        <div class="box">
+            <span class="plus-sign">+</span>
+            <input type="file" class="fileInput" accept=".pdf, .mp4, .pptx, .jpg, .jpeg, .png">
+            <div class="button-container">
+                <button class="styled-btn preview-btn">Preview File</button>
+                <button class="styled-btn delete-btn">Delete File</button>
+            </div>
         </div>
     </div>
 
