@@ -51,11 +51,12 @@ window.onload = () => {
     });
 };
 
-// Sliding Menu
-document.getElementById("openBtn").addEventListener("click", () => {
+
+    // Sliding Menu Functionality
+document.getElementById("openBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.add("open");
 });
 
-document.getElementById("closeBtn").addEventListener("click", () => {
+document.getElementById("closeBtn").addEventListener("click", function() {
     document.getElementById("menu").classList.remove("open");
 });
