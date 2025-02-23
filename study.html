@@ -32,12 +32,17 @@
         <!-- Study Sections -->
         <div class="study-sections">
 
-            <!-- Study Material Upload -->
-            <div class="study-box" id="uploadBox">
-                <span>Upload Material</span>
-                <input type="file" class="material-input" id="materialInput" multiple>
-                <div class="material-list" id="materialList"></div> <!-- Preview List -->
-            </div>
+            <!-- Add Questions Section -->
+        <div class="study-materials">
+            <h2>Enter Questions & Answers</h2>
+            
+            <input type="text" id="questionInput" placeholder="Enter question">
+            <input type="text" id="answerInput" placeholder="Enter answer">
+            <button onclick="addFlashcard()">Add</button>
+
+            <!-- Display Added Questions -->
+            <ul id="flashcardList"></ul>
+        </div>
 
             <!-- Test Yourself -->
             <div class="study-box" onclick="location.href='test.html'">
