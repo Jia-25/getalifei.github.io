@@ -1,6 +1,8 @@
-// Load stored flashcards
+// Load stored flashcards (latest version from study.html)
 let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 let currentIndex = 0;
+
+// Get elements
 let flashcard = document.getElementById("flashcard");
 let frontText = document.getElementById("front-text");
 let backText = document.getElementById("back-text");
@@ -10,23 +12,34 @@ function displayFlashcard() {
     if (flashcards.length === 0) {
         frontText.textContent = "No questions added!";
         backText.textContent = "No answer available";
-        return;
+    } else {
+        frontText.textContent = flashcards[currentIndex].question;
+        backText.textContent = flashcards[currentIndex].answer;
     }
 
-    frontText.textContent = flashcards[currentIndex].question;
-    backText.textContent = flashcards[currentIndex].answer;
+    // Reset flip state
+    flashcard.classList.remove("flip");
+    frontText.style.display = "block";
+    backText.style.display = "none";
 }
 
 // Flip the card with animation
 function flipCard() {
     flashcard.classList.toggle("flip");
+
+    if (flashcard.classList.contains("flip")) {
+        frontText.style.display = "none";
+        backText.style.display = "block";
+    } else {
+        frontText.style.display = "block";
+        backText.style.display = "none";
+    }
 }
 
 // Move to the previous card
 function prevCard() {
     if (flashcards.length === 0) return;
     currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
-    flashcard.classList.remove("flip"); // Ensure it resets to front when changing
     displayFlashcard();
 }
 
@@ -34,7 +47,6 @@ function prevCard() {
 function nextCard() {
     if (flashcards.length === 0) return;
     currentIndex = (currentIndex + 1) % flashcards.length;
-    flashcard.classList.remove("flip"); // Ensure it resets to front when changing
     displayFlashcard();
 }
 
@@ -43,5 +55,5 @@ function goBack() {
     window.location.href = "study.html";
 }
 
-// Show first flashcard on page load
+// Load first flashcard on page load
 displayFlashcard();
