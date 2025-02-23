@@ -1,59 +1,30 @@
-// Load stored flashcards (latest version from study.html)
-let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
-let currentIndex = 0;
+let qaData = JSON.parse(localStorage.getItem("qaList")) || [];
+let index = 0;
+const flashcard = document.querySelector(".flashcard");
 
-// Get elements
-let flashcard = document.getElementById("flashcard");
-let frontText = document.getElementById("front-text");
-let backText = document.getElementById("back-text");
-
-// Function to display a flashcard
-function displayFlashcard() {
-    if (flashcards.length === 0) {
-        frontText.textContent = "No questions added!";
-        backText.textContent = "No answer available";
-    } else {
-        frontText.textContent = flashcards[currentIndex].question;
-        backText.textContent = flashcards[currentIndex].answer;
-    }
-
-    // Reset flip state
-    flashcard.classList.remove("flip");
-    frontText.style.display = "block";
-    backText.style.display = "none";
-}
-
-// Flip the card with animation
-function flipCard() {
-    flashcard.classList.toggle("flip");
-
-    if (flashcard.classList.contains("flip")) {
-        frontText.style.display = "none";
-        backText.style.display = "block";
-    } else {
-        frontText.style.display = "block";
-        backText.style.display = "none";
+function loadFlashcard() {
+    if (qaData.length > 0) {
+        flashcard.querySelector(".front").textContent = qaData[index].question;
+        flashcard.querySelector(".back").textContent = qaData[index].answer;
     }
 }
 
-// Move to the previous card
-function prevCard() {
-    if (flashcards.length === 0) return;
-    currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
-    displayFlashcard();
-}
+flashcard.addEventListener("click", () => {
+    flashcard.classList.toggle("flipped");
+});
 
-// Move to the next card
-function nextCard() {
-    if (flashcards.length === 0) return;
-    currentIndex = (currentIndex + 1) % flashcards.length;
-    displayFlashcard();
-}
+document.getElementById("prevBtn").addEventListener("click", () => {
+    index = (index - 1 + qaData.length) % qaData.length;
+    loadFlashcard();
+});
 
-// Go back to Study Page
-function goBack() {
+document.getElementById("nextBtn").addEventListener("click", () => {
+    index = (index + 1) % qaData.length;
+    loadFlashcard();
+});
+
+document.getElementById("backBtn").addEventListener("click", () => {
     window.location.href = "study.html";
-}
+});
 
-// Load first flashcard on page load
-displayFlashcard();
+loadFlashcard();
