@@ -1,66 +1,60 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Menu toggle functionality
-    document.getElementById("openBtn").addEventListener("click", function() {
-        document.getElementById("menu").classList.add("open");
-    });
+// Flashcards Data (Example Questions & Answers)
+const flashcards = [
+    { question: "What is the capital of France?", answer: "Paris" },
+    { question: "Solve: 12 × 8", answer: "96" },
+    { question: "What is the chemical symbol for water?", answer: "H₂O" },
+    { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" }
+];
 
-    document.getElementById("closeBtn").addEventListener("click", function() {
-        document.getElementById("menu").classList.remove("open");
-    });
+let currentCardIndex = 0;
+let flipped = false;
 
-    // Load flashcards from localStorage
-    const flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+const flashcard = document.getElementById("flashcard");
+const questionText = document.getElementById("questionText");
+const prevBtn = document.getElementById("prevBtn");
+const flipBtn = document.getElementById("flipBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-    const testForm = document.getElementById("testForm");
-    const flashcardsContainer = document.getElementById("flashcardsContainer");
+// Load the first flashcard with fade-in animation
+function loadFlashcard() {
+    questionText.textContent = flashcards[currentCardIndex].question;
+    flashcard.classList.add("fade");
+    flipped = false;
+    setTimeout(() => {
+        flashcard.classList.remove("fade");
+    }, 500);
+}
 
-    flashcards.forEach((flashcard, index) => {
-        const questionDiv = document.createElement('div');
-        questionDiv.innerHTML = `
-            <p><strong>${flashcard.question}</strong></p>
-            <input type="text" id="answer-${index}" placeholder="Enter your answer">
-        `;
-        testForm.appendChild(questionDiv);
-    });
+loadFlashcard();
 
-    // Handle form submission
-    document.getElementById("submitBtn").addEventListener("click", function(event) {
-        event.preventDefault();
+// Flip Flashcard with animation
+flipBtn.addEventListener("click", function () {
+    flipped = !flipped;
+    flashcard.classList.add("flip");
 
-        // Clear previous flashcards
-        flashcardsContainer.innerHTML = "";
-
-        let correctAnswers = 0;
-
-        flashcards.forEach((flashcard, index) => {
-            const userAnswer = document.getElementById(`answer-${index}`).value.trim();
-            const isCorrect = userAnswer.toLowerCase() === flashcard.answer.toLowerCase();
-
-            if (isCorrect) correctAnswers++;
-
-            // Create a flashcard
-            const flashcardDiv = document.createElement("div");
-            flashcardDiv.classList.add("flashcard");
-
-            flashcardDiv.innerHTML = `
-                <div class="flashcard-inner">
-                    <div class="flashcard-front">
-                        <p>${flashcard.question}</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p>${isCorrect ? "✅ Correct!" : "❌ Correct Answer: " + flashcard.answer}</p>
-                    </div>
-                </div>
-            `;
-
-            // Flip functionality
-            flashcardDiv.addEventListener("click", function() {
-                flashcardDiv.classList.toggle("flipped");
-            });
-
-            flashcardsContainer.appendChild(flashcardDiv);
-        });
-
-        document.getElementById("score").innerHTML = `<h2>Score: ${correctAnswers} / ${flashcards.length}</h2>`;
-    });
+    setTimeout(() => {
+        questionText.textContent = flipped ? flashcards[currentCardIndex].answer : flashcards[currentCardIndex].question;
+        flashcard.classList.remove("flip");
+    }, 250);
 });
+
+// Show Next Flashcard with fade-in animation
+nextBtn.addEventListener("click", function () {
+    if (currentCardIndex < flashcards.length - 1) {
+        currentCardIndex++;
+        loadFlashcard();
+    }
+});
+
+// Show Previous Flashcard with fade-in animation
+prevBtn.addEventListener("click", function () {
+    if (currentCardIndex > 0) {
+        currentCardIndex--;
+        loadFlashcard();
+    }
+});
+
+// Go Back to Study Page
+function goBack() {
+    window.location.href = "study.html";
+}
