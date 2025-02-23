@@ -48,8 +48,8 @@ body {
 
 /* Flashcard Wrapper for 3D Flip */
 .flashcard-wrapper {
-    width: 350px;
-    height: 200px;
+    width: 250px;
+    height: 100px;
     perspective: 1000px; /* Enables 3D effect */
 }
 
@@ -78,7 +78,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     font-weight: bold;
     text-align: center;
     backface-visibility: hidden;
